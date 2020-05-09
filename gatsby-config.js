@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Learn, apply and share`,
     author: {
       name: `Keating`,
       summary: `who lives and works in Korea building useful things.`,
@@ -60,7 +60,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
+        name: `Learn, apply and share`,
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,
