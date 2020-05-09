@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Learn, apply and share`,
+    title: `LearnApplyShare`,
     author: {
       name: `Keating`,
       summary: `who lives and works in Korea building useful things.`,
