@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import Toggle from "./Toggle"
 import { rhythm, scale } from "../utils/typography"
@@ -7,6 +7,12 @@ import moon from "../../content/assets/moon.png"
 
 const Layout = ({ location, title, children }) => {
   const [theme, setTheme] = useState("light")
+  useEffect(() => {
+    const theme = localStorage.getItem("theme")
+    if (theme) {
+      changeTheme(theme)
+    }
+  }, [])
   const rootPath = `${__PATH_PREFIX__}/`
   let header
 
@@ -51,6 +57,13 @@ const Layout = ({ location, title, children }) => {
       </h3>
     )
   }
+
+  function changeTheme(theme) {
+    setTheme(theme)
+    document.body.className = theme
+    localStorage.setItem("theme", theme)
+  }
+
   return (
     <div
       style={{
@@ -58,6 +71,10 @@ const Layout = ({ location, title, children }) => {
         marginRight: `auto`,
         maxWidth: rhythm(24),
         padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+        color: "var(--textNormal)",
+        background: "var(--bg)",
+        transition: "color 0.2s ease-out, background 0.2s ease-out",
+        minHeight: "100vh",
       }}
     >
       <header
@@ -91,7 +108,7 @@ const Layout = ({ location, title, children }) => {
             ),
           }}
           checked={theme === "dark"}
-          onChange={e => setTheme(e.target.checked ? "dark" : "light")}
+          onChange={e => changeTheme(e.target.checked ? "dark" : "light")}
         />
       </header>
       <main>{children}</main>
