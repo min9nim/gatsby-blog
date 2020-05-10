@@ -5,6 +5,8 @@ import { rhythm, scale } from "../utils/typography"
 import sun from "../../content/assets/sun.png"
 import moon from "../../content/assets/moon.png"
 
+// const localTheme = localStorage.getItem("theme") || "light"
+
 const Layout = ({ location, title, children }) => {
   const [theme, setTheme] = useState("light")
   useEffect(() => {
@@ -13,50 +15,46 @@ const Layout = ({ location, title, children }) => {
       changeTheme(theme)
     }
   }, [])
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
 
-  if (location.pathname === rootPath) {
-    header = (
-      <h1
+  const rootPath = `${__PATH_PREFIX__}/`
+  const indexHeader = (
+    <h1
+      style={{
+        ...scale(0.6),
+        marginBottom: 0,
+        marginTop: 0,
+      }}
+    >
+      <Link
         style={{
-          ...scale(0.6),
-          marginBottom: 0,
-          marginTop: 0,
+          boxShadow: `none`,
+          color: `inherit`,
         }}
+        to={`/`}
       >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <h3
+        {title}
+      </Link>
+    </h1>
+  )
+  const postHeader = (
+    <h3
+      style={{
+        fontFamily: `Montserrat, sans-serif`,
+        marginTop: 0,
+        marginBottom: 0,
+      }}
+    >
+      <Link
         style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-          marginBottom: 0,
+          boxShadow: `none`,
+          color: `inherit`,
         }}
+        to={`/`}
       >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    )
-  }
+        {title}
+      </Link>
+    </h3>
+  )
 
   function changeTheme(theme) {
     setTheme(theme)
@@ -85,7 +83,7 @@ const Layout = ({ location, title, children }) => {
           marginBottom: "2.625rem",
         }}
       >
-        {header}
+        {location.pathname === rootPath ? indexHeader : postHeader}
         <Toggle
           icons={{
             checked: (
