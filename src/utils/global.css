@@ -277,3 +277,8 @@ section :not(pre) > code[class*="language-"] {
 blockquote {
   color: var(--textTitle);
 }
+
+ul,
+ol {
+  margin-left: 1.75rem;
+}
