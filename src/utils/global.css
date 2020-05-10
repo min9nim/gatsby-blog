@@ -14,6 +14,8 @@ body.light {
   --inlineCode-bg: rgba(255, 229, 100, 0.2);
   --inlineCode-text: #1a1a1a;
   --form-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
+  --code-bg-color: #333;
+  --code-color: #eee;
 }
 
 body.dark {
@@ -29,6 +31,8 @@ body.dark {
   --inlineCode-bg: rgba(115, 124, 153, 0.2);
   --inlineCode-text: #e6e6e6;
   --form-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
+  --code-bg-color: #011627;
+  --code-color: #ddd;
 }
 
 /*
@@ -233,7 +237,7 @@ pre[data-line] {
   margin-left: -1.3125rem;
   margin-right: -1.3125rem;
   border-radius: 10px;
-  background: #011627;
+  background: var(--code-bg-color);
   -webkit-overflow-scrolling: touch;
   overflow: auto;
 }
@@ -247,18 +251,19 @@ pre[data-line] {
 .gatsby-highlight pre[class*="language-"] {
   float: left;
   min-width: 100%;
-  background-color: initial;
+  background-color: var(--code-bg-color);
 }
 
 .gatsby-highlight code[class*="language-"] {
-  color: #fff;
+  color: var(--code-color);
+  background-color: var(--code-bg-color);
   text-shadow: initial;
 }
 
-:not(pre) > code[class*="language-"] {
-  color: #fff;
+section :not(pre) > code[class*="language-"] {
   text-shadow: initial;
-  background-color: #011627;
+  color: var(--code-color);
+  background-color: var(--code-bg-color);
 }
 
 .gatsby-highlight .token.operator,
