@@ -29,6 +29,7 @@ const Bio = () => {
           }
           social {
             twitter
+            github
           }
         }
       }
@@ -56,13 +57,18 @@ const Bio = () => {
           borderRadius: `50%`,
         }}
       />
-      <p>
-        Written by <strong>{author.name}</strong> {author.summary}
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
-      </p>
+      <div>
+        <p style={{ marginBottom: 0 }}>
+          Written by <strong>{author.name}</strong>
+        </p>
+        <p>
+          {author.summary}
+          {` `}
+          <a href={`https://twitter.com/${social.twitter}`}>@twitter</a>
+          {` `}
+          <a href={`https://github.com/${social.github}`}>@github</a>
+        </p>
+      </div>
     </div>
   )
 }
