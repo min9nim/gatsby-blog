@@ -20,7 +20,7 @@ const Layout = ({ location, title, children }) => {
     header = (
       <h1
         style={{
-          ...scale(1.1),
+          ...scale(0.6),
           marginBottom: 0,
           marginTop: 0,
         }}
