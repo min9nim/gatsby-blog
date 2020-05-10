@@ -5,16 +5,17 @@ import { rhythm, scale } from "../utils/typography"
 import sun from "../../content/assets/sun.png"
 import moon from "../../content/assets/moon.png"
 
-// const localTheme = localStorage.getItem("theme") || "light"
+let localTheme = localStorage.getItem("theme") || "light"
 
 const Layout = ({ location, title, children }) => {
-  const [theme, setTheme] = useState("light")
-  useEffect(() => {
-    const theme = localStorage.getItem("theme")
-    if (theme) {
-      changeTheme(theme)
-    }
-  }, [])
+  const [theme, setTheme] = useState(localTheme)
+  // useEffect(() => {
+  //   changeTheme(theme)
+  //   console.log(111)
+  //   // const theme = localStorage.getItem("theme")
+  //   // if (theme) {
+  //   // }
+  // }, [theme])
 
   const rootPath = `${__PATH_PREFIX__}/`
   const indexHeader = (
@@ -57,9 +58,10 @@ const Layout = ({ location, title, children }) => {
   )
 
   function changeTheme(theme) {
-    setTheme(theme)
     document.body.className = theme
     localStorage.setItem("theme", theme)
+    localTheme = theme
+    setTheme(theme)
   }
 
   return (
