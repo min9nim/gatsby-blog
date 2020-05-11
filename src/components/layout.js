@@ -77,7 +77,7 @@ const Layout = ({ location, title, children }) => {
         meta={[
           {
             name: "theme-color",
-            content: "var(--bg)",
+            content: theme === "light" ? "#777" : "#282c35",
           },
         ]}
       />
