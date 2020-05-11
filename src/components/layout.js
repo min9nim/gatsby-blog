@@ -26,7 +26,7 @@ const Layout = ({ location, title, children }) => {
       <Link
         style={{
           boxShadow: `none`,
-          color: `inherit`,
+          color: `var(--textTitle)`,
         }}
         to={`/`}
       >
@@ -45,7 +45,7 @@ const Layout = ({ location, title, children }) => {
       <Link
         style={{
           boxShadow: `none`,
-          color: `inherit`,
+          color: `var(--textTitle)`,
         }}
         to={`/`}
       >
