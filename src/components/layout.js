@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import Toggle from "./Toggle"
 import { rhythm, scale } from "../utils/typography"
+import Helmet from "react-helmet"
 import sun from "../../content/assets/sun.png"
 import moon from "../../content/assets/moon.png"
 
@@ -72,6 +73,14 @@ const Layout = ({ location, title, children }) => {
         minHeight: "100vh",
       }}
     >
+      <Helmet
+        meta={[
+          {
+            name: "theme-color",
+            content: "var(--bg)",
+          },
+        ]}
+      />
       <header
         style={{
           display: "flex",
