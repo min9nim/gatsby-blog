@@ -12,7 +12,7 @@ const Layout = ({ location, title, children }) => {
   const [theme, setTheme] = useState(localTheme)
   useEffect(() => {
     changeTheme(theme)
-  }, [theme])
+  }, [])
 
   const rootPath = `${__PATH_PREFIX__}/`
   const indexHeader = (
