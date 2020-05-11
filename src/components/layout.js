@@ -86,6 +86,7 @@ const Layout = ({ location, title, children }) => {
             checked: (
               <img
                 src={moon}
+                alt="moon"
                 width="16"
                 height="16"
                 role="presentation"
@@ -95,6 +96,7 @@ const Layout = ({ location, title, children }) => {
             unchecked: (
               <img
                 src={sun}
+                alt="sun"
                 width="16"
                 height="16"
                 role="presentation"
