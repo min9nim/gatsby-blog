@@ -60,12 +60,12 @@ const Bio = () => {
       <div>
         <p style={{ marginBottom: 0 }}>
           Written by <strong>{author.name}</strong>
+          {` - `}
+          <a href="mailto:min9nim@gmail.com">Email</a>
           {` `}
-          <a href="mailto:min9nim@gmail.com">@mailTo</a>
+          <a href={`https://github.com/${social.github}`}>GitHub</a>
           {` `}
-          <a href={`https://github.com/${social.github}`}>@github</a>
-          {` `}
-          <a href={`https://twitter.com/${social.twitter}`}>@twitter</a>
+          <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>
         </p>
         <p>{author.summary}</p>
       </div>
