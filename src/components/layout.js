@@ -6,16 +6,13 @@ import sun from "../../content/assets/sun.png"
 import moon from "../../content/assets/moon.png"
 
 let localTheme = localStorage.getItem("theme") || "light"
+console.log("localTheme", localTheme)
 
 const Layout = ({ location, title, children }) => {
   const [theme, setTheme] = useState(localTheme)
-  // useEffect(() => {
-  //   changeTheme(theme)
-  //   console.log(111)
-  //   // const theme = localStorage.getItem("theme")
-  //   // if (theme) {
-  //   // }
-  // }, [theme])
+  useEffect(() => {
+    changeTheme(theme)
+  }, [theme])
 
   const rootPath = `${__PATH_PREFIX__}/`
   const indexHeader = (
