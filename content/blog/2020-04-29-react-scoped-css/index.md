@@ -4,6 +4,7 @@ title: "[react] 컴포넌트별 scoped 스타일 사용"
 date: 2020-04-29 00:10
 categories: react
 tags: [react, react-scoped-css]
+description: "css 는 언제나 전역으로 사용되기 때문에 리액트 컴포넌트별로 css 를 사용하더라도 경우에 따라 실렉터가 충돌날 수 있다. 이를 해결하기 위한 다양한 방법이 있겠지만 이 글에서는 사용방법이 간단한 scoped-css-loader 모듈을 이용하는 방법을 소개한다."
 ---
 
 css 는 언제나 전역으로 사용되기 때문에 리액트 컴포넌트별로 css 를 사용하더라도 경우에 따라 실렉터가 충돌날 수 있다. 이를 해결하기 위한 다양한 방법이 있겠지만 이 글에서는 사용방법이 간단한 [scoped-css-loader](https://www.npmjs.com/package/scoped-css-loader) 모듈을 이용하는 방법을 소개한다.
