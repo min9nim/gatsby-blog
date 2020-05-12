@@ -4,8 +4,9 @@ import { PageProps, Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PostList from "../components/post-list"
+import TagCloud from "../components/tag-cloud"
 import { groupBy, path, dropLast, pipe } from "ramda"
+import tagCloud from "../components/tag-cloud"
 
 type Data = {
   site: {
@@ -20,6 +21,7 @@ type Data = {
         frontmatter: {
           title: string
           date: string
+          tags: string[]
           description: string
         }
         fields: {
@@ -33,24 +35,24 @@ type Data = {
 const BlogIndex = ({ data, location }: PageProps<Data>) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
-  const groupList = groupBy(
-    pipe(path(["node", "frontmatter", "date"]), dropLast(3))
-  )(posts)
+  const tagTable = posts.reduce((acc, value) => {
+    const { tags } = value.node.frontmatter
+    if (tags) {
+      tags.forEach(tag => {
+        acc[tag] = acc[tag] ? acc[tag] + 1 : 1
+      })
+      return acc
+    }
+    return acc
+  }, {})
+  console.log(tagTable)
+
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Bio />
-      <h2>Archives by month</h2>
-      {Object.entries(groupList).map(([key, posts]) => (
-        <>
-          <div key={key} style={{ marginBottom: "100px" }}>
-            <h2 style={{ marginBottom: "5px" }}>{key}</h2>
-            <div style={{ marginLeft: "20px" }}>
-              <PostList posts={posts} />
-            </div>
-          </div>
-        </>
-      ))}
+      <h2>All tags</h2>
+      <TagCloud tags={tagTable} />
     </Layout>
   )
 }
