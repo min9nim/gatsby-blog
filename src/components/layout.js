@@ -2,18 +2,11 @@ import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import Toggle from "./Toggle"
 import { rhythm, scale } from "../utils/typography"
-import Helmet from "react-helmet"
 import sun from "../../content/assets/sun.png"
 import moon from "../../content/assets/moon.png"
 
 const Layout = ({ location, title, children }) => {
-  const [theme, setTheme] = useState("light")
-  useEffect(() => {
-    let localTheme = localStorage.getItem("theme") || "light"
-    console.log("localTheme", localTheme)
-    changeTheme(localTheme)
-  }, [])
-
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
   const rootPath = `${__PATH_PREFIX__}/`
   const indexHeader = (
     <h1
@@ -55,8 +48,7 @@ const Layout = ({ location, title, children }) => {
   )
 
   function changeTheme(theme) {
-    document.body.className = theme
-    localStorage.setItem("theme", theme)
+    window.setTheme(theme)
     setTheme(theme)
   }
 
@@ -73,14 +65,6 @@ const Layout = ({ location, title, children }) => {
         minHeight: "100vh",
       }}
     >
-      <Helmet
-        meta={[
-          {
-            name: "theme-color",
-            content: theme === "light" ? "#777" : "#282c35",
-          },
-        ]}
-      />
       <header
         style={{
           display: "flex",
