@@ -1,0 +1,11 @@
+.tag {
+  margin: 7px;
+  white-space: nowrap;
+  color: var(--textTitle);
+  box-shadow: initial;
+
+  &:hover {
+    color: #007acc;
+    box-shadow: 0 1px 0 0 currentColor;
+  }
+}
