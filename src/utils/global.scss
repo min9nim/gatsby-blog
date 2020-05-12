@@ -1,6 +1,7 @@
 body {
   --pink: rgb(255, 167, 196);
   background-color: var(--bg);
+  --token-keyword: #3ad;
   &.light {
     --bg: #ffffff;
     --bg-secondary: rgb(249, 250, 251);
@@ -199,11 +200,6 @@ pre[class*="language-"] ::selection {
 
 .token.tag,
 .token.operator,
-.token.keyword {
-  color: #fff;
-  background-color: var(--code-bg-color);
-}
-
 .token.boolean {
   color: rgb(255, 88, 116);
 }
@@ -229,6 +225,10 @@ pre[data-line] {
   padding-right: 1em;
   padding-left: 1em;
   border-left: 0.25em solid #ffa7c4;
+  .token.keyword {
+    color: var(--token-keyword);
+    background-color: var(--code-bg-color);
+  }
 }
 
 .gatsby-highlight {
@@ -239,6 +239,10 @@ pre[data-line] {
   background: var(--code-bg-color);
   -webkit-overflow-scrolling: touch;
   overflow: auto;
+  .token.keyword {
+    color: var(--token-keyword);
+    background-color: var(--code-bg-color);
+  }
 }
 
 @media (max-width: 672px) {
