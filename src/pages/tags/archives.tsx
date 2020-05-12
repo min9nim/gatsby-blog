@@ -5,8 +5,9 @@ import Bio from "../../components/bio"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import PostList from "../../components/post-list"
-import { groupBy, path, includes, pipe, ifElse, isNil, always } from "ramda"
+import { path, includes, pipe, ifElse, isNil, always } from "ramda"
 import { getQueryParams } from "mingutils"
+import { rhythm, scale } from "../../utils/typography"
 
 type Data = {
   site: {
@@ -36,6 +37,7 @@ export default function TagArchives({ data, location }: PageProps<Data>) {
   const posts = data.allMarkdownRemark.edges
   const tag = getQueryParams(location.search).tag
   const postsTagged = posts.filter(
+    // @ts-ignore
     pipe(
       path(["node", "frontmatter", "tags"]),
       ifElse(isNil, always(false), includes(tag))
@@ -44,9 +46,30 @@ export default function TagArchives({ data, location }: PageProps<Data>) {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
-      <h2>Posts tagged "{decodeURI(tag)}"</h2>
-      <PostList posts={postsTagged} />
+      <article>
+        <header>
+          <h1
+            style={{
+              marginTop: rhythm(1),
+              marginBottom: 0,
+              color: `var(--textTitle)`,
+            }}
+          >
+            Posts tagged "{decodeURI(tag)}"
+          </h1>
+        </header>
+        <section>
+          <PostList posts={postsTagged} />
+        </section>
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <footer>
+          <Bio />
+        </footer>
+      </article>
     </Layout>
   )
 }

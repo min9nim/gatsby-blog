@@ -5,6 +5,7 @@ import Bio from "../../components/bio"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import TagCloud from "../../components/tag-cloud"
+import { rhythm, scale } from "../../utils/typography"
 
 type Data = {
   site: {
@@ -48,9 +49,30 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
-      <h2>All tags</h2>
-      <TagCloud tags={tagTable} />
+      <article>
+        <header>
+          <h1
+            style={{
+              marginTop: rhythm(1),
+              marginBottom: 0,
+              color: `var(--textTitle)`,
+            }}
+          >
+            All tags
+          </h1>
+        </header>
+        <section>
+          <TagCloud tags={tagTable} />
+        </section>
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <footer>
+          <Bio />
+        </footer>
+      </article>
     </Layout>
   )
 }
