@@ -6,7 +6,7 @@ import sun from "../../content/assets/sun.png"
 import moon from "../../content/assets/moon.png"
 
 const Layout = ({ location, title, children }) => {
-  const [theme, setTheme] = useState("light")
+  const [theme, setTheme] = useState(null)
   useEffect(() => {
     setTheme(window.__preferredTheme)
   }, [])
@@ -81,32 +81,34 @@ const Layout = ({ location, title, children }) => {
           }}
         >
           {location.pathname === rootPath ? indexHeader : postHeader}
-          <Toggle
-            icons={{
-              checked: (
-                <img
-                  src={moon}
-                  alt="moon"
-                  width="16"
-                  height="16"
-                  role="presentation"
-                  style={{ pointerEvents: "none" }}
-                />
-              ),
-              unchecked: (
-                <img
-                  src={sun}
-                  alt="sun"
-                  width="16"
-                  height="16"
-                  role="presentation"
-                  style={{ pointerEvents: "none" }}
-                />
-              ),
-            }}
-            checked={theme === "dark"}
-            onChange={e => changeTheme(e.target.checked ? "dark" : "light")}
-          />
+          {theme && (
+            <Toggle
+              icons={{
+                checked: (
+                  <img
+                    src={moon}
+                    alt="moon"
+                    width="16"
+                    height="16"
+                    role="presentation"
+                    style={{ pointerEvents: "none" }}
+                  />
+                ),
+                unchecked: (
+                  <img
+                    src={sun}
+                    alt="sun"
+                    width="16"
+                    height="16"
+                    role="presentation"
+                    style={{ pointerEvents: "none" }}
+                  />
+                ),
+              }}
+              checked={theme === "dark"}
+              onChange={e => changeTheme(e.target.checked ? "dark" : "light")}
+            />
+          )}
         </header>
         <main>{children}</main>
         <footer>
