@@ -6,7 +6,7 @@ import sun from "../../content/assets/sun.png"
 import moon from "../../content/assets/moon.png"
 
 const Layout = ({ location, title, children }) => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
+  const [theme, setTheme] = useState(window.__preferredTheme)
   const rootPath = `${__PATH_PREFIX__}/`
   const indexHeader = (
     <h1

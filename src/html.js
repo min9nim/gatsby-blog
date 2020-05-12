@@ -36,11 +36,11 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{
             __html: `
             function setTheme(theme){
-              console.log('window.setTheme')
               document.body.className = theme
               const meta = document.querySelector('meta[name="theme-color"]')
               meta.content = theme === "light" ? "#777" : "#282c35"
               localStorage.setItem('theme', theme)
+              window.__preferredTheme = theme
             }     
             const theme = localStorage.getItem('theme') || 'light'
             setTheme(theme)
