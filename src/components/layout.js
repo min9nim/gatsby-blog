@@ -4,6 +4,7 @@ import Toggle from "./Toggle"
 import { rhythm, scale } from "../utils/typography"
 import sun from "../../content/assets/sun.png"
 import moon from "../../content/assets/moon.png"
+import Menu from "./menu"
 
 const Layout = ({ location, title, children }) => {
   const [theme, setTheme] = useState(null)
@@ -77,7 +78,7 @@ const Layout = ({ location, title, children }) => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            marginBottom: "2.625rem",
+            marginBottom: 0,
           }}
         >
           {location.pathname === rootPath ? indexHeader : postHeader}
@@ -110,6 +111,7 @@ const Layout = ({ location, title, children }) => {
             />
           )}
         </header>
+        <Menu />
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
