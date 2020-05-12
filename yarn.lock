@@ -9144,6 +9144,13 @@ min-document@^2.19.0:
   dependencies:
     dom-walk "^0.1.0"
 
+mingutils@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/mingutils/-/mingutils-0.3.0.tgz#a752c5837252e104fce9753e1bcc18141d5d52df"
+  integrity sha512-SyYPM9lfyym1lsxhOlarlKyxGsWAJLaHRaFsDDkYPkLWMlmIlI4EdqG0T8fmp47eNtMNu1F/oojYh4rkVXJuBQ==
+  dependencies:
+    ramda "^0.26.1"
+
 mini-css-extract-plugin@^0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-0.8.2.tgz#a875e169beb27c88af77dd962771c9eedc3da161"
@@ -11105,6 +11112,11 @@ querystringify@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e"
   integrity sha512-w7fLxIRCRT7U8Qu53jQnJyPkYZIaR4n5151KMfcJlO/A9397Wxb1amJvROTK6TOnp7PfoAmg/qXiNHI+08jRfA==
+
+ramda@^0.26.1:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.26.1.tgz#8d41351eb8111c55353617fc3bbffad8e4d35d06"
+  integrity sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==
 
 ramda@^0.27.0:
   version "0.27.0"

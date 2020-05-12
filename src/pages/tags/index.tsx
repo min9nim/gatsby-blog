@@ -1,12 +1,10 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import TagCloud from "../components/tag-cloud"
-import { groupBy, path, dropLast, pipe } from "ramda"
-import tagCloud from "../components/tag-cloud"
+import Bio from "../../components/bio"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
+import TagCloud from "../../components/tag-cloud"
 
 type Data = {
   site: {

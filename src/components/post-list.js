@@ -1,5 +1,5 @@
 import React from "react"
-import { PageProps, Link, graphql } from "gatsby"
+import { Link } from "gatsby"
 import { rhythm } from "../utils/typography"
 
 export default ({ posts }) => {

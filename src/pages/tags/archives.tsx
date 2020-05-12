@@ -1,11 +1,12 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import PostList from "../components/post-list"
-import { groupBy, path, dropLast, pipe } from "ramda"
+import Bio from "../../components/bio"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
+import PostList from "../../components/post-list"
+import { groupBy, path, includes, pipe, ifElse, isNil, always } from "ramda"
+import { getQueryParams } from "mingutils"
 
 type Data = {
   site: {
@@ -30,30 +31,25 @@ type Data = {
   }
 }
 
-const BlogIndex = ({ data, location }: PageProps<Data>) => {
+export default function TagArchives({ data, location }: PageProps<Data>) {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
-  const groupList = groupBy(
-    pipe(path(["node", "frontmatter", "date"]), dropLast(3))
-  )(posts)
+  const tag = getQueryParams(location.search).tag
+  const postsTagged = posts.filter(
+    pipe(
+      path(["node", "frontmatter", "tags"]),
+      ifElse(isNil, always(false), includes(tag))
+    )
+  )
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Bio />
-      <h2>Archives by month</h2>
-      {Object.entries(groupList).map(([key, posts]) => (
-        <div key={key} style={{ marginBottom: "100px" }}>
-          <h2 style={{ marginBottom: "5px" }}>{key}</h2>
-          <div style={{ marginLeft: "20px" }}>
-            <PostList posts={posts} />
-          </div>
-        </div>
-      ))}
+      <h2>Posts tagged "{decodeURI(tag)}"</h2>
+      <PostList posts={postsTagged} />
     </Layout>
   )
 }
-
-export default BlogIndex
 
 export const pageQuery = graphql`
   query {
