@@ -113,7 +113,26 @@ const Layout = ({ location, title, children }) => {
         </header>
         <Menu />
         <main>{children}</main>
-        <footer>
+        <footer style={{ borderTop: "1px solid #e8e8e8", paddingTop: "20px" }}>
+          <div className="license">
+            <a
+              rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/"
+            >
+              <img
+                alt="크리에이티브 커먼즈 라이선스"
+                style={{ borderWidth: 0, marginBottom: 0 }}
+                src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
+              />
+            </a>
+            <a
+              rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/"
+            >
+              크리에이티브 커먼즈 저작자표시-동일조건변경허락 4.0 국제 라이선스
+            </a>
+            에 따라 이용할 수 있습니다
+          </div>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
