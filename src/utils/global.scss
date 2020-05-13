@@ -1,6 +1,7 @@
 body {
   background-color: var(--bg);
   --pink: rgb(255, 167, 196);
+  --yellow: #f1e7c5;
   --token-keyword: #3ad;
   font-family: "Apple SD Gothic Neo", AppleGothic, NanumBarunGothic,
     "Malgun Gothic", Dotum, sans-serif;
@@ -15,8 +16,8 @@ body {
     --inlineCode-bg: rgba(255, 229, 100, 0.2);
     --inlineCode-text: #1a1a1a;
     --form-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
-    --code-bg-color: #444;
-    --code-color: #eee;
+    --code-bg-color: #011627;
+    --code-color: #ddd;
     --link-color: #007acc;
   }
 
@@ -190,6 +191,9 @@ pre[class*="language-"] ::selection {
 .token.punctuation {
   color: rgb(199, 146, 234);
 }
+// .token.parameter {
+//   color: #94e7e7;
+// }
 
 .token.selector,
 .token.doctype {
@@ -223,11 +227,9 @@ pre[data-line] {
 .gatsby-highlight-code-line {
   background-color: hsla(207, 95%, 15%, 1);
   display: block;
-  margin-right: -1.3125rem;
-  margin-left: -1.3125rem;
   padding-right: 1em;
   padding-left: 1em;
-  border-left: 0.25em solid #ffa7c4;
+  border-left: 0.25em solid var(--yellow);
   .token.keyword {
     color: var(--token-keyword);
     background-color: var(--code-bg-color);
@@ -245,6 +247,10 @@ pre[data-line] {
   .token.keyword {
     color: var(--token-keyword);
     background-color: var(--code-bg-color);
+  }
+  .gatsby-highlight-code-line {
+    margin-right: -16px;
+    margin-left: -16px;
   }
 }
 
@@ -277,7 +283,7 @@ section :not(pre) > code[class*="language-"] {
 .gatsby-highlight .token.url,
 .gatsby-highlight .language-css .token.string,
 .gatsby-highlight .style .token.string {
-  background-color: var(--code-bg-color);
+  background-color: initial;
 }
 
 blockquote {
