@@ -5,6 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import PageNavi from "../components/page-nav"
 import SEO from "../components/seo"
+import Tag from "../components/tag"
 import { rhythm } from "../utils/typography"
 import logger from "../../build/logger"
 
@@ -22,6 +23,7 @@ type Data = {
           title: string
           date: string
           description: string
+          tags: string[]
         }
         fields: {
           slug: string
@@ -61,7 +63,16 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
+              <small>
+                {node.frontmatter.date} - [
+                {node.frontmatter.tags.map((tag, idx) => (
+                  <span key={tag}>
+                    <Tag tag={tag} count={1} margin="2px" />
+                    {node.frontmatter.tags.length - 1 > idx && ", "}
+                  </span>
+                ))}
+                ]
+              </small>
             </header>
             <section>
               <p
