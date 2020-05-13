@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import Tag from "./tag"
 import "./tag-cloud.scss"
 
