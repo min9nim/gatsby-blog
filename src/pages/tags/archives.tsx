@@ -1,13 +1,13 @@
 // Gatsby supports TypeScript natively!
-import React from "react"
-import { PageProps, Link, graphql } from "gatsby"
-import Bio from "../../components/bio"
-import Layout from "../../components/layout"
-import SEO from "../../components/seo"
-import PostList from "../../components/post-list"
-import { path, includes, pipe, ifElse, isNil, always } from "ramda"
-import { getQueryParams } from "mingutils"
-import { rhythm, scale } from "../../utils/typography"
+import React from 'react'
+import {PageProps, Link, graphql} from 'gatsby'
+import Bio from '../../components/bio'
+import Layout from '../../components/layout'
+import SEO from '../../components/seo'
+import PostList from '../../components/post-list'
+import {path, includes, pipe, ifElse, isNil, always} from 'ramda'
+import {getQueryParams} from 'mingutils'
+import {rhythm, scale} from '../../utils/typography'
 
 type Data = {
   site: {
@@ -32,20 +32,17 @@ type Data = {
   }
 }
 
-export default function TagArchives({ data, location }: PageProps<Data>) {
+export default function TagArchives({data, location}: PageProps<Data>) {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
   const tag = getQueryParams(location.search).tag
   const postsTagged = posts.filter(
     // @ts-ignore
-    pipe(
-      path(["node", "frontmatter", "tags"]),
-      ifElse(isNil, always(false), includes(tag))
-    )
+    pipe(path(['node', 'frontmatter', 'tags']), ifElse(isNil, always(false), includes(tag)))
   )
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title='All posts' />
       <article>
         <header>
           <h1
@@ -55,7 +52,7 @@ export default function TagArchives({ data, location }: PageProps<Data>) {
               color: `var(--textTitle)`,
             }}
           >
-            Posts tagged "{decodeURI(tag)}"
+            "{decodeURI(tag)}" tagged
           </h1>
         </header>
         <section>
@@ -81,7 +78,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
       edges {
         node {
           excerpt
