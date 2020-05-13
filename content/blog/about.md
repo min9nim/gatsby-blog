@@ -3,6 +3,7 @@ layout: post
 title: "About this blog.."
 date: 2018-04-01 19:20:00 +0900
 categories: memo
+tags: [about]
 permalink: /about/
 ---
 
