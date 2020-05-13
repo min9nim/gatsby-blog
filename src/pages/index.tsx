@@ -3,6 +3,7 @@ import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
+import PageNavi from "../components/page-nav"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import logger from "../../build/logger"
@@ -73,33 +74,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
           </article>
         )
       })}
-      <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-            marginLeft: 0,
-          }}
-        >
-          <li>
-            {currentPagePosts.length === COUNT && (
-              <Link to={"/page/" + String(pageNo + 1)} rel="prev">
-                ← Older
-              </Link>
-            )}
-          </li>
-          <li>
-            {pageNo > 0 && (
-              <Link to={"/page/" + String(pageNo - 1)} rel="next">
-                Newer →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
+      <PageNavi pageNo={pageNo} noMore={currentPagePosts.length < COUNT} />
     </Layout>
   )
 }
