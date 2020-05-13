@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Tag from "../components/tag"
+import TagList from "../components/tag-list"
 import { rhythm, scale } from "../utils/typography"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -35,14 +35,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               marginBottom: rhythm(1),
             }}
           >
-            {post.frontmatter.date} - [
-            {post.frontmatter.tags.map((tag, idx) => (
-              <span key={tag}>
-                <Tag tag={tag} count={1} margin="2px" />
-                {post.frontmatter.tags.length - 1 > idx && ", "}
-              </span>
-            ))}
-            ]
+            {post.frontmatter.date} - <TagList tags={post.frontmatter.tags} />
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />

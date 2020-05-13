@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { rhythm } from "../utils/typography"
+import TagList from "../components/tag-list"
 
 export default ({ posts }) => {
   return posts.map(({ node }) => {
@@ -21,7 +22,9 @@ export default ({ posts }) => {
               {title}
             </Link>
           </h3>
-          <small>{node.frontmatter.date}</small>
+          <small>
+            {node.frontmatter.date} - <TagList tags={node.frontmatter.tags} />
+          </small>
         </header>
         <section>
           <p
