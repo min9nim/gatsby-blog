@@ -39,7 +39,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
   )(posts)
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Archives by month" />
+      <SEO title="Archives" />
       <article>
         <header>
           <h1
