@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const logger = require("./build/logger")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -50,8 +51,10 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = param => {
+  const { node, actions, getNode } = param
   const { createNodeField } = actions
+  // logger.info(node.path, node.component)
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
