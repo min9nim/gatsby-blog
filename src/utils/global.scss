@@ -1,7 +1,9 @@
 body {
-  --pink: rgb(255, 167, 196);
   background-color: var(--bg);
+  --pink: rgb(255, 167, 196);
   --token-keyword: #3ad;
+  font-family: "Apple SD Gothic Neo", AppleGothic, NanumBarunGothic,
+    "Malgun Gothic", Dotum, sans-serif;
   &.light {
     --bg: #ffffff;
     --bg-secondary: rgb(249, 250, 251);
@@ -20,7 +22,6 @@ body {
 
   &.dark {
     -webkit-font-smoothing: antialiased;
-
     --bg: #282c35;
     --bg-secondary: rgb(54, 60, 72);
     --header: #ffffff;
@@ -296,3 +297,10 @@ a {
     box-shadow: 0 1px 0 0 var(--link-color);
   }
 }
+
+// h1,
+// h2,
+// h3,
+// h4 {
+//   font-family: initial;
+// }
