@@ -81,6 +81,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
             justifyContent: `space-between`,
             listStyle: `none`,
             padding: 0,
+            marginLeft: 0,
           }}
         >
           <li>
