@@ -4,6 +4,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import TagList from "../components/tag-list"
+import Comment from "../components/comment"
 import { rhythm, scale } from "../utils/typography"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -75,6 +76,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </li>
         </ul>
       </nav>
+      <Comment
+        repo="min9nim/gatsby-blog"
+        theme={"github-" + localStorage.getItem("theme")}
+      />
     </Layout>
   )
 }
