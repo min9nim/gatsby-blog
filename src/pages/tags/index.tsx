@@ -1,11 +1,11 @@
 // Gatsby supports TypeScript natively!
-import React from 'react'
-import {PageProps, Link, graphql} from 'gatsby'
-import Bio from '../../components/bio'
-import Layout from '../../components/layout'
-import SEO from '../../components/seo'
-import TagCloud from '../../components/tag-cloud'
-import {rhythm, scale} from '../../utils/typography'
+import React from "react"
+import { PageProps, graphql } from "gatsby"
+import Bio from "../../components/bio"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
+import TagCloud from "../../components/tag-cloud"
+import { rhythm } from "../../utils/typography"
 
 type Data = {
   site: {
@@ -24,11 +24,11 @@ type Data = {
   }
 }
 
-const BlogIndex = ({data, location}: PageProps<Data>) => {
+const BlogIndex = ({ data, location }: PageProps<Data>) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
   const tagTable = posts.reduce((acc, value) => {
-    const {tags} = value.node.frontmatter
+    const { tags } = value.node.frontmatter
     if (tags) {
       tags.forEach(tag => {
         acc[tag] = acc[tag] ? acc[tag] + 1 : 1
@@ -37,11 +37,10 @@ const BlogIndex = ({data, location}: PageProps<Data>) => {
     }
     return acc
   }, {})
-  console.log(tagTable)
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title='All tags' />
+      <SEO title="All tags" />
       <article>
         <header>
           <h1
@@ -79,7 +78,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           frontmatter {
