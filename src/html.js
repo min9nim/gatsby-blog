@@ -20,7 +20,7 @@ export default function HTML(props) {
             function setTheme(theme){
               document.body.className = theme
               const meta = document.querySelector('meta[name="theme-color"]')
-              meta.content = theme === "light" ? "#aaa" : "#282c35"
+              meta.content = theme === "light" ? "#ddd" : "#282c35"
               localStorage.setItem('theme', theme)
               window.__preferredTheme = theme
             }     
