@@ -39,7 +39,6 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
   logger.debug("pageNo", pageNo)
 
   const currentPagePosts = posts.slice(pageNo * COUNT, pageNo * COUNT + COUNT)
-  logger.debug("currentPagePosts", currentPagePosts)
 
   return (
     <Layout location={location} title={siteTitle}>
