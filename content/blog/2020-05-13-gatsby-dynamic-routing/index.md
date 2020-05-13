@@ -23,14 +23,14 @@ tags: [gatsby, dynamic-route]
 
 ![pages-folder](./pages-folder.png)
 
-구현할 라우팅은 아래와 같다. 그리고 각 화면은 모두 `pages/index.tsx` 화면을 공유하며 단지 데이터만 다르게 렌더링 되어야 한다.
+페이징 처리를 위햏 추가 할 라우팅은 아래와 같다. 그리고 각 화면은 모두 `pages/index.tsx` 화면을 사용을 해야 하며 URL 경로에 따라 단지 데이터만 다르게 렌더링 되어야 한다.
 
 - `/` : 첫번째 페이지 목록
 - `/page/2` : 두번째 페이지 목록
 - `/page/3` : 세번째 페이지 목록
 - ...
 
-이를 구현하기 위해서 gatsby-node.js 파일에서 아래와 같이 설정을 추가한다. gatsby-node.js 는 빌드타임에 실행이 되는 파일이기 때문에 해당 파일은 수정될 때마다 `gatsby develop` 을 다시 수행해야 결과를 확인할 수 있다.
+이를 구현하기 위해서 gatsby-node.js 파일에서 아래와 같이 설정을 추가한다. gatsby-node.js 는 빌드타임에 실행이 되는 파일이기 때문에 해당 파일의 변경 결과를 확인하려면 변경 때마다 빌드를 다시 수행해야 한다. (개발모드의 HMR 대상이 아님)
 
 ```jsx{3-9}
 exports.onCreateNode = ({ node, actions, getNode }) => {
