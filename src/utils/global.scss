@@ -15,6 +15,7 @@ body {
     --form-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
     --code-bg-color: #444;
     --code-color: #eee;
+    --link-color: #007acc;
   }
 
   &.dark {
@@ -32,6 +33,7 @@ body {
     --form-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
     --code-bg-color: #011627;
     --code-color: #ddd;
+    --link-color: #33addd;
   }
 }
 
@@ -285,4 +287,12 @@ blockquote {
 ul,
 ol {
   margin-left: 1.75rem;
+}
+
+a {
+  color: var(--link-color);
+  box-shadow: none;
+  &:hover {
+    box-shadow: 0 1px 0 0 var(--link-color);
+  }
 }
