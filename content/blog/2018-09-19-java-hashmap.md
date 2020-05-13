@@ -5,10 +5,13 @@ date: 2018-09-19 09:00
 categories: java
 tags: [HashMap]
 ---
+
 java에서 HashMap 사용법
 
 <br>
+
 #### 기본 사용법
+
 ```java
 package test;
 
@@ -27,14 +30,18 @@ public class TestMap {
     }
 }
 ```
+
 참고)
+
 - 위에서 `HashMap` 객체 생성시 사용된 유형 매개변수는 jdk1.5 이상부터 사용 가능
 - jdk1.4 에서 사용할 경우 아래와 같은 오류 발생
+
 ```
 Syntax error, parameterized types are only available if source level is 1.5 or greater
 ```
 
 #### 출력
+
 ```
 사람
 true
@@ -42,9 +49,10 @@ true
 1
 ```
 
-
 <br>
+
 #### 순회방법
+
 ```java
 package test;
 
@@ -65,21 +73,22 @@ public class TestMapTour {
             String value = entry.getValue();
             System.out.println(key + " - " + value);
         }
-        
+
         System.out.println("\n## keySet() 을 이용한 순회");
         for (String key : map.keySet()) {
             System.out.println(key);
-        }        
-        
+        }
+
         System.out.println("\n## values() 을 이용한 순회");
         for (String value : map.values()) {
             System.out.println(value);
-        }         
+        }
     }
 }
 ```
 
 #### 출력
+
 ```
 ## entrySet() 을 이용한 순회
 banana - 바나나
@@ -100,8 +109,9 @@ people
 사람
 ```
 
-
 <br>
+
 #### Ref
+
 - <https://wikidocs.net/208>
 - <http://starblood.tistory.com/entry/Map-HashMap-순회하기>

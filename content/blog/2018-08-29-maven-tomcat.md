@@ -5,6 +5,7 @@ date: 2018-08-29 01:00:00 +0100
 categories: maven
 tags: [maven, tomcat, repository]
 ---
+
 전자정부프레임워크(eGovFrameDev-3.7.0-64bit)에서 eGovFrame Web Project 를 생성하고, pom.xml 에 어떤 내용을 추가하고 톰캣 서버 기동시 아래와 같은 오류 발생
 
 ```bash
@@ -264,5 +265,7 @@ Caused by: java.util.zip.ZipException: invalid LOC header (bad signature)
 ```
 
 <br>
+
 ### 해결방법
+
 나는 `.m2` 의 `repository` 폴더를 통째로 삭제하고 다시 시작하니 정상동작 되었음. 혹 누군가에게 도움이 될 수 있기를 바람

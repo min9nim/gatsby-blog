@@ -25,6 +25,7 @@ $ yum install -y mongodb-org
 ```
 
 <br>
+
 #### mongodb 서버시작 및 접속
 1. 서비스 시작
 ```
@@ -45,6 +46,7 @@ $ mongo
 
 
 <br>
+
 #### mongodb 보안 설정
 1. 설정을 수정하려면 root 권한이 필요하다.
 ```
@@ -94,6 +96,7 @@ $ mongo admin --username "root" --password "xxxx"
 
 
 <br>
+
 #### Ref.
 - [ec2에 mongoDB설치](https://chichi.space/2017/05/12/한번에-끝내는-AWS-EC2에-MongoDB-설치하고-보안설정하기/)
 

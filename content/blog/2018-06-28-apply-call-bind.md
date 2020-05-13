@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Fuction.prototype.apply, call, bind 차이점'
+title: "Fuction.prototype.apply, call, bind 차이점"
 date: 2018-06-28 17:00:00 +0900
 categories: vanillaJS
 tags: [apply, call, bind]
@@ -32,6 +32,7 @@ Math.max.apply(null, numbers); // 7
 
 
 <br>
+
 ### Function.prototype.call
 문법
 ```javascript
@@ -44,11 +45,15 @@ function.call(thisArg, arg1, arg2, ...)
 1. `arguments` 를 **순서대로** 전달한다
 
 <br>
+
 ### Function.prototype.bind
+
 문법
+
 ```javascript
 function.bind(thisArg, arg1, arg2, ...)
 ```
+
 <br>
 설명
 1. 첫번째 인자를 this 에 바인딩하고, 두번째 인자부터 arguments 를 **순서대로** 전달한다. 전달된 arguments 를 미리 부분적용한 **함수를 리턴**한다.
@@ -80,6 +85,7 @@ func2(3) //  [1, 2, 3] // 전달된 인자가 앞서 부분적용되었던 인�
 
 
 <br>
+
 ### Ref.
 - <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply>
 - <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call>

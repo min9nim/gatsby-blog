@@ -5,45 +5,53 @@ date: 2018-08-29 01:00
 categories: algorithm
 tags: [algorithm, quick-sort]
 ---
+
 퀵소트는 아래와 같은 방법으로 정렬을 진행한다
+
 1. 배열의 요소 중 임의의 값을 pivot 으로 지정
 1. pivot 값을 기준으로 pivot보다 작거나 같은 값들은 왼쪽에 큰값들은 오른쪽에 위치시킨다
 1. 각 왼쪽과 오른쪽 배열에 대해서 요소의 개수가 0 또는 1이 될 때까지 위 1~2 과정을 반복한다
 
 한줄요약
+
 > 임의 값을 기준을 왼쪽/오른쪽 나누고 나뉘어진 상태에 대해서 동일한 작업을 재귀적으로 진행한다.
 
 <br>
+
 ### 특징
+
 - 분할&정복
 - 불안정정렬
 - 시간복잡도: 최악 O(n^2), 평균 O(nLogn), 최선 O(nLogn)
 
 <br>
+
 ### 간단한 js구현
+
 아래 코드는 이해하기 쉽지만 O(nLogn) 공간복잡도 비용이 지불되는 단점이 있다
+
 ```javascript
-function quickSort(a){
-    if(a.length < 2){
-        return a;
+function quickSort(a) {
+  if (a.length < 2) {
+    return a
+  }
+  var pivot = a[0] // 첫번째 요소를 pivot으로 세팅
+  var left = []
+  var center = [pivot]
+  var right = []
+  for (var i = 1; i < a.length; i++) {
+    if (a[i] > pivot) {
+      right.push(a[i])
+    } else if (a[i] === pivot) {
+      center.push(a[i])
+    } else {
+      left.push(a[i])
     }
-    var pivot = a[0];   // 첫번째 요소를 pivot으로 세팅
-    var left = [];
-    var center = [pivot];
-    var right = [];
-    for(var i=1; i<a.length; i++){
-        if(a[i] > pivot){
-            right.push(a[i])
-        }else if(a[i] === pivot){
-            center.push(a[i]);
-        }else{
-            left.push(a[i]);
-        }
-    }
-    return [...quickSort(left), ...center, ...quickSort(right)];
+  }
+  return [...quickSort(left), ...center, ...quickSort(right)]
 }
 
-quickSort([7,4,9,8,5,3,2,1,9,3]);
+quickSort([7, 4, 9, 8, 5, 3, 2, 1, 9, 3])
 /*
 [1, 2, 3, 3, 4, 5, 7, 8, 9, 9]
 */
@@ -61,7 +69,8 @@ quickSort([7,4,9,8,5,3,2,1,9,3]);
 
 그리고 루프(13~17라인) 안에 루프에서 `j`의 값을 감소시키는 루프(14라인)가 `i`를 증가시키는 루프(15라인)보다 앞서 위치해야 하는 것도 중요함을 주의해야 한다.
 
-
 <br>
+
 ### Ref
+
 <https://ko.wikipedia.org/wiki/퀵_정렬>

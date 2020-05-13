@@ -1,11 +1,13 @@
 ---
 layout: post
-title:  "[jekyll] Invalid CP949 character 오류"
-date:   2018-08-09 01:00:00 +0900
+title: "[jekyll] Invalid CP949 character 오류"
+date: 2018-08-09 01:00:00 +0900
 categories: memo
 tags: [jekyll, encoding, CP949]
 ---
+
 ### Intro
+
 맥에서 jekyll 블로그 테마를 커스터마이징 했었다. 당시에는 문제가 없었는데 windows7 로컬환경에서 블로그를 가져와 빌드를 해보니 아래와 같은 오류가 발생했다
 
 ```bash
@@ -28,10 +30,13 @@ Configuration file: C:/Users/myData/project/min9nim.github.io/_config.yml
 ```
 
 <br>
-### 도대체 이 오류는 뭘까 @.@
-인코딩 관련 오류인 것 같긴한데 [main.scss](https://gist.github.com/min9nim/0cde9e9c13846665710542884612f260) 파일에는 한글이 전혀 포함되어 있지 않았다. 파일 인코딩은 분명히 utf-8을 사용했었고 여기저기를 꼼꼼히 뜯어봐도 오류가 날만한 곳을 찾기가 어려웠다. 
 
-`jekyll build --trace` 명령을 이용해 좀 더 구체적인 오류 발생위치를 확인해 보았다. 
+### 도대체 이 오류는 뭘까 @.@
+
+인코딩 관련 오류인 것 같긴한데 [main.scss](https://gist.github.com/min9nim/0cde9e9c13846665710542884612f260) 파일에는 한글이 전혀 포함되어 있지 않았다. 파일 인코딩은 분명히 utf-8을 사용했었고 여기저기를 꼼꼼히 뜯어봐도 오류가 날만한 곳을 찾기가 어려웠다.
+
+`jekyll build --trace` 명령을 이용해 좀 더 구체적인 오류 발생위치를 확인해 보았다.
+
 ```bash
 λ bundle exec jekyll build --trace
 Configuration file: C:/Users/myData/project/min9nim.github.io/_config.yml
@@ -67,11 +72,15 @@ C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/jekyll-sass-converter-1.5.2/lib/jekyll/co
         from C:/Ruby23-x64/bin/jekyll:23:in `load'
         from C:/Ruby23-x64/bin/jekyll:23:in `<main>'
 ```
+
 _jekyll-sass-converter-1.5.2/lib/jekyll/converters/scss.rb_ 파일에서 오류가 발생했다. 해당 ruby 소스를 이리저리 살펴보았지만 감을 잡을 수 없었다. 여긴 어디 나는 누구;; 아무래도 배가 산으로 가는 듯한 느낌이 들었다. ruby를 써본 적도 없는데 ruby 소스를 까보며 디버깅을 하겠다고 덤비는 내가 한심해 보였다. 괜한 내부 소스까지 들춰서 해결할 문제는 아니겠다 싶었다.
 
 <br>
+
 ### 찬찬히 마음을 가다듬고
+
 나의 지나온 행적들을 쫓다가 운좋게 원인을 찾아낼 수 있었다.
+
 <p align="left"><img src="/images/ceremony.jpg" width="200"/></p>
 문제원인은 역시 한글이었다. _/assets/main.scss_ 에서 참조하는 _/_sass/whiteglass.scss_ 파일을 수정하면서 아래와 같이 한글주석을 사용했던 것이 화근이었다. 
 ```scss
@@ -82,11 +91,14 @@ _jekyll-sass-converter-1.5.2/lib/jekyll/converters/scss.rb_ 파일에서 오류�
 ```
 한글주석을 영어로 변경하여 문제를 피해갈 수 있었다.
 
-
 <br>
+
 ### 결론
+
 우리가 만나는 많은 문제들의 해답은 대부분 가까운 곳에 있기 마련이다.
 
 <br>
+
 ### Ref.
+
 <https://mytory.net/archives/9653>
