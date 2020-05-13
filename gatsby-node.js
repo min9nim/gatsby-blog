@@ -54,7 +54,15 @@ exports.createPages = async ({ graphql, actions }) => {
 exports.onCreateNode = param => {
   const { node, actions, getNode } = param
   const { createNodeField } = actions
-  // logger.info(node.path, node.component)
+  logger.info(node.path)
+  if (node.path === "/") {
+    logger.debug("들어왔다")
+    actions.createPage({
+      path: "/page/*",
+      matchPath: "/page/:id",
+      component: path.resolve("src/pages/index.tsx"),
+    })
+  }
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })

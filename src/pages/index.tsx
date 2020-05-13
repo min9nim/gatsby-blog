@@ -5,6 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+import logger from "../../build/logger"
 
 type Data = {
   site: {
@@ -28,16 +29,22 @@ type Data = {
     }[]
   }
 }
-
+const COUNT = 10
 const BlogIndex = ({ data, location }: PageProps<Data>) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
+
+  const pageNo = Number(location.pathname.split("/").slice(-1)[0] || "0")
+  logger.debug("pageNo", pageNo)
+
+  const currentPagePosts = posts.slice(pageNo * COUNT, pageNo * COUNT + COUNT)
+  logger.debug("currentPagePosts", currentPagePosts)
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Bio />
-      {posts.map(({ node }) => {
+      {currentPagePosts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
           <article key={node.fields.slug}>
@@ -66,6 +73,32 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
           </article>
         )
       })}
+      <nav>
+        <ul
+          style={{
+            display: `flex`,
+            flexWrap: `wrap`,
+            justifyContent: `space-between`,
+            listStyle: `none`,
+            padding: 0,
+          }}
+        >
+          <li>
+            {currentPagePosts.length === COUNT && (
+              <Link to={"/page/" + String(pageNo + 1)} rel="prev">
+                ← Older
+              </Link>
+            )}
+          </li>
+          <li>
+            {pageNo > 0 && (
+              <Link to={"/page/" + String(pageNo - 1)} rel="next">
+                Newer →
+              </Link>
+            )}
+          </li>
+        </ul>
+      </nav>
     </Layout>
   )
 }
@@ -80,9 +113,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      skip: 0
-      limit: 5
+      sort: { fields: [frontmatter___date], order: DESC } # skip: 0 # limit: 5
     ) {
       edges {
         node {
