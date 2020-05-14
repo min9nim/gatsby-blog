@@ -39,7 +39,7 @@ utterances 댓글의 설정방법은 매우 간단하다(상세 설명은 [문�
 ```jsx
 import React, { createRef, useEffect } from "react"
 
-export default function Comment({ repo, theme = "github-light" }) {
+export default function Comment({ repo }) {
   const containerRef = createRef()
   useEffect(() => {
     const utterances = document.createElement("script")
@@ -48,7 +48,7 @@ export default function Comment({ repo, theme = "github-light" }) {
       repo,
       "issue-term": "title",
       label: "comment",
-      theme,
+      theme: "github-light",
       crossOrigin: "anonymous",
       async: "true",
     }
