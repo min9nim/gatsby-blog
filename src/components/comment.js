@@ -1,6 +1,7 @@
+// https://velog.io/@iamchanii/build-a-blog-with-gatsby-and-typescript-part-4
 import React, { createRef, useEffect } from "react"
 
-export default function Utterances({ repo, theme = "github-light" }) {
+export default function Comment({ repo, theme = "github-light" }) {
   const containerRef = createRef()
 
   useEffect(() => {
