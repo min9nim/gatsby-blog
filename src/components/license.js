@@ -1,4 +1,5 @@
 import React from "react"
+import "./license.scss"
 
 export default function License() {
   return (
@@ -18,18 +19,10 @@ export default function License() {
         에 따라 이용할 수 있습니다.
       </div>
       <div className="copyright">
-        ©{" "}
-        <a
-          href="https://github.com/min9nim/gatsby-blog"
-          style={{ color: "initial" }}
-        >
-          Keating's blog
-        </a>{" "}
+        © <a href="https://github.com/min9nim/gatsby-blog">Keating's blog</a>{" "}
         {new Date().getFullYear()}, Built with
         {` `}
-        <a href="https://www.gatsbyjs.org" style={{ color: "initial" }}>
-          Gatsby
-        </a>
+        <a href="https://www.gatsbyjs.org">Gatsby</a>
       </div>
     </>
   )
