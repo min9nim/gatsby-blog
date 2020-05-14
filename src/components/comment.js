@@ -1,6 +1,7 @@
 // https://velog.io/@iamchanii/build-a-blog-with-gatsby-and-typescript-part-4
 import React, { createRef, useEffect } from "react"
 import logger from "../../build/logger"
+import "./comment.scss"
 
 export default function Comment({ repo, theme = "github-light" }) {
   const containerRef = createRef()
