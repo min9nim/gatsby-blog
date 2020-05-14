@@ -21,7 +21,7 @@ class ThemeProvider extends React.Component {
   setTheme = theme => {
     document.body.className = theme
     const meta = document.querySelector('meta[name="theme-color"]')
-    meta.content = theme === "light" ? "#ddd" : "#282c35"
+    meta.content = theme === "light" ? "#eee" : "#282c35"
     localStorage.setItem("theme", theme)
     this.setState({ theme })
   }
