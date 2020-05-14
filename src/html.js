@@ -17,15 +17,15 @@ export default function HTML(props) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-            function setTheme(theme){
-              document.body.className = theme
-              const meta = document.querySelector('meta[name="theme-color"]')
-              meta.content = theme === "light" ? "#ddd" : "#282c35"
-              localStorage.setItem('theme', theme)
-              window.__preferredTheme = theme
-            }     
-            const theme = localStorage.getItem('theme') || 'light'
-            setTheme(theme)
+            // function setTheme(theme){
+            //   document.body.className = theme
+            //   const meta = document.querySelector('meta[name="theme-color"]')
+            //   meta.content = theme === "light" ? "#ddd" : "#282c35"
+            //   localStorage.setItem('theme', theme)
+            //   window.__preferredTheme = theme
+            // }     
+            // const theme = localStorage.getItem('theme') || 'light'
+            // setTheme(theme)
             `,
           }}
         />
