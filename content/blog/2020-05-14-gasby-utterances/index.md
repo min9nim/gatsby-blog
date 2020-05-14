@@ -5,7 +5,7 @@ date: 2020-05-14 00:10
 tags: [gatsby, utterances]
 ---
 
-[최민규님 글](https://wdever.dev/introduce-my-blog/)을 보고 [utterances](https://utteranc.es/) 댓글 플러그인을 알게 되었다. 이전 지킬 블로그에서는 [DISQUS](https://disqus.com/) 댓글을 사용했었는데, utterances 가 왠지 조금 더 깔끔하고 이쁜 것 같다.
+[최민규님 글](https://wdever.dev/introduce-my-blog/)을 보고 [utterances](https://utteranc.es/) 댓글 플러그인을 알게 되었다. [이전 jekyll 블로그](https://min9nim.github.io)에서는 [DISQUS](https://disqus.com/) 댓글을 사용했었는데, utterances 가 왠지 조금 더 사랑스럽다.
 
 utterances 의 컨셉은 간단하다. 최초 설정시 특정 깃헙 레포지토리를 설정해 두면 GihHub API 를 이용하여 특정 글에 댓글이 달릴 때마다 미리 설정해 둔 레포에 새로운 이슈가 열리고(처음 댓글이 달릴 때) 해당 이슈에 신규 댓글이 등록 된다. 블로그에서는 해당 이슈에 등록된 댓글 목록을 가져와서 뿌려준다.
 
