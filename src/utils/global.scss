@@ -303,6 +303,16 @@ a {
     box-shadow: 0 1px 0 0 var(--link-color);
   }
 }
+li {
+  margin-bottom: 5px;
+  p {
+    margin-bottom: 5px;
+  }
+  ul,
+  ol {
+    margin-top: 5px;
+  }
+}
 
 // h1,
 // h2,
