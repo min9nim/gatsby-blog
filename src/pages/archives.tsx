@@ -49,7 +49,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
               color: `var(--textTitle)`,
             }}
           >
-            Archives by month
+            Archives
           </h1>
         </header>
         <section>
