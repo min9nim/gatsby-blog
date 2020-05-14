@@ -124,11 +124,6 @@ const Layout = ({ location, title, children }) => {
               style={{ borderTop: "1px solid #e8e8e8", paddingTop: "20px" }}
             >
               <License />
-              <div className="copyright">
-                © Keating's blog {new Date().getFullYear()}, Built with
-                {` `}
-                <a href="https://www.gatsbyjs.org">Gatsby</a>
-              </div>
             </footer>
           </div>
         </div>
