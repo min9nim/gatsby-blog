@@ -11,7 +11,7 @@ tags: [gatsby, dynamic-route]
 
 일단 개츠비의 기본적인 블로그 보일러플레이트인 [gatsby-starter-blog](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-blog/) 를 시작으로 개인적으로 사용하던 기능들을 하나둘 구현해 나갔다.
 
-월별 포스트 목록이나, 태그기능은 어렵지 않게 구현이 되었다. 다크모드 기능은 [Dan Abramov](https://overreacted.io/) 의 블로그를 참고했다(respect! 👍)
+월별 포스트 목록이나, 태그기능은 어렵지 않게 구현이 되었다. 다크모드 기능은 [Dan Abramov](https://overreacted.io/) 의 블로그와 [개츠비 문서](https://www.gatsbyjs.org/blog/2019-01-31-using-react-context-api-with-gatsby/#creating-the-context-file-in-a-new-gatsby-project)를 참고했다.
 
 그런데 조금 만만치 않았던 것이 아래 메인 페이지의 페이징 처리였다.
 
