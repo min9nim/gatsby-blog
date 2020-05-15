@@ -29,7 +29,7 @@ export default function Comment({ repo, theme = "github-light" }) {
     }
 
     containerRef.current.appendChild(utterances)
-  }, [repo, theme])
+  }, [repo, theme, containerRef])
 
   return <div id="comment" ref={containerRef} />
 }
