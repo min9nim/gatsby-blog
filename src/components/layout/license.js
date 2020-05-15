@@ -19,7 +19,7 @@ export default function License() {
         에 따라 이용할 수 있습니다.
       </div>
       <div className="copyright">
-        © <a href="https://github.com/min9nim/gatsby-blog">Keating's blog</a>{" "}
+        © <a href="https://github.com/min9nim/gatsby-blog">min9nim's blog</a>{" "}
         {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
