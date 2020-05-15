@@ -1,7 +1,7 @@
 import React from "react"
 import logger from "../../build/logger"
 
-const LoggerContext = React.createContext()
+const LoggerContext = React.createContext(logger)
 
 export default LoggerContext
 
