@@ -1,7 +1,8 @@
 import React from "react"
-import sun from "../../content/assets/sun.png"
-import moon from "../../content/assets/moon.png"
+import sun from "../../../content/assets/sun.png"
+import moon from "../../../content/assets/moon.png"
 import ThemeContext from "../../context/theme"
+import Toggle from "../atom/toggle"
 
 export default function DarkControl() {
   return (
