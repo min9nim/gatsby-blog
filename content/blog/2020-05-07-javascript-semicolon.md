@@ -2,7 +2,7 @@
 layout: post
 title: 'JavaScript 세미콜론 사용'
 date: 2020-05-07 00:10
-categories: js
+description: '자바스크립트는 문장(statement)의 구분을 위해 세미콜론 `;` 을 사용한다. 일반적으로 코드의 가독성을 위해 한줄에 하나의 문장만 사용한다.'
 tags: [js, semicolon]
 ---
 

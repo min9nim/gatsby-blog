@@ -2,7 +2,8 @@
 layout: post
 title: '[react] Context api 사용 방법'
 date: 2020-04-21 00:10
-categories: react
+description: 'Context api 를 이용하면 mobx, redux 없이도 애플리케이션 상태를 공유할 수가 있다. 하지만 상태를 업데이트하기 위해서는 공유되는 컨텍스트 안에 상태 변경 메소드까지 포함하여야 하는데 이를 통해 애플리케이션의 전체 상태를 관리하기가 불편할 수 있다.
+'
 tags: [js, react, context]
 ---
 

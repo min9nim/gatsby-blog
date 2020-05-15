@@ -2,6 +2,8 @@
 layout: post
 title: "Gatsby 블로그 페이징처리(dynamic routing)"
 date: 2020-05-13 00:10
+description: '요즘 여기저기서 개츠비에 대한 칭찬이 많아서 꾸준히 관심을 가지고 있었다. Dan Abramov 의 핑크빛 블로그에 대한 인상도 좋았고 무엇보다도 리액트 기반인 만큼 필요할 때 어렵지 않게? 주물럭 거릴 수 있을 것이라 기대하고 개츠비 블로그로 이사를 결심하였다.
+'
 tags: [gatsby, dynamic-route]
 ---
 
@@ -33,17 +35,17 @@ tags: [gatsby, dynamic-route]
 이를 구현하기 위해서 gatsby-node.js 파일에서 아래와 같이 설정을 추가한다. gatsby-node.js 는 빌드타임에 실행이 되는 파일이기 때문에 해당 파일의 변경 결과를 확인하려면 변경 때마다 빌드를 다시 수행해야 한다. (개발모드의 HMR 대상이 아님)
 
 ```jsx{3-9}
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField, createPage } = actions
-  if (node.path === "/") {
+exports.onCreateNode = ({node, actions, getNode}) => {
+  const {createNodeField, createPage} = actions
+  if (node.path === '/') {
     createPage({
-      path: "/page/*",
-      matchPath: "/page/:id",
-      component: path.resolve("src/pages/index.tsx"),
+      path: '/page/*',
+      matchPath: '/page/:id',
+      component: path.resolve('src/pages/index.tsx'),
     })
   }
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const value = createFilePath({node, getNode})
     createNodeField({
       name: `slug`,
       node,
