@@ -39,10 +39,14 @@ const BlogIndex = ({data, location}: PageProps<Data>) => {
   const posts = data.allMarkdownRemark.edges
 
   const pageNo = Number(location.pathname.split('/').slice(-1)[0] || '0')
-  // @ts-ignore
-  logger.debug('pageNo', pageNo)
 
   const currentPagePosts = posts.slice(pageNo * COUNT, pageNo * COUNT + COUNT)
+
+  // @ts-ignore
+  logger.debug(
+    'node.excerpt',
+    currentPagePosts.map(({node}) => node.excerpt)
+  )
 
   return (
     <Layout location={location} title={siteTitle}>
