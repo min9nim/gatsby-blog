@@ -1,50 +1,14 @@
 import React from "react"
-import { Link } from "gatsby"
-import { rhythm, scale } from "../../utils/typography"
+import { rhythm } from "../../utils/typography"
 import Menu from "./menu"
 import License from "./license"
 import DarkControl from "./dark-control"
+import PostHeader from "./post-header"
+import IndexHeader from "./index-header"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
-  const indexHeader = (
-    <h1
-      style={{
-        ...scale(0.6),
-        marginBottom: 0,
-        marginTop: 0,
-      }}
-    >
-      <Link
-        style={{
-          boxShadow: `none`,
-          color: `var(--textTitle)`,
-        }}
-        to={`/`}
-      >
-        {title}
-      </Link>
-    </h1>
-  )
-  const postHeader = (
-    <h3
-      style={{
-        fontFamily: `Montserrat, sans-serif`,
-        marginTop: 0,
-        marginBottom: 0,
-      }}
-    >
-      <Link
-        style={{
-          boxShadow: `none`,
-          color: `var(--textTitle)`,
-        }}
-        to={`/`}
-      >
-        {title}
-      </Link>
-    </h3>
-  )
+
   return (
     <div
       style={{
@@ -70,7 +34,11 @@ const Layout = ({ location, title, children }) => {
             marginBottom: 0,
           }}
         >
-          {location.pathname === rootPath ? indexHeader : postHeader}
+          {location.pathname === rootPath ? (
+            <IndexHeader title={title} />
+          ) : (
+            <PostHeader title={title} />
+          )}
           <DarkControl />
         </header>
         <Menu />
