@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `LearnApplyShare`,
     author: {
-      name: `Keating`,
+      name: `min9nim`,
       summary: `who writes practical code and builds useful things.`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
