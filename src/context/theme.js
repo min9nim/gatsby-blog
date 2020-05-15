@@ -2,7 +2,7 @@
 import React from "react"
 
 const defaultState = {
-  theme: "light",
+  theme: null,
   setTheme: () => {},
 }
 
