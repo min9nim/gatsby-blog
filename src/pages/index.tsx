@@ -1,5 +1,5 @@
 // Gatsby supports TypeScript natively!
-import React from 'react'
+import React, {useContext} from 'react'
 import {PageProps, Link, graphql} from 'gatsby'
 import Bio from '../components/bio'
 import Layout from '../components/layout'
@@ -7,7 +7,7 @@ import PageNavi from '../components/page-nav'
 import SEO from '../components/seo'
 import TagList from '../components/tag-list'
 import {rhythm} from '../utils/typography'
-import logger from '../../build/logger'
+import LoggerContext from '../context/logger'
 
 type Data = {
   site: {
@@ -34,11 +34,13 @@ type Data = {
 }
 const COUNT = 10
 const BlogIndex = ({data, location}: PageProps<Data>) => {
+  const logger = useContext(LoggerContext)
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
   const pageNo = Number(location.pathname.split('/').slice(-1)[0] || '0')
-  // logger.debug("pageNo", pageNo)
+  // @ts-ignore
+  logger.debug('pageNo', pageNo)
 
   const currentPagePosts = posts.slice(pageNo * COUNT, pageNo * COUNT + COUNT)
 
