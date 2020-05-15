@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
-import Toggle from "./Toggle"
-import { rhythm, scale } from "../utils/typography"
+import Toggle from "../atom/toggle"
+import { rhythm, scale } from "../../utils/typography"
 import sun from "../../content/assets/sun.png"
 import moon from "../../content/assets/moon.png"
 import Menu from "./menu"
 import License from "./license"
-import ThemeContext from "../context/theme"
+import ThemeContext from "../../context/theme"
 
 const Layout = ({ location, title, children }) => {
   // const [theme, setTheme] = useState(null)
