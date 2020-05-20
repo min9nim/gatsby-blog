@@ -33,7 +33,7 @@ Excerpt.scoped.scss
 
 Excerpt.js
 
-```jsx{7}
+```jsx{6,7}
 import React from 'react'
 import './Excerpt.scoped.scss'
 
