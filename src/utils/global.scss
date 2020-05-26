@@ -224,6 +224,11 @@ pre[data-line] {
   position: relative;
 }
 
+.token.triple-quoted-string.string {
+  // 파이썬 주석
+  color: slategray;
+}
+
 .gatsby-highlight-code-line {
   background-color: #564804;
   display: block;
