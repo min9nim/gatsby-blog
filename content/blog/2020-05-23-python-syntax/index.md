@@ -142,6 +142,70 @@ print(nums.count(2)) # 2
 
 <br>
 
+## 조건문
+
+### `==`, `True`, `False`
+
+```py
+x = 2
+print(x == 2) # prints out True
+print(x == 3) # prints out False
+print(x < 3) # prints out True
+```
+
+### `and`, `or`
+
+```py
+name = "John"
+age = 23
+if name == "John" and age == 23:
+    print("Your name is John, and you are also 23 years old.")
+
+if name == "John" or name == "Rick":
+    print("Your name is either John or Rick.")
+```
+
+### `in`
+
+```py
+name = "John"
+if name in ["John", "Rick"]:
+    print("Your name is either John or Rick.")
+```
+
+### `elif`, `else`, `is`
+
+```py
+statement = False
+another_statement = True
+if statement :
+    print('do something')
+elif another_statement :
+    print('do something else')
+else:
+    print('do another thing')
+```
+
+### `is`
+
+`==` 는 깊은 비교, `is` 는 네이티브 값을 비교(js의 `===` 같은 것?)
+
+```py
+x = [1,2,3]
+y = [1,2,3]
+print(x == y) # Prints out True
+print(x is y) # Prints out False
+```
+
+### `not`
+
+```py
+print(not False) # Prints out True
+print((not False) == (False)) # Prints out False
+```
+
+<br>
+
 ## 기타
 
 ### isinstance
