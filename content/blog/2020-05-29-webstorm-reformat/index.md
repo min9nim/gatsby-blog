@@ -18,7 +18,7 @@ yarn add -D husky lint-staged prettier
 
 2. package.json 에 설정 추가
 
-```json
+```json{4-13}
   "dependencies": {
     // ...
   },
@@ -52,7 +52,7 @@ node_modules/.bin/prettier --write {대상파일}
 
 1. package.json 에 스크립트(`reformat`) 추가
 
-```json
+```json{3}
 "scripts": {
   // ...
   "reformat": "node_modules/.bin/prettier --write"
