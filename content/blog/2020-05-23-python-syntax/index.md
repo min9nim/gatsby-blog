@@ -106,7 +106,7 @@ str.split() # ['hello', 'world']
 str.split("e") # ['h', 'llo world']
 ```
 
-### flaot
+### float
 
 ```py
 # float 정의
