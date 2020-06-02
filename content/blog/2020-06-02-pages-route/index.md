@@ -48,7 +48,7 @@ src/
 
 before) 일반적인 라우팅 정의
 
-```js
+```js{5-7, 13-15}
 // Routes.js
 
 import React, {useEffect} from 'react'
@@ -72,7 +72,7 @@ export default function Routes() {
 
 after) 라우팅 path 에 따라 동적으로 컴포넌트를 매핑
 
-```js
+```js{11-13}
 // Routes.js
 
 import React, {useEffect} from 'react'
@@ -96,7 +96,7 @@ export default function Routes() {
 
 1. 동적으로 컴포넌트를 로드하는 `asyncComponent` 를 정의
 
-```js
+```js{20}
 // dynamicImport.js
 import React from 'react'
 
@@ -133,7 +133,7 @@ export function asyncComponent(path) {
 
 2. 라우팅 path 에 따라 해당 컴포넌트를 동적으로 로드
 
-```js
+```js{13}
 // PageRoute.js
 
 import React from 'react'
@@ -153,4 +153,4 @@ export function asyncRender(props) {
 
 (단, `PageRoute` 가 필요에 따라 `children` 을 전달받는 경우에는 정적으로 해당 `children` 이 렌더링된다.)
 
-라우팅테이블을 별도로 정의해야 하는 불편함은 여전히 남아 있는데.. 이 마저도 자동화를 한다면 추상화 단계가 너무 높아져서 오히려 디버깅하는데 어려움이 있을 것 같아서 더 진행하지는 않았다. 😊
+라우팅테이블을 별도로 정의(Routes.js)해야 하는 불편함은 여전히 남아 있는데.. 이 마저도 자동화를 한다면 추상화 단계가 너무 높아져서 오히려 디버깅하는데 어려움이 있을 것 같아서 더 진행하지는 않았다. 😊
