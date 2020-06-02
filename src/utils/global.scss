@@ -19,6 +19,7 @@ body {
     --code-bg-color: #011627;
     --code-color: #ddd;
     --link-color: #007acc;
+    --table-border-color: gray;
   }
 
   &.dark {
@@ -36,6 +37,7 @@ body {
     --code-bg-color: #011627;
     --code-color: #ddd;
     --link-color: #33addd;
+    --table-border-color: #aaa;
   }
 }
 
@@ -326,3 +328,10 @@ li {
 // h4 {
 //   font-family: initial;
 // }
+
+table {
+  th,
+  td {
+    border-color: var(--table-border-color);
+  }
+}
