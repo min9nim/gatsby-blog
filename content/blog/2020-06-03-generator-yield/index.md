@@ -4,6 +4,7 @@ title: '[js] generator 의 yield* 문법'
 date: 2020-06-03 00:10
 tags: [generator, yield]
 description:
+draft: false
 ---
 
 generator 에서 `yield*` 문법의 의미를 알아보자.

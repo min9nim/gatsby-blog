@@ -1,8 +1,9 @@
 ---
 layout: post
-title: 'Python 스터디'
+title: Python 스터디
 date: 2020-05-23 00:10
 tags: [python, syntax]
+draft: false
 ---
 
 python 을 새롭게 공부하면서 특별히 기억할 만한 요소들을 정리해 본다.
