@@ -28,7 +28,7 @@ src/
       sing-up.js
     my-info.js
   PageRoute.js
-  dynamicImport.js
+  AsyncComponent.js
   Routes.js
 ```
 
@@ -92,44 +92,36 @@ export default function Routes() {
 }
 ```
 
+<br>
+
 ### 구현방법
 
-1. 동적으로 컴포넌트를 로드하는 `asyncComponent` 를 정의
+1. 동적으로 컴포넌트를 로드하는 `AsyncComponent` 를 정의
 
-```js{20}
-// dynamicImport.js
-import React from 'react'
+```js{8-10}
+// AsyncComponent.js
 
-// const PAGES_PATH = '../pages'  // not works when used; 🤔
-const cache = {} // 비동기 컴포넌트 캐시
+import React, {useEffect, useState} from 'react'
 
-// Ref) https://gist.github.com/acdlite/a68433004f9d6b4cbc83b5cc3990c194
-export function asyncComponent(path) {
-  return class AsyncComponent extends React.Component {
-    constructor(props) {
-      super(props)
-      this.state = {Component: cache[path]}
-    }
+export default function AsyncComponent(props) {
+  const [Component, setComponent] = useState(null)
+  useEffect(() => {
+    import('../pages' + props.path).then(module => {
+      setComponent(() => module.default)
+    })
+  }, [props.path])
 
-    async componentDidMount() {
-      if (this.state.Component) {
-        // console.log('[asyncComponent] cache hit [' + path + ']')
-        return
-      }
-      const module = await import('../pages' + path)
-      cache[path] = module.default
-      this.setState({Component: module.default})
-    }
-    render() {
-      const {Component} = this.state
-      if (Component) {
-        return <Component {...this.props} />
-      }
-      return <div>Loading.. [{path}]</div>
-    }
-  }
+  return Component ? <Component {...props} /> : <div>Loading.. [{props.path}]</div>
 }
 ```
+
+> 1. 위 `AsyncComponent` 컴포넌트는 동적으로 로드할 리액트 컴포넌트 자체를 상태로서 정의하여 사용하고 있다.
+> 2. hook을 이용할 때 함수 자체를 상태로 사용하고자 할 경우에는 해당 함수를 리턴하는 함수를 `setComponent` 에 인자로 전달해야만 의도했던 데로 동적으로 로드된 리액트 컴포넌트가 `Component` 상태에 세팅된다.
+> 3. `setComponent` 는 함수를 인자로 받을 경우 내부적으로 해당 함수를 호출하고 해당 함수의 리턴값을 상태로서 사용하기 때문이다(`useState` 의 인자로 전달되는 초기상태도 마찬가지).
+> 4. 그리고 이는 클래스 컴포넌트를 로드하는 경우에도 마찬가지이다. 자바스크립트에서 클래스의 typeof 결과는 `'function'` 으로 평가되기 때문이다. `useState`, `setComponet` 는 아마 내부적으로 전달된 인자의 타입 확인을 위해서 `typeof` 연산을 이용하는 것 같다.
+> 5. `import()` 는 동적으로 한번 로드한 컴포넌트를 내부적으로 캐시하기 때문에 이후 동적 모듈 로드시 네트워크 요청이 다시 발생하지는 않는다.
+
+<br>
 
 2. 라우팅 path 에 따라 해당 컴포넌트를 동적으로 로드
 
@@ -138,7 +130,7 @@ export function asyncComponent(path) {
 
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { asyncComponent } from './dynamicImport'
+import AsyncComponent from './AsyncComponent'
 
 export default function PageRoute(props) {
   return <Route {...props} render={asyncRender(props)} />
@@ -146,11 +138,10 @@ export default function PageRoute(props) {
 
 export function asyncRender(props) {
   return ({ location }) => {
-    const Component = asyncComponent(location.pathname)
-    return (<Component {...props} />)
+    return (<AsyncComponent {...props} path={location.pathname} />)
 }
 ```
 
-(단, `PageRoute` 가 필요에 따라 `children` 을 전달받는 경우에는 정적으로 해당 `children` 이 렌더링된다.)
+> Note) `PageRoute` 가 필요에 따라 `children` 을 전달받는 경우에는 정적으로 해당 `children` 이 렌더링된다. (`children` 과 `render` [프롭이 함께 전달될 때 우선순위](/2020-06-02-route-priority/)는 `children` 프롭에 있음)
 
 라우팅테이블을 별도로 정의(Routes.js)해야 하는 불편함은 여전히 남아 있는데.. 이 마저도 자동화를 한다면 추상화 단계가 너무 높아져서 오히려 디버깅하는데 어려움이 있을 것 같아서 더 진행하지는 않았다. 😊
