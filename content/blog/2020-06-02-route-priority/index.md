@@ -22,7 +22,7 @@ const C = () => <div>C</div>
 
 export default function () {
   return (
-    <Route render={A} component={B}>
+    <Route render={() => A} component={B}>
       <C />
     </Route>
   )
