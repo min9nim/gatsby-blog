@@ -96,6 +96,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
+      filter: {fields: {draft: {eq: false}}} # here
       sort: {fields: [frontmatter___date], order: DESC} # skip: 0 # limit: 5
     ) {
       edges {

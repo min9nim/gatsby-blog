@@ -82,5 +82,25 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
+    {
+      resolve: "gatsby-plugin-draft",
+      options: {
+        /**
+         * be added field name
+         * Default is 'draft'
+         **/
+        // fieldName: 'notReleased',
+        /**
+         * moment-timezone
+         * Default is 'UTC'
+         **/
+        // timezone: 'Asia/Tokyo',
+        /**
+         * publish draft posts
+         * Default is 'false'
+         **/
+        publishDraft: process.env.NODE_ENV !== "production",
+      },
+    },
   ],
 }

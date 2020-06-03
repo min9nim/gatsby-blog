@@ -5850,6 +5850,13 @@ gatsby-page-utils@^0.2.1:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
+gatsby-plugin-draft@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-draft/-/gatsby-plugin-draft-0.0.5.tgz#ef41dba4edabab8be6690dcd6e7167ce5be32726"
+  integrity sha512-JzVJEe2dfLI3GuoQDZX1PqenXkBUyx+rbSeVgGS7U4l5i0X/5X5P4Fxs6VJSsdEO5/jemsQs0B0qjNGLyG7lPQ==
+  dependencies:
+    moment-timezone "^0.5.23"
+
 gatsby-plugin-feed@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-2.5.1.tgz#dad412c2c0455342849ddd51c8b228c8747d5fef"
@@ -9262,6 +9269,18 @@ modularscale@^1.0.2:
   integrity sha1-So8TrzKl5SFPxuLPxSkGSr/X2Hc=
   dependencies:
     lodash.isnumber "^3.0.0"
+
+moment-timezone@^0.5.23:
+  version "0.5.31"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.31.tgz#9c40d8c5026f0c7ab46eda3d63e49c155148de05"
+  integrity sha512-+GgHNg8xRhMXfEbv81iDtrVeTcWt0kWmTEY1XQK14dICTXnWJnT0dxdlPspwqF3keKMVPXwayEsk1DI0AA/jdA==
+  dependencies:
+    moment ">= 2.9.0"
+
+"moment@>= 2.9.0":
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.26.0.tgz#5e1f82c6bafca6e83e808b30c8705eed0dcbd39a"
+  integrity sha512-oIixUO+OamkUkwjhAVE18rAMfRJNsNe/Stid/gwHSOfHrOtw9EhAY2AHvdKZ/k/MggcYELFCJz/Sn2pL8b8JMw==
 
 moment@^2.25.3:
   version "2.25.3"
