@@ -12,6 +12,8 @@ tags: [js, react, create-react-app, module-alias]
 
 특별히 [CRA](https://create-react-app.dev/)로 생성한 프로젝트에 module-alias 를 이용해 path 별칭을 세팅하는 방법을 공유한다.
 
+현재(20년 6월) [모듈 사용시 path에 별칭을 부여하는 기능](https://github.com/facebook/create-react-app/issues/5645)이 CRA 4.0 의 마일스톤으로 등록되어 있는 중이다. 하지만 그 전에 별칭사용이 꼭 필요하다면 `yarn eject` 가 필요하다. (eject 없이 CRA의 설정을 오버라이드 하는 꼼수가 없는 것은 아니지만 굳이 그렇게 까지 할꺼면 그냥 eject 하는 것이 낫지 않겠나 싶다)
+
 <br>
 
 ### CRA 앱 추출
