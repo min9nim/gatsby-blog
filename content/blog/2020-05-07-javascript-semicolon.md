@@ -47,6 +47,8 @@ console.log('에러가 발생합니다.')[1, 2].forEach(console.log)
 
 코드 실행시 `Uncaught TypeError: Cannot read property '2' of undefined` 오류가 발생하게 된다.
 
+> Note) `console.log('에러가 발생합니다.')` 는 `undefined` 로 평가됨. 그리고 `undefined[1,2]` 는 `undefined[(1,2)]` 와 같고 `(1,2)` 는 `2` 로 평가되기 때문에 `undefined[1,2]` 는 최종적으로 `undefined[2]` 로 평가되고 위 에러가 발생되는 것
+
 <br>
 
 그럼 이제 마음의 갈등이 일어나기 시작한다.
