@@ -3,8 +3,8 @@ body {
   --pink: rgb(255, 167, 196);
   --yellow: #f1e7c5;
   --token-keyword: #3ad;
-  font-family: 'Apple SD Gothic Neo', AppleGothic, NanumBarunGothic, 'Malgun Gothic', Dotum,
-    sans-serif;
+  font-family: "Apple SD Gothic Neo", AppleGothic, NanumBarunGothic,
+    "Malgun Gothic", Dotum, sans-serif;
   &.light {
     --bg: #ffffff;
     --bg-secondary: rgb(249, 250, 251);
@@ -83,12 +83,12 @@ body:lang(he) blockquote {
 /* styles for Persian language */
 body:lang(fa) article,
 body:lang(fa) header > h1 {
-  font-family: 'Vazir';
+  font-family: "Vazir";
 }
 /* styles for Arabic language */
 body:lang(ar) article,
 body:lang(ar) header > h1 {
-  font-family: 'Cairo', sans-serif;
+  font-family: "Cairo", sans-serif;
 }
 
 body:lang(ko) header,
@@ -99,8 +99,8 @@ body:lang(ko) article {
 /**
  * Based on copypasta from Remy Bach and Sarah Drasner
  */
-code[class*='language-'],
-pre[class*='language-'] {
+code[class*="language-"],
+pre[class*="language-"] {
   color: white;
   background: none;
   font-family: Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
@@ -124,36 +124,36 @@ pre[class*='language-'] {
 }
 
 /* Code blocks */
-pre[class*='language-'] {
+pre[class*="language-"] {
   overflow: auto;
   padding: 1.3125rem;
 }
 
-pre[class*='language-']::-moz-selection {
+pre[class*="language-"]::-moz-selection {
   /* Firefox */
   background: hsl(207, 4%, 16%);
 }
 
-pre[class*='language-']::selection {
+pre[class*="language-"]::selection {
   /* Safari */
   background: hsl(207, 4%, 16%);
 }
 
 /* Text Selection colour */
-pre[class*='language-']::-moz-selection,
-pre[class*='language-'] ::-moz-selection {
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection {
   text-shadow: none;
   background: hsla(0, 0%, 100%, 0.15);
 }
 
-pre[class*='language-']::selection,
-pre[class*='language-'] ::selection {
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection {
   text-shadow: none;
   background: hsla(0, 0%, 100%, 0.15);
 }
 
 /* Inline code */
-:not(pre) > code[class*='language-'] {
+:not(pre) > code[class*="language-"] {
   border-radius: 0.3em;
   background: var(--inlineCode-bg);
   color: var(--inlineCode-text);
@@ -200,7 +200,7 @@ pre[class*='language-'] ::selection {
 .token.selector,
 .token.doctype {
   color: rgb(199, 146, 234);
-  font-style: 'italic';
+  font-style: "italic";
 }
 
 .token.class-name {
@@ -236,6 +236,8 @@ pre[data-line] {
   display: block;
   padding-right: 1em;
   padding-left: 1em;
+  margin-left: -21px;
+  margin-right: -21px;
   border-left: 0.25em solid var(--yellow);
   .token.keyword {
     color: var(--token-keyword);
@@ -255,11 +257,12 @@ pre[data-line] {
     color: var(--token-keyword);
     background-color: var(--code-bg-color);
   }
-  .gatsby-highlight-code-line {
-    margin-right: -16px;
-    // margin-left: -16px;
-    margin-left: -21px;
-  }
+  // .gatsby-highlight-code-line {
+  //   margin-right: -21px;
+  //   // margin-left: -16px;
+  //   margin-left: -21px;
+
+  // }
 }
 
 @media (max-width: 672px) {
@@ -268,19 +271,19 @@ pre[data-line] {
   }
 }
 
-.gatsby-highlight pre[class*='language-'] {
+.gatsby-highlight pre[class*="language-"] {
   float: left;
   min-width: 100%;
   background-color: var(--code-bg-color);
 }
 
-.gatsby-highlight code[class*='language-'] {
+.gatsby-highlight code[class*="language-"] {
   color: var(--code-color);
   background-color: var(--code-bg-color);
   text-shadow: initial;
 }
 
-section :not(pre) > code[class*='language-'] {
+section :not(pre) > code[class*="language-"] {
   text-shadow: initial;
   color: var(--inlineCode-text);
   background-color: var(--inlineCode-bg);
