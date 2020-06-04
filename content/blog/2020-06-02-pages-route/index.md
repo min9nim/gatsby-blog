@@ -103,12 +103,21 @@ export default function Routes() {
 
 import React, {useEffect, useState} from 'react'
 
+// Ref) https://gist.github.com/acdlite/a68433004f9d6b4cbc83b5cc3990c194
 export default function AsyncComponent(props) {
   const [Component, setComponent] = useState(null)
+
+  let cleanedUp = false
   useEffect(() => {
     import('../pages' + props.path).then(module => {
+      if (cleanedUp) {
+        return
+      }
       setComponent(() => module.default)
     })
+    return () => {
+      cleanedUp = true
+    }
   }, [props.path])
 
   return Component ? <Component {...props} /> : <div>Loading.. [{props.path}]</div>
