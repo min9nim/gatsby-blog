@@ -150,34 +150,36 @@ import {moon, sun} from './icon'
 export default function DarkMode() {
   return (
     <ThemeContext.Consumer>
-      {ctx => (
-        <Toggle
-          icons={{
-            checked: (
-              <img
-                src={moon}
-                alt='moon'
-                width='16'
-                height='16'
-                role='presentation'
-                style={{pointerEvents: 'none'}}
-              />
-            ),
-            unchecked: (
-              <img
-                src={sun}
-                alt='sun'
-                width='16'
-                height='16'
-                role='presentation'
-                style={{pointerEvents: 'none'}}
-              />
-            ),
-          }}
-          checked={ctx.theme === 'dark'}
-          onChange={e => ctx.setTheme(e.target.checked ? 'dark' : 'light')}
-        />
-      )}
+      {ctx =>
+        ctx.theme && ( // ctx.theme 가 null 일 경우에는 렌더링하지 않음(깜빡인 문제 해결)
+          <Toggle
+            icons={{
+              checked: (
+                <img
+                  src={moon}
+                  alt='moon'
+                  width='16'
+                  height='16'
+                  role='presentation'
+                  style={{pointerEvents: 'none'}}
+                />
+              ),
+              unchecked: (
+                <img
+                  src={sun}
+                  alt='sun'
+                  width='16'
+                  height='16'
+                  role='presentation'
+                  style={{pointerEvents: 'none'}}
+                />
+              ),
+            }}
+            checked={ctx.theme === 'dark'}
+            onChange={e => ctx.setTheme(e.target.checked ? 'dark' : 'light')}
+          />
+        )
+      }
     </ThemeContext.Consumer>
   )
 }
