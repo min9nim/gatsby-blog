@@ -34,9 +34,9 @@ yarn add -D husky lint-staged prettier
   },
 ```
 
-3. .prettierc 설정 추가
+3. .prettierrc 설정 추가
 
-프로젝트 루트에 포매팅 설정을 추가. `{프로젝트루트}/.prettierc`
+프로젝트 루트에 포매팅 설정을 추가. `{프로젝트루트}/.prettierrc`
 
 ```js
 {
