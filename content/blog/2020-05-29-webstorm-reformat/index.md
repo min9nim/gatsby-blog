@@ -34,6 +34,20 @@ yarn add -D husky lint-staged prettier
   },
 ```
 
+3. .prettierc 설정 추가
+
+프로젝트 루트에 포매팅 설정을 추가. `{프로젝트루트}/.prettierc`
+
+```js
+{
+  "printWidth": 120,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "arrowParens": "avoid"
+}
+```
+
 이제 커밋을 할 때 자동으로 prettier 가 해당 파일들에 대한 포매팅을 수행한다. 😁
 
 <br>
