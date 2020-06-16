@@ -69,7 +69,7 @@ node_modules/.bin/prettier --write {대상파일}
 ```json{3}
 "scripts": {
   // ...
-  "reformat": "node_modules/.bin/prettier --write"
+  "reformat": "prettier --write"
 }
 ```
 
