@@ -52,20 +52,18 @@ before) 일반적인 라우팅 정의
 // Routes.js
 
 import React, {useEffect} from 'react'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import SignIn from './pages/login/sign-in'
 import SignUp from './pages/login/sign-up'
 import MyInfo from './pages/my-info'
 
 export default function Routes() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/login/sign-in' component={SignIn} />
-        <Route exact path='/login/sign-up' component={SignUp} />
-        <Route exact path='/my-info' component={MyInfo} />
-      </Switch>
-    </Router>
+    <BrowserRouter>
+      <Route exact path='/login/sign-in' component={SignIn} />
+      <Route exact path='/login/sign-up' component={SignUp} />
+      <Route exact path='/my-info' component={MyInfo} />
+    </BrowserRouter>
   )
 }
 ```
