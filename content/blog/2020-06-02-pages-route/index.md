@@ -102,8 +102,8 @@ import React, {useEffect, useState} from 'react'
 export default function AsyncComponent(props) {
   const [Component, setComponent] = useState(null)
 
-  let cleanedUp = false
   useEffect(() => {
+    let cleanedUp = false
     import('../pages' + props.path).then(module => {
       if (cleanedUp) {
         return
