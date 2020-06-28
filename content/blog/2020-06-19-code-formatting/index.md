@@ -56,3 +56,22 @@ standardx --parser @typescript-eslint/parser --plugin @typescript-eslint/eslint-
 >
 > 1. 웹스톰의 경우 standard 를 설치하면 IDE가 자동으로 해당 모듈을 인식하고 해당 프로젝트의 포매팅 설정을 standard 로 설정해 준다
 > 1. React 프로젝트의 jsx 인식을 위해서는 별도 설정이 필요한 것 같다(리액트 프로젝트라면 그냥 prettier 사용을 권장한다)
+
+<br>
+
+<hr/>
+
+#### 2020/06/29 업데이트
+
+standard의 단점 발견; `standard --fix` 를 수행할 때 아래와 같은 코드의 첫번째 라인에서 개행처리를 안 해줌 😰
+
+```js
+const docs = await go(
+  req.body.users,
+  map(user => {
+    const {name, no, group, phone} = user
+    return User.create({name, no, group, phone})
+  }),
+  results => Promise.all(results)
+)
+```
