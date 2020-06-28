@@ -52,20 +52,18 @@ before) 일반적인 라우팅 정의
 // Routes.js
 
 import React, {useEffect} from 'react'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 import SignIn from './pages/login/sign-in'
 import SignUp from './pages/login/sign-up'
 import MyInfo from './pages/my-info'
 
 export default function Routes() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/login/sign-in' component={SignIn} />
-        <Route exact path='/login/sign-up' component={SignUp} />
-        <Route exact path='/my-info' component={MyInfo} />
-      </Switch>
-    </Router>
+    <BrowserRouter>
+      <Route exact path='/login/sign-in' component={SignIn} />
+      <Route exact path='/login/sign-up' component={SignUp} />
+      <Route exact path='/my-info' component={MyInfo} />
+    </BrowserRouter>
   )
 }
 ```
@@ -76,18 +74,16 @@ after) 라우팅 path 에 따라 동적으로 컴포넌트를 매핑
 // Routes.js
 
 import React, {useEffect} from 'react'
-import {BrowserRouter as Router, Switch} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom'
 import PageRoute from './PageRoute'
 
 export default function Routes() {
   return (
-    <Router>
-      <Switch>
-        <PageRoute exact path='/login/sign-in' />
-        <PageRoute exact path='/login/sign-up' />
-        <PageRoute exact path='/my-info' />
-      </Switch>
-    </Router>
+    <BrowserRouter>
+      <PageRoute exact path='/login/sign-in' />
+      <PageRoute exact path='/login/sign-up' />
+      <PageRoute exact path='/my-info' />
+    </BrowserRouter>
   )
 }
 ```
@@ -106,8 +102,8 @@ import React, {useEffect, useState} from 'react'
 export default function AsyncComponent(props) {
   const [Component, setComponent] = useState(null)
 
-  let cleanedUp = false
   useEffect(() => {
+    let cleanedUp = false
     import('../pages' + props.path).then(module => {
       if (cleanedUp) {
         return
