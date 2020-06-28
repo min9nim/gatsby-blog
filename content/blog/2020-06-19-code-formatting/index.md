@@ -54,7 +54,7 @@ standardx --parser @typescript-eslint/parser --plugin @typescript-eslint/eslint-
 
 > Note)
 >
-> 1. 웹스톰의 경우 standard 를 설치하면 IDE가 자동으로 해당 모듈을 인식하고 해당 프로젝트의 포매팅 설정을 standard 로 설정해 준다
+> 1. 웹스톰의 경우 standard 를 설치하면 IDE가 자동으로 해당 모듈을 인식하고 해당 프로젝트의 포매팅 설정을 standard 로 설정해 준다.(prettier 의 경우도 .prettierrc 파일을 열면 IDE가 자동으로 인식)
 > 1. React 프로젝트의 jsx 인식을 위해서는 별도 설정이 필요한 것 같다(리액트 프로젝트라면 그냥 prettier 사용을 권장한다)
 
 <br>
