@@ -63,11 +63,10 @@ standardx --parser @typescript-eslint/parser --plugin @typescript-eslint/eslint-
 
 #### 2020/06/29 업데이트
 
-standard의 단점 발견; `standard --fix` 를 수행할 때 아래와 같은 코드의 첫번째 라인에서 개행처리를 안 해줌 😰
+standard의 단점 발견; `standard --fix` 를 수행할 때 아래와 같은 코드의 경우 첫번째 라인에서 개행처리를 안 해줌 😰
 
-```js
-const docs = await go(
-  req.body.users,
+```
+const docs = await go(req.body.users,
   map(user => {
     const {name, no, group, phone} = user
     return User.create({name, no, group, phone})
