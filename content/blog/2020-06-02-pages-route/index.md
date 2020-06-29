@@ -70,7 +70,7 @@ export default function Routes() {
 
 after) 라우팅 path 에 따라 동적으로 컴포넌트를 매핑
 
-```js{11-13}
+```js{10}
 // Routes.js
 
 import React, {useEffect} from 'react'
