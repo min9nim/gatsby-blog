@@ -102,7 +102,7 @@ export default function AsyncComponent(props) {
 
   useEffect(() => {
     let cleanedUp = false
-    import('../pages' + props.path).then(module => {
+    import('./pages' + props.path).then(module => {
       if (cleanedUp) {
         return
       }
