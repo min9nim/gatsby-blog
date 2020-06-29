@@ -127,20 +127,15 @@ export default function AsyncComponent(props) {
 
 2. 라우팅 path 에 따라 해당 컴포넌트를 동적으로 로드
 
-```js{13}
+```js{8}
 // PageRoute.js
 
 import React from 'react'
-import { Route } from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import AsyncComponent from './AsyncComponent'
 
 export default function PageRoute(props) {
-  return <Route {...props} render={asyncRender(props)} />
-}
-
-export function asyncRender(props) {
-  return () => {
-    return <AsyncComponent {...props} />
+  return <Route {...props} render={props => () => <AsyncComponent {...props} />} />
 }
 ```
 
