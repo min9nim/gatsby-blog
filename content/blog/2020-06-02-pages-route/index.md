@@ -80,9 +80,7 @@ import PageRoute from './PageRoute'
 export default function Routes() {
   return (
     <BrowserRouter>
-      <PageRoute exact path='/login/sign-in' />
-      <PageRoute exact path='/login/sign-up' />
-      <PageRoute exact path='/my-info' />
+      <PageRoute exact path={window.location.pathname} />
     </BrowserRouter>
   )
 }
@@ -147,8 +145,6 @@ export function asyncRender(props) {
 ```
 
 > Note) `PageRoute` 가 필요에 따라 `children` 을 전달받는 경우에는 정적으로 해당 `children` 이 렌더링된다. (`children` 과 `render` [프롭이 함께 전달될 때 우선순위](/2020-06-02-route-priority/)는 `children` 프롭에 있음)
-
-라우팅테이블을 별도로 정의(Routes.js)해야 하는 불편함은 여전히 남아 있는데.. 이 마저도 자동화를 한다면 추상화 단계가 너무 높아져서 오히려 디버깅하는데 어려움이 있을 것 같아서 더 진행하지는 않았다. 😊
 
 <br>
 
