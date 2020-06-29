@@ -139,8 +139,8 @@ export default function PageRoute(props) {
 }
 
 export function asyncRender(props) {
-  return ({ location }) => {
-    return (<AsyncComponent {...props} path={location.pathname} />)
+  return () => {
+    return (<AsyncComponent {...props} />)
 }
 ```
 
