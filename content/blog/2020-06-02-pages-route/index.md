@@ -80,7 +80,7 @@ import PageRoute from './PageRoute'
 export default function Routes() {
   return (
     <BrowserRouter>
-      <PageRoute exact path={window.location.pathname} />
+      <PageRoute path='/' />
     </BrowserRouter>
   )
 }
@@ -135,7 +135,12 @@ import {Route} from 'react-router-dom'
 import AsyncComponent from './AsyncComponent'
 
 export default function PageRoute(props) {
-  return <Route {...props} render={() => <AsyncComponent {...props} />} />
+  return (
+    <Route
+      {...props}
+      render={({location}) => <AsyncComponent {...props} path={location.pathname} />}
+    />
+  )
 }
 ```
 
