@@ -48,7 +48,7 @@ src/
 
 before) 일반적인 라우팅 정의
 
-```js{5-7, 13-15}
+```js{5-7, 12-14}
 // Routes.js
 
 import React, {useEffect} from 'react'
