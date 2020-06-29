@@ -140,7 +140,7 @@ export default function PageRoute(props) {
 
 export function asyncRender(props) {
   return () => {
-    return (<AsyncComponent {...props} />)
+    return <AsyncComponent {...props} />
 }
 ```
 
