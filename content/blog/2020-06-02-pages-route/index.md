@@ -135,7 +135,7 @@ import {Route} from 'react-router-dom'
 import AsyncComponent from './AsyncComponent'
 
 export default function PageRoute(props) {
-  return <Route {...props} render={props => () => <AsyncComponent {...props} />} />
+  return <Route {...props} render={() => <AsyncComponent {...props} />} />
 }
 ```
 
