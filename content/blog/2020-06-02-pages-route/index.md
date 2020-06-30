@@ -27,7 +27,7 @@ src/
       sign-in.js
       sing-up.js
     my-info.js
-  PageRoute.js
+    404.js
   AsyncComponent.js
   Routes.js
 ```
@@ -41,6 +41,7 @@ src/
 | /login/sign-in | /src/pages/login/sign-in.js |
 | /login/sign-up | /src/pages/login/sign-up.js |
 | /my-info       | /src/pages/my-info.js       |
+| /blablabla     | /src/pages/404.js           |
 
 <br>
 
@@ -48,21 +49,25 @@ src/
 
 before) 일반적인 라우팅 정의
 
-```js{5-7, 12-14}
+```js{5-8, 13-18}
 // Routes.js
 
 import React, {useEffect} from 'react'
-import {BrowserRouter, Route} from 'react-router-dom'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import SignIn from './pages/login/sign-in'
 import SignUp from './pages/login/sign-up'
 import MyInfo from './pages/my-info'
+import NotFound from './pages/404'
 
 export default function Routes() {
   return (
     <BrowserRouter>
-      <Route exact path='/login/sign-in' component={SignIn} />
-      <Route exact path='/login/sign-up' component={SignUp} />
-      <Route exact path='/my-info' component={MyInfo} />
+      <Switch>
+        <Route exact path='/login/sign-in' component={SignIn} />
+        <Route exact path='/login/sign-up' component={SignUp} />
+        <Route exact path='/my-info' component={MyInfo} />
+        <Route path='/' component={NotFound} />
+      </Switch>
     </BrowserRouter>
   )
 }
@@ -70,17 +75,21 @@ export default function Routes() {
 
 after) 라우팅 path 에 따라 동적으로 컴포넌트를 매핑
 
-```js{10}
+```js{9-14}
 // Routes.js
 
 import React, {useEffect} from 'react'
-import {BrowserRouter} from 'react-router-dom'
-import PageRoute from './PageRoute'
+import {BrowserRouter, Route} from 'react-router-dom'
 
 export default function Routes() {
   return (
     <BrowserRouter>
-      <PageRoute path='/' />
+      <Route
+        path='/'
+        render={({history, location}) => (
+          <AsyncComponent path={location.pathname} onNotFound={() => history.push('/404')} />
+        )}
+      />
     </BrowserRouter>
   )
 }
@@ -88,9 +97,9 @@ export default function Routes() {
 
 <br>
 
-### 구현방법
+### `AsyncComponent` 구현방법
 
-1. 동적으로 컴포넌트를 로드하는 `AsyncComponent` 를 정의
+동적으로 컴포넌트를 로드하는 `AsyncComponent` 를 정의
 
 ```js
 // AsyncComponent.js
@@ -102,18 +111,30 @@ export default function AsyncComponent(props) {
 
   useEffect(() => {
     let cleanedUp = false
-    import('./pages' + props.path).then(module => {
-      if (cleanedUp) {
-        return
-      }
-      setComponent(() => module.default)
-    })
+    import('./pages' + props.path)
+      .then(module => {
+        if (cleanedUp) {
+          return
+        }
+        setComponent(() => module.default)
+      })
+      .catch(e => {
+        if (cleanedUp) {
+          return
+        }
+        setComponent(() => () => null)
+        if (e.message.startsWith('Cannot find module')) {
+          if (typeof props.onNotFound === 'function') {
+            props.onNotFound()
+          }
+        }
+      })
     return () => {
       cleanedUp = true
     }
   }, [props.path])
 
-  return Component ? <Component {...props} /> : 'Loading..'
+  return Component ? <Component {...props} /> : props.loading || 'Loading..'
 }
 ```
 
@@ -124,27 +145,6 @@ export default function AsyncComponent(props) {
 > 5. `import()` 는 동적으로 한번 로드한 컴포넌트를 내부적으로 캐시하기 때문에 이후 동적 모듈 로드시 네트워크 요청이 다시 발생하지는 않는다.
 
 <br>
-
-2. 라우팅 path 에 따라 해당 컴포넌트를 동적으로 로드
-
-```js{8}
-// PageRoute.js
-
-import React from 'react'
-import {Route} from 'react-router-dom'
-import AsyncComponent from './AsyncComponent'
-
-export default function PageRoute(props) {
-  return (
-    <Route
-      {...props}
-      render={({location}) => <AsyncComponent {...props} path={location.pathname} />}
-    />
-  )
-}
-```
-
-> Note) `PageRoute` 가 필요에 따라 `children` 을 전달받는 경우에는 정적으로 해당 `children` 이 렌더링된다. (`children` 과 `render` [프롭이 함께 전달될 때 우선순위](/2020-06-02-route-priority/)는 `children` 프롭에 있음)
 
 <br>
 
