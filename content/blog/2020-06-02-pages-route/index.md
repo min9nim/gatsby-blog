@@ -122,7 +122,7 @@ export default function AsyncComponent(props) {
         if (cleanedUp) {
           return
         }
-        setComponent(() => () => null)
+        setComponent(null)
         if (e.message.startsWith('Cannot find module')) {
           if (typeof props.onNotFound === 'function') {
             props.onNotFound()
@@ -130,6 +130,7 @@ export default function AsyncComponent(props) {
         }
       })
     return () => {
+      setComponent(null)
       cleanedUp = true
     }
   }, [props.path])
