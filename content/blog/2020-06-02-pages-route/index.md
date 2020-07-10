@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[create-react-app] pages 폴더 구조대로 라우팅"
+title: '[create-react-app] pages 폴더 구조대로 라우팅'
 date: 2020-06-02 00:10
 tags: [create-react-app, CRA, pages, route]
 description:
@@ -52,21 +52,21 @@ before) 일반적인 라우팅 정의
 ```js{5-8, 13-18}
 // Routes.js
 
-import React, { useEffect } from "react"
-import { BrowserRouter, Switch, Route } from "react-router-dom"
-import SignIn from "./pages/login/sign-in"
-import SignUp from "./pages/login/sign-up"
-import MyInfo from "./pages/my-info"
-import NotFound from "./pages/404"
+import React, {useEffect} from 'react'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import SignIn from './pages/login/sign-in'
+import SignUp from './pages/login/sign-up'
+import MyInfo from './pages/my-info'
+import NotFound from './pages/404'
 
 export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/login/sign-in" component={SignIn} />
-        <Route exact path="/login/sign-up" component={SignUp} />
-        <Route exact path="/my-info" component={MyInfo} />
-        <Route path="/" component={NotFound} />
+        <Route exact path='/login/sign-in' component={SignIn} />
+        <Route exact path='/login/sign-up' component={SignUp} />
+        <Route exact path='/my-info' component={MyInfo} />
+        <Route path='/' component={NotFound} />
       </Switch>
     </BrowserRouter>
   )
@@ -78,19 +78,16 @@ after) 라우팅 path 에 따라 동적으로 컴포넌트를 매핑
 ```js{9-14}
 // Routes.js
 
-import React, { useEffect } from "react"
-import { BrowserRouter, Route } from "react-router-dom"
+import React, {useEffect} from 'react'
+import {BrowserRouter, Route} from 'react-router-dom'
 
 export default function Routes() {
   return (
     <BrowserRouter>
       <Route
-        path="/"
-        render={({ history, location }) => (
-          <AsyncComponent
-            path={location.pathname}
-            onNotFound={() => history.push("/404")}
-          />
+        path='/'
+        render={({history, location}) => (
+          <AsyncComponent path={location.pathname} onNotFound={() => history.push('/404')} />
         )}
       />
     </BrowserRouter>
@@ -107,14 +104,14 @@ export default function Routes() {
 ```js
 // AsyncComponent.js
 
-import React, { useEffect, useState } from "react"
+import React, {useEffect, useState} from 'react'
 
 export default function AsyncComponent(props) {
   const [Component, setComponent] = useState(null)
 
   useEffect(() => {
     let cleanedUp = false
-    import("./pages" + props.path)
+    import('./pages' + props.path)
       .then(module => {
         if (cleanedUp) {
           return
@@ -126,8 +123,8 @@ export default function AsyncComponent(props) {
           return
         }
         setComponent(null)
-        if (e.message.startsWith("Cannot find module")) {
-          if (typeof props.onNotFound === "function") {
+        if (e.message.startsWith('Cannot find module')) {
+          if (typeof props.onNotFound === 'function') {
             props.onNotFound()
           }
         }
@@ -138,7 +135,7 @@ export default function AsyncComponent(props) {
     }
   }, [props.path])
 
-  return Component ? <Component {...props} /> : props.loading || "Loading.."
+  return Component ? <Component {...props} /> : props.loading || 'Loading..'
 }
 ```
 
@@ -154,5 +151,6 @@ export default function AsyncComponent(props) {
 
 ### Ref.
 
+- https://ko.reactjs.org/docs/code-splitting.html
 - https://gist.github.com/acdlite/a68433004f9d6b4cbc83b5cc3990c194
 - https://www.npmjs.com/package/react-async-component
