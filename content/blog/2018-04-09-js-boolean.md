@@ -10,11 +10,11 @@ tags: [boolean]
 
 1. false를 리턴하는 값들
 
-```js
+```
 false
 null
 undefined
-;('')
+''
 0
 NaN
 ```
