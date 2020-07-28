@@ -147,6 +147,12 @@ export default function AsyncComponent(props) {
 
 <br>
 
+
+### TL;DR;
+상세 내용은 관심없고 결과만 빠르게 적용하고 싶다면 아래 모듈을 이용한다.
+
+https://www.npmjs.com/package/react-dynamic-route
+
 <br>
 
 ### Ref.
