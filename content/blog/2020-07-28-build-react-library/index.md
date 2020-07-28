@@ -36,7 +36,7 @@ yarn add -D @babel/cli @babel/core @babel/preset-env @babel/preset-react
 - 빌드 명령(`build`)을 추가
 - 모듈의 시작점을(`main`) 알맞게 설정
 - peerDependencies 설정
-    - 리액트 라이브러리는 당연히 `react` 에 대한 의존성을 가지지만 어짜피 리액트 프로젝트에서 사용될 것이고 해당 부모 프로젝트는 `react` 를 포함할 것이기 때문에 해당 `react` 모듈을 그대로 사용하면 된다. 
+    - 리액트 라이브러리는 당연히 `react` 에 대한 의존성을 가지지만 어짜피 리액트 프로젝트에서 사용될 것이고 해당 부모 프로젝트는 `react` 를 포함할 것이기 때문에 `react` 모듈을 `peerDependencies` 로 설치한다 
 
 ```json
 {
@@ -51,7 +51,7 @@ yarn add -D @babel/cli @babel/core @babel/preset-env @babel/preset-react
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
-    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-react": "^7.10.4"
   }
 }
 ```
