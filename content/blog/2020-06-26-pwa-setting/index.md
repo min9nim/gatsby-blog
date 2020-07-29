@@ -3,7 +3,7 @@ layout: post
 title: 'PWA 를 만드는 방법'
 date: 2020-06-26 00:10
 tags: [pwa]
-description:
+description: 웹앱이지만 앱처럼 디바이스에 설치가능 모바일장비 & 데스크탑 장비 모두 설치가능 앱처럼 설치 가능하지만 앱스토어나 플레이스토어에 등록할 필요가 없다
 draft: false
 ---
 
