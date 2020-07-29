@@ -29,3 +29,8 @@ getMatchAll(reg, str)
 
 1. `exec` 메소드는 실행될 때마다 다른 결과를 순차적으로 리턴한다.
 1. 전체 문자열을 대상으로 매칭되는 문자열이 없을 때까지 주어진 문자열을 순회하며 매칭된 문자열을 찾아야 한다.
+
+<br>
+
+### Ref
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec
