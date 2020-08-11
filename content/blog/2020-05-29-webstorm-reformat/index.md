@@ -90,6 +90,10 @@ node_modules/.bin/prettier --write {대상파일}
 
 <br>
 
+또는, prettier 설정에 단축키 설정도 가능
+
+   ![](./reformat4.png)
+
 ### Ref.
 
 https://create-react-app.dev/docs/setting-up-your-editor/#formatting-code-automatically
