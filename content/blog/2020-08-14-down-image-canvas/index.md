@@ -11,7 +11,7 @@ canvas 의 이미지를 클라이언트에서 바로 다운로드 하는 방법
 
 dom 구조가 아래와 같을 때,
 ```html
-<a id="download" download="triangle.png">
+<a id="download">
     <button type="button" onClick="download()">Download</button>
 </a>
     
@@ -32,6 +32,7 @@ function download() {
 }
 ```
 
+> a 태그의 `download` 속성을 이용하는 것이 포인트!
 <br>
 
 ### Ref
