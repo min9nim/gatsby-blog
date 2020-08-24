@@ -31,3 +31,22 @@ export const except = R.pipe(R.complement, R.filter)
 ```js
 export const propNotEq = R.complement(R.propEq)
 ```
+
+### OR
+```js
+export const OR = (pred1, pred2) => {
+  return value => R.or(pred1(value), pred2(value))
+}
+```
+
+### AND
+```js
+export const AND = (pred1, pred2) => {
+  return value => R.and(pred1(value), pred2(value))
+}
+```
+
+### isNotNil
+```js
+export const isNotNil = R.complement(R.isNil)
+```
