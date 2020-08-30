@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[리액트] jsx 없이 js 만으로 html 작성하기 '
-date: 2020-08-31 00:10
+date: 2020-08-30 00:10
 tags: [react, react-hyperscript, jsx]
 description:
 draft: false
