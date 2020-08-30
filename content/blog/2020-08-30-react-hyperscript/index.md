@@ -9,7 +9,7 @@ draft: false
 
 리액트에서 JSX 는 컴포넌트가 렌더링하는 dom 구조를 정의할 때 사용된다. 순수 JS에서 html 을 마크업하는 것은 여간 귀찮 일이 아니기 때문에 JSX 는 리액트에서 정말 유용하다.
 
-필자는 개인적으로 XML(HTML) 문법을 선호하지 않는데, XML은 너무나 verbose 하다고 느끼기 때문이다. 특별히 매번 닫는 여는 태그와 닫는 태그를 시작과 끝에 빠짐없이 넣어줘야 하는 모양이 늘 눈에 거슬린다.
+필자는 개인적으로 XML(HTML) 문법을 선호하지 않는데, 이는 XML 문법이 너무나 verbose 하게 느껴지기 때문이다. 특별히 매번 닫는 태그를 마지막에 빠짐없이 넣어줘야 하는 모양이 늘 마음 한켠을 무겁게 한다.
 
 나와 같은 minimalist 에게 좋은 대안이 있어 소개하고자 한다. 바로 [react-hyperscript]() ! 
 > TMI) `react-hyperscript` 는 리액트 공식문서에서도 소개되고 있다. https://reactjs.org/docs/react-without-jsx.html
