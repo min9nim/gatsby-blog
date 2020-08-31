@@ -14,7 +14,30 @@ draft: false
 나와 같은 minimalist 에게 좋은 대안이 있어 소개하고자 한다. 바로 [react-hyperscript]() ! 
 > TMI) `react-hyperscript` 는 리액트 공식문서에서도 소개되고 있다. https://reactjs.org/docs/react-without-jsx.html
 
-react-hyperscript 는 함수만으로 html 을 마크업할 수 있다. 즉 아래와 같은 모양으로 dom 을 정의한다.
+<br>
+
+우선 일반적으로 사용되는 JSX를 이용한 마크업을 보자
+```js
+import React from 'react'
+import AnotherComponent from './another-component'
+
+export default () => (
+  <div className='.example'>
+    <h1 id="heading">This is hyperscript</h1>
+    <h2>creating React.js markup</h2>
+    <AnotherComponent foo="bar">
+      <li>
+        <a href={'http://whatever.com'}>One list item</a>
+      </li>
+      <li>
+        Another list item
+      </li>
+    </AnotherComponent>
+  </div>
+)
+```
+
+react-hyperscript 를 이용하면 아래와 같이 dom 을 정의할 수 있다.
 ```js
 import h from 'react-hyperscript'
 import AnotherComponent from './another-component'
