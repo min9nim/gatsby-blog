@@ -11,7 +11,6 @@ SW 아키텍쳐란 무엇인지 그리고 왜 중요한 지에 대한 짧은 영
 
 https://www.youtube.com/watch?feature=youtu.be&v=4E1BHTvhB7Y&app=desktop
 
-<br>
 
 ### TL;DR;
 SW의 아키텍쳐를 어떻게 정의할 수 있을까요. SW의 아키텍쳐를 한마디로 정의하는 것은 쉬운 일이 아닐 것입니다. 2가지 방법으로 SW의 아키텍쳐란 무엇인지 설명을 해보겠습니다.
