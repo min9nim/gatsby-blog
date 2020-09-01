@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'SW 아키텍쳐란 무엇인지 왜 중요한'
+title: 'SW 아키텍쳐란 무엇인지 왜 중요한 지'
 date: 2020-09-01 00:10
 tags: [sw, architecture]
 description:
