@@ -50,3 +50,18 @@ export const AND = (pred1, pred2) => {
 ```js
 export const isNotNil = R.complement(R.isNil)
 ```
+
+### peek
+`R.pipe` 사용시 중간에 전달되는 값을 로그로 찍어서 확인할 때 필요한 함수
+```js
+export const peek = (...args) => {
+  return value => {
+    if (!args.length) {
+      console.log('peek', value)
+    } else {
+      console.log(...args, value)
+    }
+    return value
+  }
+}
+```
