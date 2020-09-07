@@ -13,25 +13,30 @@ draft: false
 
 그런데 클라이언트에서의 상태관리 자체를 파괴하는 녀석이 생겨났으니 바로 [SWR](https://www.npmjs.com/package/swr) 이다.
 
-SWR은 stale-while-revalidate 의 약자이다(이름의 의미를 뭐라 설명하기가 애매하다). SWR은 데이터베이스의 특정 상태(정확히는 API의 응답)를 직접 컴포넌트로 연결한다. 개발자는 `useSWR` 을 통해 원격 서버의 특정 상태에 연결된 스트림을 얻을 수 있으며 그 스트림을 통해 원격 상태에 접근할 수 있고 이를 통해 데이터를 직접 화면에 뿌려줄 수 있다.
+SWR 은 stale-while-revalidate 을 의미한다(이름의 의미를 뭐라 설명하기가 애매하다). SWR은 데이터베이스의 특정 상태(정확히는 API의 응답)를 직접 컴포넌트로 연결한다. 개발자는 `useSWR` 을 통해 원격 서버의 특정 상태에 연결된 스트림을 얻을 수 있으며 그 스트림을 통해 원격 상태에 접근할 수 있고 이를 통해 데이터를 직접 화면에 뿌려줄 수 있다.
 
 직접 코드를 보면서 어떻게 이런 일이 가능한가를 살펴보자.
 
 ```js
 import useSWR from 'swr'
 function Profile() {
-  const { data, error } = useSWR('/api/user', url => fetch(url).then(res => res.json()))
+  const { data, error, isValidating } = useSWR('/api/user', url => fetch(url).then(res => res.json()))
   if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
+  if (isValidating) return <div>loading...</div>
   return <div>hello {data.name}!</div>
 }
 ```
 
-위 예시에서 `useSWR` 을 통해 얻은 data 를 원격상태에 연결된 스트림으로 바라볼 수 있다. `Profile` 컴포넌트는 직접 원격 서버의 상태를 화면에 뿌려주고 있는 것이다. 서버에서 user 의 이름이 바뀌면 자동으로 화면에 표시된 이름이 갱신된다. `useState` 없이 이 일이 가능하다는 것은 놀라운 점이다.
+위 예시에서 `useSWR` 을 통해 얻은 `data` 를 원격상태에 연결된 스트림으로 바라볼 수 있다. `Profile` 컴포넌트는 지금 직접 원격 서버의 상태를 화면에 뿌려주고 있는 것이다. 원격의 상태는 비동기적일 수 밖에 없기 때문에 `useSWR`은 데이터(`data`) 뿐만 아니라 에러(`error`)와 로딩상태(`isValidating`)를 함께 리턴한다. 리액트 컴포넌트에는 3가지 리턴값을 이용해 화면에 적절한 상태를 표현할 수가 있다. 그리고 **서버에서 user 의 이름이 바뀌면 자동으로 화면에 표시되었던 이름이 갱신**된다. `useState` 와 `useEffect` 없이 이런 일이 가능하다는 것은 놀라운 점이다.
 
 내부 동작은 이렇다
 1. `useSWR`은 컴포넌트 mounted 시 `/api/user` 로 요청을 보내고 그에 다른 과정 및 결과를 리턴한다.
-1. `useSWR`은 결과를 캐시하며 적절한 때에 데이터를 다시 fetch 하고 캐시를 업데이트 한다.
+1. `useSWR`은 결과를 캐시하며 적절한 때에 자동으로 데이터를 다시 fetch 하고 캐시를 업데이트 한다.
+    - SWR이 내부적으로 데이터를 다시 fetch 하는 시점은 아래와 같다.
+        - 네트워크 연결이 Offline 에서 Online 으로 바뀔 때
+        - 해당 화면이 포커스를 받을 때
+        - 혹은 일정시간 간격으로(커스터마이징 가능)
+        - 기타 일반적으로 적절한 때라고 여겨지는 경우🤣
 1. 캐시가 업데이트 될 때 `Profile` 컴포넌트는 re-render 된다.
 
 <br>
