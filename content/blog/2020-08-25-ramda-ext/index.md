@@ -65,3 +65,8 @@ export const peek = (...args) => {
   }
 }
 ```
+
+### hasProps
+```js
+export const hasProps = R.curry((arr, obj) => R.all(R.has(R.__, obj), arr))
+```
