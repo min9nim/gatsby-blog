@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '알쏭달쏭 js 퀴즈'
-date: 2020-09-10 00:10
+date: 2020-09-16 00:10
 tags: [js, quiz]
 description: 알쏭 달쏭 js 퀴즈 정리. 결과값을 예상해 봅시다 :)
 draft: false
