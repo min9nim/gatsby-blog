@@ -1,15 +1,14 @@
 ---
 layout: post
-title: 'Redux 를 넘어 SWR 로'
-date: 2020-10-03 00:10
+title: 'Redux 를 너머 SWR 로(2)'
+date: 2020-10-05 00:10
 tags: [react, swr]
 description: 
 draft: true
 ---
 
-리덕스가 필요한 이유
 
-리덕스의 장점/단점
+
 
 SWR은 무엇인가?
 
