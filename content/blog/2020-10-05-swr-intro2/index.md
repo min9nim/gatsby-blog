@@ -4,7 +4,7 @@ title: 'Redux 를 넘어 SWR 로(2)'
 date: 2020-10-05 00:10
 tags: [react, swr]
 description: 
-draft: true
+draft: false
 ---
 
 본 시리즈 글은 개인적으로 Redux 를 이용한 상태관리를 줄 곧 해오다가 SWR을 만나고, 프로젝트에서 Redux 의존성 모듈을 완전히 제거하기 까지 이른 과정과 경험을 공유하고자 작성되었습니다.
@@ -75,4 +75,6 @@ SWR 가 Redux 의 모든 기능을 대체할 수는 없을 것이라 생각하�
 
 ### SWR은 어떻게 리덕스의 단점을 극복하는가
 
+
+(작성 중..)
 
