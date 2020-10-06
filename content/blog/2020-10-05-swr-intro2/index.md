@@ -15,7 +15,7 @@ draft: false
 
 거두절미하고 코드부터 봅시다.
 
-```js
+```js{4-6}
 import useSWR from 'swr'
 
 function Point(){
@@ -106,7 +106,7 @@ export default () => {
 
 사용자가 사용자 정보를 수정할 경우에는 SWR 의 내부 스케쥴링에 의한 데이터갱신을 기다리기 보다 수정 즉시 화면에 변경된 데이터가 보여져야 할 것입니다. 이럴 경우에는 `mutate` 함수를 이용할 수 있습니다. `mutate` 함수가 호출되면 해당 상태를 즉시 다시 fetch 하고 데이터를 갱신합니다.
 
-```js{8}
+```js{10}
 import useSWR from 'swr'
 
 function UserInfo(){
@@ -142,7 +142,7 @@ SWR은 기본적으로 원격서버의 상태를 fetch 하는 데에 적합한 �
 
 앞선 글에서 처음 제시되었던 동기적 상황만을 고려하는 카운터를 Redux 없이 SWR만을 이용하면 아래와 같이 구현할 수 있습니다.
 
-```js
+```js{3-10}
 import useSWR from 'swr'
 
 function useCounter(){
