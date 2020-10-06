@@ -170,6 +170,8 @@ function Counter(){
 }
 ``` 
 
+[실행 환경에서 테스트하기](https://codesandbox.io/s/swr-local-global-state-hqupl)
+
 어떤가요? 리듀서를 정의하고 액션을 정의하고 상태변이를 위해 액션을 디스패치하는 번거로운 과정 없이 커스텀훅 하나로 이 모든 것이 간단하게 처리되었습니다!
 
 
