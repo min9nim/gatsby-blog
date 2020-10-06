@@ -13,7 +13,7 @@ draft: false
 ### SWR은 무엇인가?
 [SWR](https://www.npmjs.com/package/swr)은 Nextjs 로 유명한 vercel 에서 만든 원격데이터 fetch 를 위한 커스텀 훅 npm 모듈입니다. SWR은 원격서버의 상태를 가져와서 리액트 컴포넌트에 꽂아주는 기능을 제공합니다.
 
-거두절미 보고 코드부터 봅시다.
+거두절미하고 코드부터 봅시다.
 
 ```js
 import useSWR from 'swr'
