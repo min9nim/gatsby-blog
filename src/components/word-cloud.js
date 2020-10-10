@@ -3,30 +3,12 @@ import { navigate } from "@reach/router"
 import React from "react"
 
 export default React.memo(function WordCloud({ words }) {
-  const TITLE_HEIGHT = 0
-  const RATE = 1
-  const WIDTH = 630
-  const HEIGHT= 1300
-  const TOTAL_AREA = Math.min(window.innerWidth, WIDTH) * (HEIGHT - TITLE_HEIGHT)
-  const areaUnit = TOTAL_AREA / words.length
-  const fontSizeUnit = Math.sqrt(areaUnit) * RATE
-  const maxFontSize = Math.min(Math.floor(fontSizeUnit), 70)
-
-  console.log('words.length', words.length)
-  console.log('TOTAL_AREA', TOTAL_AREA)
-  console.log('areaUnit', areaUnit)
-  console.log('fontSizeUnit', fontSizeUnit)
-  console.log('maxFontSize', maxFontSize)
-
-  const height = Math.floor((WIDTH * HEIGHT) / Math.min(window.innerWidth, 630)) + 'px'
-  console.log('height', height)
-
   const options = {
     enableOptimizations: true,
     deterministic: true,
     enableTooltip: false,
     padding: 4, // 패딩 설정 시 버그가 좀 있음.. ;;
-    fontSizes: [18, maxFontSize],
+    fontSizes: [18, 60],
     // fontWeight: 'bold',
     fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif`,
     rotations: 0,
@@ -43,7 +25,7 @@ export default React.memo(function WordCloud({ words }) {
    * 엉뚱하게? 너무 큰값을 전달하면 최적화된 최대 사이즈를 계산해 내느라 많은 비용이 발생한다(느려질 수 있다)
    * */
   return (
-    <div style={{height}}>
+    <div style={{height: '1300px'}}>
       <ReactWordcloud
         callbacks={{
           onWordClick: ({ text }) => navigate("/tags/archives?tag=" + text),
