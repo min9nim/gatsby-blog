@@ -62,7 +62,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
             * FIXME 성능이슈 임시조치 2020.10.10 mgsong
             * width 가 600보다 작은 범위에서는 WordCloud 사용시 성능 문제가 있어서 TagCloud 로 대체함
             */
-            window.innerWidth < 600 ? <TagCloud tags={tagTable} /> : <WordCloud words={words} />
+            (typeof window !== 'undefined' && window.innerWidth < 600) ? <TagCloud tags={tagTable} /> : <WordCloud words={words} />
           }
         </section>
         <hr
