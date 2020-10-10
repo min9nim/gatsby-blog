@@ -8,7 +8,7 @@ export default React.memo(function WordCloud({ words }) {
     deterministic: true,
     enableTooltip: false,
     padding: 4, // 패딩 설정 시 버그가 좀 있음.. ;;
-    fontSizes: [20, 60],
+    fontSizes: [18, 70],
     // fontWeight: 'bold',
     fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif`,
     rotations: 0,
