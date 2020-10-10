@@ -57,8 +57,8 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
           </h1>
         </header>
         <section>
-          {/*<TagCloud tags={tagTable} />*/}
-          <WordCloud words={words} />
+          <TagCloud tags={tagTable} />
+          {/*<WordCloud words={words} />*/}
         </section>
         <hr
           style={{
