@@ -150,7 +150,7 @@ function useCounter(){
 
   return {data, mutate: (count) => {
     window.count = count
-    mutate()
+    return mutate()
   }}
 }
 
