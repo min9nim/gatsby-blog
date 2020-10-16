@@ -10,7 +10,8 @@ tags: [array, js]
 
 <br>
 하나, `splice`
-```javascript
+
+```js
 let arr1 = [1,2];
 let arr2 = [3,4];
 arr1.splice(arr1.length, 0, ...arr2)
@@ -18,7 +19,8 @@ arr1.splice(arr1.length, 0, ...arr2)
 
 <br>
 둘, `concat`
-```javascript
+
+```js
 let arr1 = [1,2];
 let arr2 = [3,4];
 arr1 = arr1.concat(arr2);
@@ -26,7 +28,8 @@ arr1 = arr1.concat(arr2);
 
 <br>
 셋, `push`
-```javascript
+
+```js
 let arr1 = [1,2];
 let arr2 = [3,4];
 arr1.push(...arr2);
@@ -34,7 +37,8 @@ arr1.push(...arr2);
 
 <br>
 넷, `spread operator`
-```javascript
+
+```js
 let arr1 = [1,2];
 let arr2 = [3,4];
 arr1 = [...arr1, ...arr2]
