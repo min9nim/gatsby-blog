@@ -45,4 +45,4 @@ tags: [telegraph]
 
 
 #### my first post
-<http://telegra.ph/이쁘니-하니-03-17>{:target="_blank"}
+https://telegra.ph/이쁘니-하니-03-17
