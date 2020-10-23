@@ -103,7 +103,7 @@ function round(num, offset = 0){
 이제야 기대했던 결과가 정확히 떨어졌다.
 
 ```js
-round(3.04 - 1.64, 3)
+round(1.423, 2)
 > 1.4
 ```
 
