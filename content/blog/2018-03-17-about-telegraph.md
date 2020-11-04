@@ -7,7 +7,7 @@ tags: [telegraph]
 ---
 #### telegra.ph 란
 * 익명 기반 글 호스팅 서비스
-* <http://telegra.ph/>{:target="_blank"}
+* https://telegra.ph
 * Beauty is coming from simplicity
 <br><br>
 
@@ -45,4 +45,4 @@ tags: [telegraph]
 
 
 #### my first post
-<http://telegra.ph/이쁘니-하니-03-17>{:target="_blank"}
+https://telegra.ph/이쁘니-하니-03-17
