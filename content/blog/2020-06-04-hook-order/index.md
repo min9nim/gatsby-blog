@@ -56,7 +56,6 @@ App render, hello
 >    - `msg` 값이 변경되지 않을지라도 `App` 은 `setMsg` 호출과 동시에 렌더링된다.
 >    - 하지만, Virtual dom 에 의해 dom 렌더링이 다시 일어나지는 않을 것이다.
 >    - dom 이 업데이트 되지 않는다면 `[effect] clear` 도 호출되지 않는다.
->      - `useEffect` 는 `componentDidMount`, `componentDidUpdate` 라이프사이클에서 호출된다.
 > 1. `[effect] clear` 는 `[effect] start` 보다 앞서 한번 호출됨이 보장된다.
 
 <br>
