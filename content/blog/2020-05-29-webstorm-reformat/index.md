@@ -40,7 +40,7 @@ yarn add -D husky lint-staged prettier
 
 ```js
 {
-  "printWidth": 120,
+  "printWidth": 80,
   "semi": false,
   "singleQuote": true,
   "trailingComma": "all",
