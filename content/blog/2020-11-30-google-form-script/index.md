@@ -3,7 +3,7 @@ layout: post
 title: '구글설문지 제출시 결과를 DB로 자동 수집하기'
 date: 2020-11-30 00:10
 tags: [google-form]
-description: 
+description: 특별히 구글 설문지 양식이 제출될 때의 이벤트를 이용해 설문지 응답결과를 api 호출을 통해 DB에 자동으로 적재하는 방법에 대한 방법을 안내합니다.
 draft: true
 ---
 
