@@ -36,14 +36,12 @@ draft: true
 ```js
 function onSubmit(e) {
   const items = e.response.getItemResponses()
-
   const results = items.map(item => ({
     id: item.getItem().getId(),
     type: item.getItem().getType(),
     title: item.getItem().getTitle(),
     response: item.getResponse(),
   }))
-
   UrlFetchApp.fetch('https://echo-api.vercel.app/api', {
     method: 'POST',
     headers: {
@@ -52,6 +50,7 @@ function onSubmit(e) {
     payload: JSON.stringify({
       formId: e.source.getId(),
       formTitle: e.source.getTitle(),
+      email: e.response.getRespondentEmail(),
       results: results,
     }),
   })
