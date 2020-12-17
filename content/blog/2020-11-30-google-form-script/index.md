@@ -117,5 +117,3 @@ function onSubmit(e) {
 
 Note)
 혹 첨부파일이 있었다면 해당 파일은 구글드라이브로 먼저 업로드가 되고 해당 링크만 전송을 받게 됩니다.
-
-이미지) https://telegra.ph/dddddd-12-01
