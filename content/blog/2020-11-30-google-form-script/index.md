@@ -30,7 +30,7 @@ draft: true
 
 ### 1. 설문지에 스크립트 추가하기
 설문지 관리 화면에서 `스크립트 편집기` 메뉴를 선택합니다
-![](https://telegra.ph/file/6e7b995b4de85f93e6bcc.png)
+![](./image1.png)
 
 ### 2. 스크립트 코드 삽입
 아래 코드를 삽입하고 저장 버튼을 클릭합니다.
@@ -58,13 +58,13 @@ function onSubmit(e) {
   })
 }
 ```
-![](https://telegra.ph/file/c99c5007967c3dd0c2070.png)
+![](./image2.png)
 
 
 ### 3. 권한파일 추가
 `보기` 메뉴에서 `메니페스트 파일 표시` 선택
 
-![](https://telegra.ph/file/903dd28b69c1adce9863f.png)
+![](./image3.png)
 
 아래 `oauthScopes` 설정을 추가 후 저장
 
@@ -84,35 +84,35 @@ function onSubmit(e) {
 ### 4. 트리거 설정
 
 `수정` 메뉴에서 `현재 프로젝트의 트리거` 선택
-![](https://telegra.ph/file/41ae2aace73ef228d7ad5.png)
+![](./image4.png)
 
-![](https://telegra.ph/file/eff3c99e978015dd4eb66.png)
+![](./image5.png)
 
 ### 5. 스크립트 사용 권한 승인
 
 계정을 선택하여 권한을 부여합니다.
 
-![](https://telegra.ph/file/466bea975bc2fd7d7a0c4.png)
+![](./image6.png)
 
-![](https://telegra.ph/file/80fe2732121f3d2957f47.png)
+![](./image7.png)
 
-![](https://telegra.ph/file/67a4c26667cf23808128a.png)
+![](./image8.png)
 
-![](https://telegra.ph/file/41e9eec011b32582b86d0.png)
+![](./image9.png)
 
 
 
 ### 완료
 해당 스크립트에 트리거가 설정된 것을 확인할 수 있습니다.
 
-![](https://telegra.ph/file/3784a2e4717a14c5cb3d5.png)
+![](./image10.png)
 
 ### 테스트
 다음과 같은 응답 작성 후 제출을 하면,
-![](https://telegra.ph/file/107aad7cc1bf0a2acb127.png)
+![](./image11.png)
 
 사전 세팅된 API로 전송되는 결과는 아래와 같습니다.
-![](https://telegra.ph/file/280bd1d4db70366a4bf30.png)
+![](./image12.png)
 
 
 Note)
