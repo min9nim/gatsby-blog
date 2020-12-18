@@ -29,7 +29,7 @@ export default function Routes() {
         <Route exact path="/" component={Main} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
-        // ... 이 아래로 10여개의 라우팅 패스가 추가로 정의되어 있다고 상상해 봅시다. 😰
+        // ... 이 아래로 10여 개의 라우팅 패스가 추가로 정의되어 있다고 상상해 봅시다. 😰
         <Route path="/" component={NotFound} />
       </Switch>
     </BrowserRouter>
@@ -57,7 +57,7 @@ DynamicRoutes.js
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-export default function Routes() {
+export default function DynamicRoutes() {
   return (
     <BrowserRouter>
       <Switch>
