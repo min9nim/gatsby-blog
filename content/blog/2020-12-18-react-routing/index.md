@@ -3,7 +3,7 @@ layout: post
 title: '[React] `pages` 폴더 경로를 이용한 동적 라우팅'
 date: 2020-12-18 00:10
 tags: [react, routing, lazy, Suspense]
-description: 
+description: 'React 를 이용한 SPA 웹프로젝트를 개발한다고 할 때 react-router 를 이용한 라우팅은 웹 개발시 거의 필수적인 요소라고 해도 과언이 아닐 것입니다. 그리고 프로젝트가 점차 커지고 라우팅 패스가 하나 둘씩 많아 지게 되면, 자연스럽게 클라이언트 라우팅만을 담당하는 별도 컴포넌트를 생성하여 관리하게 될 것입니다.'
 draft: false
 ---
 
