@@ -2,7 +2,7 @@
 layout: post
 title: '[React] `pages` 폴더 경로를 이용한 동적 라우팅'
 date: 2020-12-18 00:10
-tags: [react, routing]
+tags: [react, routing, lazy, Suspense]
 description: 
 draft: false
 ---
@@ -41,12 +41,14 @@ export default function Routes() {
 
 라우팅 패스가 하나 추가될 때마다 매번 `import` 문을 추가해야 하고 또 라우팅 설정도 하나씩 추가해야 하니까요.
 
-혹시 현재 이런 불편함을 느끼고 있으시지는 않나요? 그렇다면 잘 오셨습니다.🙂
+혹시 현재 이런 불편함을 느끼고 있으시지는 않나요?
+
+그렇다면 잘 오셨습니다.🙂
 
 <br>
 
 ### 우리를 구원해 줄 lazy 와 Suspense
-`React.lazy` 와 `React.Suspense` 를 이용하면 `pages` 폴더의 파일 경로에 따라 그대로 라우팅이 되도록 구성을 할 수 가 있습니다.
+리액트 컴포넌트의 동적 로딩을 지원하기 위한 API 로서 [React.lazy 와 React.Suspense](https://ko.reactjs.org/docs/code-splitting.html#reactlazy) 가 있다는 것을 아시나요? 이를 이용하면 `pages` 폴더의 파일 경로에 따라 그대로 라우팅이 되도록 구성하는 것이 가능합니다.
 
 아래와 같이 말이죠.
 
@@ -87,16 +89,19 @@ export default function Routes() {
 }
 ```  
 
-코드 데모
+
+이렇게 동적 라우팅을 이용하면 더 이상 라우팅 패스가 추가될 때마다 라우팅 설정을 수정할 필요가 없습니다. pages 폴더 구조 자체가 바로 라우팅 설정이 되는 것이죠.
+
+사실 이와 같은 방식은 [Nextjs 에서 기본적으로 제공하는 라우팅 기능](https://nextjs.org/docs/routing/introduction)과 동일합니다. Nextjs 의 라우팅방식을 SPA에서도 동일하게 적용한 사례가 되겠지요.
+
+이웃사랑을 실천하는 연말연시와 곧 다가올 크리스마스를 맞이하여 혹시 이 글이 누군가에게는 도움이 되기를 바라는 마음으로 정리를 해보았습니다. 🙏
+
+<br>
+
+#### 코드 데모
 <iframe src="https://codesandbox.io/embed/cocky-andras-yrg09?fontsize=14&hidenavigation=1&theme=dark"
      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
      title="cocky-andras-yrg09"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
-
-이렇게 동적 라우팅을 이용하면 더 이상 라우팅 패스가 추가될 때마다 라우팅설정을 수정할 필요가 없습니다. pages 폴더 구조 자체가 바로 라우팅 설정이 되는 것이죠.
-
-사실 이와 같은 방식은 Nextjs 에서 기본적으로 제공하는 라우팅 기능과 동일합니다. Nextjs 의 라우팅방식을 SPA에서도 동일하게 적용한 사례가 되겠지요.
-
-이웃사랑을 실천하는 연말연시와 곧 다가올 크리스마스를 맞이하여 혹시 이 글이 누군가에게는 도움이 되기를 바라는 마음으로 정리를 해보았습니다. 🙏
