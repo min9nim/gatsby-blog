@@ -109,3 +109,9 @@ function imageLazyLoad() {
 <br>
 
 Note) 무한 스크롤 구현시 에도 `observeDom` 함수를 이용할 수 있다. 리스트의 마지막 요소가 눈에 보여질 때 이후 목록을 로딩하는 함수를 호출하면 되겠다.
+
+
+<br>
+
+#### Ref
+- https://mommoo.tistory.com/85
