@@ -25,7 +25,7 @@ function imageLazyLoadPolyfill() {
   let lazyload = () => {
     let lazyloadImages = document.querySelectorAll('img.lazy')
     lazyloadImages.forEach(img => {
-      if (img.offsetTop >= window.innerHeight + window.pageYOffset) {
+      if (img.getBoundingClientRect().top >= window.innerHeight + window.pageYOffset) {
         return
       }
       if (img.dataset.src) {
@@ -37,14 +37,14 @@ function imageLazyLoadPolyfill() {
       img.classList.remove('lazy')
     })
     if (lazyloadImages.length === 0) {
-      document.removeEventListener('scroll', lazyload)
+      document.removeEventListener('scroll', lazyload, true)
       window.removeEventListener('resize', lazyload)
       window.removeEventListener('orientationChange', lazyload)
     }
   }
   lazyload = debounce(lazyload, 100) // 성능문제도 고려해 줘야 함
   lazyload()
-  document.addEventListener('scroll', lazyload)
+  document.addEventListener('scroll', lazyload, true)
   window.addEventListener('resize', lazyload)
   window.addEventListener('orientationChange', lazyload)
 }
