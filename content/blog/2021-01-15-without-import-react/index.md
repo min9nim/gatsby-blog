@@ -3,7 +3,7 @@ layout: post
 title: '[React] import React from "react" 제거시 웹스톰 오류'
 date: 2021-01-14 00:10
 tags: [react, jsx]
-description: 
+description: CRA4.0 부터는 jsx 를 사용할 때 `import React from 'react'` 를 더이상 사용하지 않아도 된다. 별 것 아닌 것 같지만 그동안 신규 컴포넌트 작성시마다 해당 `import` 구문을 삽입하는 것은 참 귀찮은 일이었기에 무척 반가운 소식이었다. 하지만 해당 구문을 지웠을 때 유독 img 태그 사용시 웹스톰에서 예민하게 경고메세지를 띄어주었다.
 draft: false
 ---
 
@@ -30,3 +30,7 @@ CRA4.0 부터는 jsx 를 사용할 때 `import React from 'react'` 를 더이상
 # 🧘
 
 
+<br/>
+
+### Ref.
+https://youtrack.jetbrains.com/issue/WEB-47599
