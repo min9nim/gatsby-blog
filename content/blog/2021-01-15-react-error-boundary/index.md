@@ -72,7 +72,7 @@ ReactDOM.render(
 );
 ```
 
-### 결과
+### 오류 발생 시 결과화면
 
 ![](./image.png)
 
