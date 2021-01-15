@@ -72,6 +72,11 @@ ReactDOM.render(
 );
 ```
 
+### 결과
+
+![](./image.png)
+
+
 <br>
 
 ### Ref
