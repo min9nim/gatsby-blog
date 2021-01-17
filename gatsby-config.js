@@ -76,7 +76,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Learn, apply and share`,
-        short_name: `GatsbyJS`,
+        short_name: `KeatingTechBlog`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
