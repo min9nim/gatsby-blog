@@ -3,11 +3,11 @@ layout: post
 title: '[blockchain] 비트코인 스터디'
 date: 2021-02-07 00:10
 tags: [blockchain, bitcoin]
-description: 
+description: 비트코인에 대한 스터디. 지속적 업데이트 예정
 draft: false
 ---
 
-비트코인에 대한 스터디. 지속적 업데이트 예정
+비트코인 스터디. 지속적 업데이트 예정
 
 풀린 질문
 - 어떻게 노드들은 서로 최신의 블록체인으로 업데이트 하는가
