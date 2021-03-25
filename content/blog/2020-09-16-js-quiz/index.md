@@ -34,3 +34,13 @@ Boolean(NaN)
 ```js
 14 * 0.1
 ```
+
+### 5번
+```js
+undefined == null
+```
+
+```js
+null == undefined
+```
+
