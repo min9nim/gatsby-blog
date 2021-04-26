@@ -4,7 +4,7 @@ title: '[blockchain] 비트코인 스터디'
 date: 2021-02-07 00:10
 tags: [blockchain, bitcoin]
 description: 비트코인에 대한 스터디. 지속적 업데이트 예정
-draft: false
+draft: true
 ---
 
 비트코인 스터디. 지속적 업데이트 예정
