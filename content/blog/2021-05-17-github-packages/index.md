@@ -15,7 +15,7 @@ draft: false
 
 ### Prerequisite
 
-Github packages 를 통해 배포를 진행한다고 npm 패키지를 빌드하는 방법이 달라지는 것은 아니다. 다만 해당 모듈을 배포하는 방법만 달라질 뿐이다. 패키지의 배포는 Github action 을 이용해 배포하거나, 로컬PC에서 직접 `npm publish` 명령을 이용해 배포하는 2가지 방법이 있겠다.
+Github packages 를 통해 배포를 진행한다고 npm 패키지를 빌드하는 방법이 달라지는 것은 아니다. 다만 해당 **모듈을 배포하는 방법만 달라질 뿐이다**. 패키지의 배포는 Github action 을 이용해 배포하거나, 로컬PC에서 직접 `npm publish` 명령을 이용해 배포하는 2가지 방법이 있다.
 
 
 ### npm 패키지 빌드
@@ -23,7 +23,7 @@ Github packages 를 통해 배포를 진행한다고 npm 패키지를 빌드하�
 
 
 ### npm 패키지 배포
-npm 패키지를 배포할 때는 간단히 아래와 같은 Github action 설정을 이용할 수 있다.
+일반적으로 npm 패키지를 배포할 때는 간단히 아래와 같은 Github action 설정을 이용할 수 있다. 이와 같이 모듈을 배포할 때 해당 모듈은 npmjs 에서 제공하는 공식적인 모듈 저장소인 `registry.npmjs.org` 에 등록이 된다.
 
 ```yaml
 name: on release
@@ -52,7 +52,7 @@ jobs:
 물론 Local PC에서 배포를 진행하고자 할 때는 `npm publish` 명령어를 이용할 수도 있다.
 
 ### Github packages 로 배포
-이제 해당 모듈을 Github packages 로 배포하기 위해서는 기존 위 설정에서 `registry-url` 과 `NODE_AUTH_TOKEN` 만 살짝 변경해 주면 된다.
+이제 해당 모듈을 Github packages(`npm.pkg.github.com`) 로 배포하기 위해서는 기존 설정에서 `registry-url` 과 `NODE_AUTH_TOKEN` 만 살짝 변경해 주면 된다.
 
 ```yaml{15,21}
 name: on release
@@ -113,8 +113,8 @@ npm login --scope=@keating --registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=ghp_xxxxxxs
 ```
 
-그리고 해당 프로젝트의 pacakage.json 에 publishConfig 설정을 추가
-```
+그리고 해당 프로젝트의 pacakage.json 에 publishConfig 설정을 추가한다.
+```yaml
 "publishConfig": {
   "registry": "https://npm.pkg.github.com/"
 }
@@ -139,13 +139,13 @@ npm login --scope=@keating --registry=https://npm.pkg.github.com
 
 ### @keating 스코프의 특정 모듈이 registry.npmjs.org 에 등록되어 있는 경우
 
-만약 해당 프로젝트에서 `@keating/a-module`, `@keating/b-module` 을 모두 사용하는데, `@keating/a-module` 는 공개 모듈로서 `registry.npmjs.org` 에, `@keating/b-module` 은 비공개 모듈로서 `npm.pkg.github.com` 에 등록 되어 있다면 어떻게 될까요.
+만약 해당 프로젝트에서 `@keating/a-module`, `@keating/b-module` 을 모두 사용하는데, `@keating/a-module` 는 공개 모듈로서 `registry.npmjs.org` 에, `@keating/b-module` 은 비공개 모듈로서 `npm.pkg.github.com` 에 등록 되어 있다면 어떻게 될까.
 
-프로젝트 루트의 `.npmrc` 에서 `@keating` 스코프는 깃헙 저장소에서만 찾도록 설정이 되어 있기 때문에 `@keating/a-module` 은 `npm.pkg.github.com` 에 등록되어 있지 않아 오류가 발생합니다.
+프로젝트 루트의 `.npmrc` 에서 `@keating` 스코프는 깃헙 저장소에서만 찾도록 설정이 되어 있기 때문에 `@keating/a-module` 은 `npm.pkg.github.com` 에 등록되어 있지 않아 오류가 발생한다.
 
-특정 모듈 별로 모듈 저장소를 설정할 수 있으면 좋겠다는 생각이 들었지만 그렇게까지 세밀한 설정은 아직 지원되지 않는 것 같습니다.
+특정 모듈 별로 모듈 저장소를 설정할 수 있으면 좋겠다는 생각이 들었지만 그렇게까지 세밀한 설정은 아직 지원되지 않는 것 같다.
 
-제가 찾은 해결방법은 Github action 을 이용해 **`@keating/a-module` 을 배포할 때  `npm.pkg.github.com` 와 `registry.npmjs.org` 양쪽 모두로 배포를 하는 것입니다. (나름 최선인 것 같고 만족스러움)**
+필자가 찾은 해결방법은 Github action 을 이용해 **`@keating/a-module` 을 배포할 때  `npm.pkg.github.com` 와 `registry.npmjs.org` 양쪽 모두로 배포를 하는 것이다. (나름 최선인 것 같고 만족스러움)**
 
 ```yaml
 name: on release
@@ -185,4 +185,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 ```
 
-이렇게 하면 해당 모듈의 같은 버젼을 `registry.npmjs.org` 에서도 `npm.pkg.github.com` 동일하게 찾을 수 있기 때문에 어떤 프로젝트에서든 사용이 가능해 집니다. 🙂
+이렇게 하면 해당 모듈의 같은 버젼을 `registry.npmjs.org` 에서도 `npm.pkg.github.com` 동일하게 찾을 수 있기 때문에 어떤 프로젝트에서든 사용이 가능해 진다. 🙂
