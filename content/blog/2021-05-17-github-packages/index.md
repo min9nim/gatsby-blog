@@ -3,7 +3,7 @@ layout: post
 title: 'Github packages 로 npm 패키지 배포'
 date: 2021-05-17 00:10
 tags: [github, npm, package]
-description: 여러 프로젝트에서 반복적으로 사용되는 공통모듈이 있다면 Don't repeat your code 원칙에 따라
+description: 여러 프로젝트에서 반복적으로 사용되는 공통모듈이 있다면 Don't repeat your code 원칙에 따라 npm 모듈로 배포해서 사용하고 싶어진다. npmjs 를 통해 패키지를 만들고 배포할 수 있지만 npmjs 는 비공개 레포의 패키지 지원에 대해서는 유료 플랜을 사용해야 한다.
 draft: false
 ---
 
