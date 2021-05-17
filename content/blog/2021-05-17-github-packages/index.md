@@ -126,7 +126,7 @@ npm login --scope=@keating --registry=https://npm.pkg.github.com
 ### Github packages 로 접근하려면
 기본적으로 npm 프로젝트는 `registry.npmjs.org` 에서 npm 패키지 모듈들을 찾기 때문에 `registry.npmjs.org` 에서 해당 이름의 모듈이 없으면 오류가 발생한다. 따라서 Github packages 에 등록된 모듈을 사용하고자 한다면 해당 프로젝트에 관련 설정을 추가해야 한다.
 
-프로젝트 푸트에 아래와 같이 `.npmrc` 파일을 생성한다.
+프로젝트 루트에 아래와 같이 `.npmrc` 파일을 생성한다.
 
 ```
 @keating:registry=https://npm.pkg.github.com/
