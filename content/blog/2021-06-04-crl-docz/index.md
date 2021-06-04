@@ -104,7 +104,6 @@ CRL 는 기본적으로 [css 모듈 스콥을 사용하도록 설정](https://ww
 }
 ```
 
-
 #### 4. docz 에서 부모프로젝트의 컴포넌트 연결
 docz 프로젝트가 부모프로젝트(CRL)의 빌드된 패키지를 바라보도록 docz 프로젝트의 package.json 을 아래와 같이 설정한다.
 
@@ -143,6 +142,13 @@ import { Button } from 'thispackage'
 <Playground>
   <Button >hello world</Button>
 </Playground>
+```
+
+#### 5. scss 사용
+scss 를 사용하고 싶다면 CRL 프로젝트애 [rollup-plugin-scss](https://www.npmjs.com/package/rollup-plugin-scss) 모듈을 추가 설치해야 한다. 관련하여 추가적인 설정이 따로 필요하지는 않다.(설치하면 바로 사용가능해 짐) 
+
+```
+yarn add -D rollup-plugin-scss
 ```
 
 
