@@ -2,7 +2,7 @@
 layout: post
 title: '리액트 디자인시스템 시작하기'
 date: 2021-06-04 00:10
-tags: [react, design-system, creat-react-library, docz]
+tags: [react, design-system, create-react-library, docz]
 description: 팀 단위로 화면을 개발하는 프로젝트를 진행을 할 경우, 통일감 있는 디자인을 만들기 위해 디자인 표준은 꼭 필요한 요소이다. 이를 보통 디자인시스템이라고 하는데, 디자인시스템을 준비하고 갖추어 가는 과정은 힘들고 고되지만 UI의 품질을 높이고 개발생산성을 위해 더 이상 늦출 일이 아닐 것이다. 이 글에서는 디자인시스템을 새롭게 시작하고자 할 경우 해당 보일러플레이트 프로젝트를 구성하는 방법을 간단히 소개한다.
 draft: false
 ---
