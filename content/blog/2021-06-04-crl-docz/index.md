@@ -89,8 +89,19 @@ yarn create docz-app docz
 yarn create docz-app docz --example typescript
 ```
 
+#### 3. CRL 프로젝트와 docz 프로젝트의 소스코드 공유 
+CRL 프로젝트가 docz 에 포함된 소스코드를 바라보고 빌드될 수 있도록 설정한다. CRL 프로젝트 package.json 에서 `source` 를 아래와 같이 설정한다. 
 
-#### 3. css 모듈 설정
+```json
+{
+  "source": "docz/src/index.tsx"
+}
+```
+
+컴포넌트의 의존성 모듈은 CRL 프로젝트에만 설치를 한다. (docz 프로젝트에 설치하지 않아도 node 의 의존성 찾기 알고리즘에 따라 부모프로젝트에서 해당 의존성을 찾을 것이다.)
+
+
+#### 4. css 모듈 설정
 CRL 프로젝트는 기본적으로 [css 모듈 스콥을 사용하도록 설정](https://www.npmjs.com/package/microbundle-crl#using-css-modules)되어 있다. 하지만 디자인시스템의 특성 상 css 모듈 스콥을 이용하면 외부에서 스타일을 커스터마이징하기가 어려워지므로 css 모듈 설정은 off 하길 추천한다.
 
 해당 설정을 오프하려면 CRL 프로젝트 package.json 파일에서 빌드 명령에 `--css-modules false` 옵션을 추가한다.
@@ -104,74 +115,57 @@ CRL 프로젝트는 기본적으로 [css 모듈 스콥을 사용하도록 설정
 }
 ```
 
-#### 4. docz 에서 부모프로젝트의 컴포넌트 연결
-docz 프로젝트가 부모프로젝트(CRL)의 빌드된 패키지를 바라보도록 docz 프로젝트의 package.json 을 아래와 같이 설정한다.
-
-```json{6}
-{
-  "dependencies": {
-    "@emotion/react": "^11.1.1",
-    "@emotion/styled": "^11.0.0",
-    "docz": "latest",
-    "thispackage": "link:..",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
-  }
-}
-```
-
-위와 같이 설정을 완료하면, docz 의 mdx 문서에서는 아래와 같이 직접 부모프로젝트(CRL)의 컴포넌트를 참조할 수 있다.
-
-```markdown{7}
----
-name: Button
-menu: Components
----
-
-import { Playground, Props } from 'docz'
-import { Button } from 'thispackage'
-
-# Button
-
-## Properties
-
-<Props of={Button} />
-
-## Basic usage
-
-<Playground>
-  <Button >hello world</Button>
-</Playground>
-```
-
 #### 5. scss 사용
-scss 를 사용하고 싶다면 CRL 프로젝트애 [rollup-plugin-scss](https://www.npmjs.com/package/rollup-plugin-scss) 모듈을 추가 설치해야 한다. 관련하여 추가적인 설정이 따로 필요하지는 않다.(설치하면 바로 사용가능해 짐) 
+scss 를 사용하고 싶다면,
+
+먼저 CRL 프로젝트애 [rollup-plugin-scss](https://www.npmjs.com/package/rollup-plugin-scss) 모듈을 추가 설치해야 한다. 관련하여 추가적인 설정이 따로 필요하지는 않다.(설치하면 바로 사용가능해 짐) 
 
 ```
 yarn add -D rollup-plugin-scss
 ```
 
+그리고 [docz 프로젝트에도 관련 설정](https://www.docz.site/docs/usage-with-css-preprocessors)이 필요하다. 아래와 같이 관련 모듈들을 설치하고,
+```
+yarn add node-sass gatsby-plugin-sass
+```
+
+docz 프로젝트 루트에 gatsby-config.js 파일을 추가한다.
+
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: ['gatsby-plugin-sass']
+}
+```
+
 
 <br/>
 
-### 명령어 활용
-디자인시스템 개발시에는 먼저 부모 프로젝트(CRL)에서 빌드 명령어를 watch 모드로 백그라운드로 실행한다. 그러면 변경사항이 발생할 때마다 변경 내역이 개발서버에 즉각 반영된다.
-```
-yarn start
-```
+### 컴포넌트 & 문서 개발
+컴포넌트 개발과 문서작성을 진행할 때는 docz 프로젝트의 개발서버를 실행한다.
 
-컴포넌트 테스트를 위해 example 프로젝트에서 개발서버를 실행한다
-```
-cd example
-yarn start
-```
-
-문서개발을 위해 docz 프로젝트에서도 개발서버를 실행한다.
 ```
 cd docz
 yarn docz:dev
 ```
 
-필자는 기억하기 쉽도록 docz 의 개발서버 시작 명령어도 위 2가지 프로젝트와 동일하게 `yarn start` 로 변경하여 사용 중이다. 또는 셀스크립트를 이용하여 위 3가지 명령을 한번에 실행시킬 수 있도록 하면 더욱 편리할 수 있겠다. 🙂
+
+### 컴포넌트 직접 테스트
+해당 컴포넌트를 직접 화면에서 테스트하고자 할 경우,
+  
+먼저 부모 프로젝트(CRL)에서 빌드 명령어를 watch 모드로 실행하고
+    
+```
+yarn start
+```
+ㄴ
+example 프로젝트에서도 개발서버를 실행한다
+
+```
+cd example
+yarn start
+```
+
+그러면 코드 변경사항이 example 프로젝트 개발환경에 즉각 반영된다.
 
 
