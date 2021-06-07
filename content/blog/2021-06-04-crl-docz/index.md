@@ -158,7 +158,7 @@ yarn docz:dev
 ```
 yarn start
 ```
-ㄴ
+
 example 프로젝트에서도 개발서버를 실행한다
 
 ```
