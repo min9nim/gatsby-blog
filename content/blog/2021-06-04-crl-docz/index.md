@@ -91,7 +91,7 @@ yarn create docz-app docz --example typescript
 
 
 #### 3. css 모듈 설정
-CRL 는 기본적으로 [css 모듈 스콥을 사용하도록 설정](https://www.npmjs.com/package/microbundle-crl#using-css-modules)되어 있다. 하지만 디자인시스템의 특성 상 css 모듈 스콥을 이용하면 외부에서 스타일을 커스터마이징하기가 어려워지므로 css 모듈 설정은 off 하길 추천한다
+CRL 프로젝트는 기본적으로 [css 모듈 스콥을 사용하도록 설정](https://www.npmjs.com/package/microbundle-crl#using-css-modules)되어 있다. 하지만 디자인시스템의 특성 상 css 모듈 스콥을 이용하면 외부에서 스타일을 커스터마이징하기가 어려워지므로 css 모듈 설정은 off 하길 추천한다.
 
 해당 설정을 오프하려면 CRL 프로젝트 package.json 파일에서 빌드 명령에 `--css-modules false` 옵션을 추가한다.
 
