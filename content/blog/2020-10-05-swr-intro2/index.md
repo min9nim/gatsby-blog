@@ -116,7 +116,7 @@ function UserInfo(){
   
   const handleChange = async (user) => {
     await updateUser(user)
-    mutate()
+    return mutate() // mutate() 는 프라미스!
   }  
 
   return <div>~생략~</div>
