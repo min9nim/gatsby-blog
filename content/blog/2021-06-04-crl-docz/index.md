@@ -118,13 +118,13 @@ CRL 프로젝트는 기본적으로 [css 모듈 스콥을 사용하도록 설정
 #### 5. scss 사용
 scss 를 사용하고 싶다면,
 
-먼저 CRL 프로젝트애 [rollup-plugin-scss](https://www.npmjs.com/package/rollup-plugin-scss) 모듈을 추가 설치해야 한다. 관련하여 추가적인 설정이 따로 필요하지는 않다.(설치하면 바로 사용가능해 짐) 
+먼저 CRL 프로젝트에 [rollup-plugin-scss](https://www.npmjs.com/package/rollup-plugin-scss) 모듈을 추가 설치해야 한다. 관련하여 추가적인 설정이 따로 필요하지는 않다.(설치하면 바로 사용가능해 짐) 
 
 ```
 yarn add -D rollup-plugin-scss
 ```
 
-그리고 [docz 프로젝트에도 관련 설정](https://www.docz.site/docs/usage-with-css-preprocessors)이 필요하다. 아래와 같이 관련 모듈들을 설치하고,
+그리고 [docz 프로젝트에도 관련 설정](https://www.docz.site/docs/usage-with-css-preprocessors)이 필요하다. docz 프로젝트 루트에서 아래 설치 명령을 수행하고,
 ```
 yarn add node-sass gatsby-plugin-sass
 ```
