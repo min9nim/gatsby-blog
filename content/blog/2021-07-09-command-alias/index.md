@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '자주 사용하는 명령어 별칭'
-date: 2021-07-09 00:10
+date: 2021-07-09 00:00
 tags: [command, alias]
 description: 자주 사용하는 터미널 명령어들에 별칭을 생성해서 사용하면 손건강에 이롭다.
 draft: false
