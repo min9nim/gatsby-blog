@@ -9,10 +9,18 @@ draft: false
 
 내가 애정하는 함수 `oneOf`
 
-```js
-const oneOf = (items, defaultValue) => {
-  const matched = items.find(item => item[0])
-  return matched ? matched[1] : defaultValue
+```ts
+type Fn<T> = () => T
+
+export default function oneOf<T>(
+  items: Array<[boolean | Fn<boolean>, T | Fn<T>]>,
+  defaultValue?: T | Fn<T>,
+): T | undefined => {
+  const matched = items.find(item =>
+    typeof item[0] === 'function' ? item[0]() : item[0],
+  )
+  const result = matched ? matched[1] : defaultValue
+  return typeof result === 'function' ? (result as Fn<T>)() : result
 }
 ```
 
@@ -38,4 +46,35 @@ const value = oneOf(
 )
 ```
 
-한가지 유의할 점은 위에 3항 연산자를 사용할 때 와는 다르게 `oneOf` 함수의 인자로 주어지는 배열의 모든 요소들은 **함수 호출시 즉시 평가된다는** 점이다. 
+해당 함수는 [@madup-inc/utils](https://www.npmjs.com/package/@madup-inc/utils) 패키지에 포함되어 있어 아래와 같이 사용할 수 있다.
+
+### Install
+```
+yarn add @madup-inc/utils
+```
+
+### Usage
+```js
+import { oneOf } from '@madup-inc/utils'
+
+oneOf([[true, 2]])  // 2
+oneOf([
+  [false, 1],
+  [false, 2],
+  [true, 3],
+])  // 3
+oneOf([
+  [false, 1],
+  [true, 2],
+])  // 2
+oneOf([[false, 1]]) // undefined
+oneOf([[false, 1]], 'zzz')  // 'zzz'
+
+// Lazy evaluation
+oneOf([() => true, 1])  // 1
+oneOf([true, () => 2])  // 2
+oneOf([() => true, () => 3])  // 3
+oneOf([false, 1], () => 4)  // 4
+``` 
+
+
