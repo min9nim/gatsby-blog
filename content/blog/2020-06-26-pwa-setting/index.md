@@ -35,7 +35,8 @@ draft: false
 - manifest.json 에 아래 설정 필요
     - `short_name` or `name`
     - `icons`
-        - must include a 192px and a 512px icon
+        - must include a 192px (and a 512px icon)
+            - (*but, it works when no 512x icon*)
     - `start_url`
     - `display`
         - must be one of `fullscreen`, `standalone`, or `minimal-ui`
