@@ -18,17 +18,17 @@ draft: false
 아래와 같이 자주 사용하는 터미널 명령들은 별칭을 셍성하여 생산성을 한단계 높여보자!
 
 ```shell script
-alias pushud="git push upstream develop"
-alias pullud="git pull upstream develop"
+alias gpushud="git push upstream develop"
+alias gpullud="git pull upstream develop"
 
-alias pushus="git push upstream staging"
-alias pullus="git pull upstream staging"
+alias gpushus="git push upstream staging"
+alias gpullus="git pull upstream staging"
 
-alias pushum="git push upstream master"
-alias pullum="git pull upstream master"
+alias gpushum="git push upstream master"
+alias gpullum="git pull upstream master"
 
-alias pushod="git push origin develop"
-alias pullod="git pull origin develop"
+alias gpushod="git push origin develop"
+alias gpullod="git pull origin develop"
 
 alias gcde="git checkout develop"
 alias gcma="git checkout master"
