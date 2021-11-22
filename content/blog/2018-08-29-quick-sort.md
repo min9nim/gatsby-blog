@@ -59,6 +59,7 @@ quickSort([7, 4, 9, 8, 5, 3, 2, 1, 9, 3])
 
 <br>
 아래와 같이 공간복잡도 O(1) 를 사용하는 구현도 가능하다. 하지만 코드의 디테일을 정확히 이해하기가 만만치 않다.
+
 <script src="https://gist.github.com/min9nim/162c09236a83b52bcc3e631469ad1437.js"></script>
 
 위 코드에서 가장 중요하게 다뤄져야할 부분은 **partition 함수는 pivot값을 기준으로 양분된 배열에서 pivot 값의 위치를 리턴해야 한다** 는 것이다
