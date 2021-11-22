@@ -60,7 +60,51 @@ quickSort([7, 4, 9, 8, 5, 3, 2, 1, 9, 3])
 <br>
 아래와 같이 공간복잡도 O(1) 를 사용하는 구현도 가능하다. 하지만 코드의 디테일을 정확히 이해하기가 만만치 않다.
 
-<script src="https://gist.github.com/min9nim/162c09236a83b52bcc3e631469ad1437.js"></script>
+```js
+function swap(arr, i1, i2){
+    var tmp = arr[i1];
+    arr[i1] = arr[i2];
+    arr[i2] = tmp;
+}
+
+// partition 은 pivot 을 기준으로 배열을 양분한다
+function partition(a, left, right){
+    var pivot = a[left];   // 첫번째 요소를 pivot으로 세팅
+    var i = left;
+    var j = right;
+
+    while(i < j){
+        while(pivot < a[j]) j--;    // 오른쪽끝부터 왼쪽으로 pivot 보다 작거나 같은 값의 위치를 찾는다
+        while(i<j && a[i] <= pivot) i++;    // 왼쪽끝부터 오른쪽으로 pivot보다 큰값의 위치를 찾는다
+        swap(a, i, j);      // 두 값을 교환
+    }
+    swap(a, left, i);   // swap 결과 i 위치를 기준으로 왼쪽은 모두 pivot 보다 작거나 같은 값이 되고, 오른쪽은 pivot보다 큰 값이 위치하게 된다
+
+    log(pivot, left, right, a); // pivot 으로 양분된 결과 출력
+    return i;   // pivot 의 위치를 리턴
+}
+
+function log(pivot, left, right, a){
+    var head = "x".repeat(left).split("");
+    var body = a.slice(left, right+1);
+    var tail = "x".repeat(a.length-1-right).split("");
+    console.log("p(" + pivot + ") => " + [...head, ...body, ...tail]);    
+}
+
+function quickSort(a, left=0, right=a.length-1){
+    if(left >= right){
+        return;
+    }
+
+    var i = partition(a, left, right);
+
+    quickSort(a, left, i-1);
+    quickSort(a, i+1, right);
+}
+var arr = [4,5,7,5,4,2,6,0,8,3,1,3,9];
+quickSort(arr);
+console.log(arr);
+```
 
 위 코드에서 가장 중요하게 다뤄져야할 부분은 **partition 함수는 pivot값을 기준으로 양분된 배열에서 pivot 값의 위치를 리턴해야 한다** 는 것이다
 
