@@ -2,12 +2,12 @@ import React from "react"
 import { Link } from "gatsby"
 import "./tag.scss"
 
-export default function Tag({ tag, count, margin = "7px", color }) {
+export default function Tag({ tag, size, margin = "7px", color }) {
   return (
     <Link
       to={"/tags/archives?tag=" + tag}
       className="tag"
-      style={{ fontSize: count + "px", margin, color }}
+      style={{ fontSize: size, margin, color }}
     >
       {tag}
     </Link>
