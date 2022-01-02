@@ -5,7 +5,6 @@ import Bio from "../../components/bio"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import TagCloud from "../../components/tag-cloud"
-// import WordCloud from "../../components/word-cloud"
 import { rhythm } from "../../utils/typography"
 
 type Data = {
@@ -39,8 +38,6 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
     return acc
   }, {})
 
-  // const words = Object.entries(tagTable).map(([text, value]) => ({text,value}))
-
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All tags" />
@@ -57,13 +54,6 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
           </h1>
         </header>
         <section>
-          {
-            /*
-            * FIXME 성능이슈 임시조치 2020.10.10 mgsong
-            * width 가 600보다 작은 범위에서는 WordCloud 사용시 성능 문제가 있어서 TagCloud 로 대체함
-            */
-            // (typeof window !== 'undefined' && window.innerWidth < 600) ? <TagCloud tags={tagTable} /> : <WordCloud words={words} />
-          }
           <TagCloud tags={tagTable} />
         </section>
         <hr
