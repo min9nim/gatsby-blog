@@ -5,7 +5,7 @@ import Bio from "../../components/bio"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import TagCloud from "../../components/tag-cloud"
-import WordCloud from "../../components/word-cloud"
+// import WordCloud from "../../components/word-cloud"
 import { rhythm } from "../../utils/typography"
 
 type Data = {
@@ -39,7 +39,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
     return acc
   }, {})
 
-  const words = Object.entries(tagTable).map(([text, value]) => ({text,value}))
+  // const words = Object.entries(tagTable).map(([text, value]) => ({text,value}))
 
   return (
     <Layout location={location} title={siteTitle}>
