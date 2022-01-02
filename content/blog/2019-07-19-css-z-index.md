@@ -7,7 +7,7 @@ tags: [css, z-index]
 ---
 `z-index` 는 상위 요소에서 정의된 값이 우선한다.
 
-예를 들면, 마크업이 아래와 같을 때 parent2 가 child 보다 위로 올라온다
+예를 들면, 마크업이 아래와 같을 때 parent2 가 parent1 의 child 보다 위로 올라온다
 ```html
 <div class='parent1' style='z-index:100; position: fixed'>
   <div class='child' style='z-index:200; position: fixed'></div>
