@@ -20,7 +20,7 @@ export default ({ tags }) => {
         map(([key, value]) => (
           <Tag
             tag={key}
-            size={Math.log(value * 10) * 10}
+            size={Math.log(value * 10) * 8}
             key={key}
             color={colors[Math.floor(Math.random() * 20)]}
           />
