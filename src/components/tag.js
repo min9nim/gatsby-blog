@@ -7,7 +7,7 @@ export default function Tag({ tag, count, margin = "7px", color }) {
     <Link
       to={"/tags/archives?tag=" + tag}
       className="tag"
-      style={{ fontSize: count + 17 + "px", margin, color }}
+      style={{ fontSize: count + "px", margin, color }}
     >
       {tag}
     </Link>
