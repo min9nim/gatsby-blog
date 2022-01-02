@@ -17,7 +17,14 @@ export default ({ tags }) => {
           // logger.debug(a[0], b[0])
           return a[0] < b[0] ? -1 : 1
         }),
-        map(([key, value]) => <Tag tag={key} size={Math.log(value*10)*10} key={key} color={colors[Math.floor(Math.random() * 20)]} />)
+        map(([key, value]) => (
+          <Tag
+            tag={key}
+            size={Math.log(value * 10) * 10}
+            key={key}
+            color={colors[Math.floor(Math.random() * 20)]}
+          />
+        ))
       )}
     </section>
   )
