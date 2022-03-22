@@ -4,7 +4,7 @@ title: 'openapi-generator 사용 가이'
 date: 2021-11-01 00:01
 tags: [feconf2021, review]
 description: 
-draft: false
+draft: true
 ---
 
 
