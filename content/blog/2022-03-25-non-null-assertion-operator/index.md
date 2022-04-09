@@ -19,7 +19,7 @@ reqct-query 가 리턴하는 데이터는 undefined 일 수 있기 때문에, �
 
 그 방법이 바로 Non-null assertion operator 이다.
 
-Non-null assertion operator 는 옵셔널체이닝과 다르게 해당 변수의 값이 절대 undefined(or null) 일 수 없다는 것을 TS 에게 가르쳐 주는 방법이 된다.
+Non-null assertion operator 는 옵셔널체이닝과 다르게 해당 변수의 값이 절대 undefined(or null) 일 수 없다는 것을 개발자가 TS 에게 가르쳐 주는 방법이 된다.
 
 그러므로 위와 같은 상황에서 옵셔널체이닝보다 훨씬 나은 선택이 될 수 있다.
 
