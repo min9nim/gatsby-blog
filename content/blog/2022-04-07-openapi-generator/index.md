@@ -4,7 +4,7 @@ title: 'TypeScript 쓰면서 OpenAPI Generator 는 안 쓴다고?'
 date: 2022-04-07 00:01
 tags: [swagger, openapi-generator]
 description: 
-draft: false
+draft: true
 ---
 
 ![cover-image](cover-image.png)
