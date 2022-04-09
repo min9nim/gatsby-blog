@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import Tag from "./tag"
 import { go } from "mingutils"
 import { map, sort } from "ramda"
