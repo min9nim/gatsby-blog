@@ -150,3 +150,8 @@ package.json 파일에 API 모델을 생성하는 스크립트를 추가합니�
 ## 참고자료
 - [https://swagger.io/about/](https://swagger.io/about/)
 - [https://openapi-generator.tech/](https://swagger.io/about/) 
+
+<br/>
+<br/>
+
+\* *[매드업의 테크블로그에 함께 게시된 글](https://min9nim.vercel.app/2022-04-07-openapi-generator/)입니다.*
