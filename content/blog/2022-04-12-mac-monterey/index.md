@@ -32,4 +32,7 @@ pre-commit 수행시 yarn 경로를 못 찾고 있는 것이다ㅠ
 yarn lint-staged
 ```
 
+<br/>
 
+## 기타
+- yarn 뿐만이 아니라 project 루트 경로 및 git 의 실행파일 위치도 웹스톰이 제대로 인식을 못하는 문제 있음
