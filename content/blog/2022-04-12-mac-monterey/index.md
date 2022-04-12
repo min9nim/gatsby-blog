@@ -7,7 +7,7 @@ description:
 draft: false
 ---
 
-![](monterey.png)
+![](./monterey.png)
 
 혹시 버젼 업그레이드하고 이상한 문제 터질까봐, 미루고 미루던 macOS Monterey 업데이트를 마쳤다. 별 문제가 없나 싶었는데.. 웹스톰에서 문제가 터졌다.
 
