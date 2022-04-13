@@ -36,3 +36,8 @@ yarn lint-staged
 
 ## 기타
 - yarn 뿐만이 아니라 project 루트 경로 및 git 의 실행파일 위치도 웹스톰이 제대로 인식을 못하는 문제 있음
+
+
+## done 🎉 
+어떤 관계가 있는 것인지는 모르겠지만, 웹스톰을 아래 최신 버젼으로 업그레이드하고서 해결됨.
+![](./webstorn-version.png)
