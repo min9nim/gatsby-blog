@@ -22,7 +22,6 @@ it('calls mock1 before mock2', () => {
 
   mock1();
   mock2();
-  mock1();
 
   expect(mock1).toHaveBeenCalledBefore(mock2);
 });
@@ -43,11 +42,11 @@ jest-extended 를 사용하기 위해서는 jest 27.2.5 이후 버젼이 필요�
 <br/>
 
 ### react-scripts 최신 버젼으로 업그레이드
-CRA 업그레이드는 단순히 react-scripts 만 버젼업 한다고 해결되지는 않는다. 무식한? 방법으로서 CRA 최신 버젼으로 샘플 프로젝트를 생성한 다음 해당 리소스들을 기존 프로젝트에 적절히 머지하여 react-scripts 를 업그레이드 할 수 있다.
+CRA 업그레이드는 단순히 react-scripts 만 버젼업 한다고 해결되지는 않는다. 무식한? 방법으로서 CRA 최신 버젼으로 샘플 프로젝트를 생성한 다음 해당 리소스들을 기존 프로젝트에 적절히 머지하여 기존 프로젝트의 react-scripts 를 업그레이드 할 수 있다.
 
 <br/>
 
-### jest-extened 설치 및 설정
+### `jest-extened` 설치 및 설정
 ```
 yarn add -D jest-extended
 ```
