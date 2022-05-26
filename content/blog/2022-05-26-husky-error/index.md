@@ -10,7 +10,7 @@ draft: false
 MacOS 를 업데이트하고 나면 꼭 뭐 하나씩 되던 것이 안 되는 것 같다.
 이번에는 리액트 프로젝트에서 커밋을 만들 때 husky 의 pre-commit 이 돌면서 아래와 같이 에러를 뿜었다
 
-```{7}
+```{4}
 11:33:27.955: [aurora-web] git -c core.quotepath=false -c log.showSignature=false checkout HEAD -- src/views/basic/channels/AdAccountsForm.tsx
 11:34:02.526: [aurora-web] git -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f -- src/views/utilities/components/multi-select-doc.tsx
 11:34:02.570: [aurora-web] git -c core.quotepath=false -c log.showSignature=false commit -F /private/var/folders/tn/t1m35t0n3bs770lfxjyryxjc0000gn/T/git-commit-msg-.txt --
