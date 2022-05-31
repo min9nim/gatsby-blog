@@ -83,7 +83,9 @@ module.exports = {
 }
 ```
 
-보다 자세한 swc 설정은 해당 문서 참고. https://swc.rs/docs/configuration/compilation
+_위 swcPlugin.js 코드는 [craco-swc 의 소스코드](https://github.com/pradel/create-react-app-swc/blob/main/packages/craco-swc/src/index.js)를 일부 수정한 것이다. 사실 craco-swc 는 위와 같은 설정들을 추상화시켜 놓은 것에 불과하다._
+
+_보다 자세한 swc 설정은 해당 문서 참고. https://swc.rs/docs/configuration/compilation_
 
 <br/>
 
@@ -101,7 +103,6 @@ module.exports = function ({ env }) {
 }
 ```
 
-_위 swcPlugin.js 코드는 [craco-swc 의 소스코드](https://github.com/pradel/create-react-app-swc/blob/main/packages/craco-swc/src/index.js)를 일부 수정한 것이다. 사실 craco-swc 는 위와 같은 설정들을 추상화시켜 놓은 것에 불과하다.
 
 
 위와 같이 설정하니 제대로 동작이 되었다.
