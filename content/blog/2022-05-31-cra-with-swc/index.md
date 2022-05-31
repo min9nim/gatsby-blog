@@ -85,6 +85,8 @@ module.exports = {
 }
 ```
 
+보다 자세한 swc 설정은 해당 문서 참고. https://swc.rs/docs/configuration/compilation
+
 <br/>
 
 4. craco.config.js
