@@ -2,7 +2,7 @@
 layout: post
 title: '리액트 프로젝트에 SWC 적용하기'
 date: 2022-05-31 00:01
-tags: [husky, macos-updated]
+tags: [swc, cra, react]
 description:
 draft: false
 ---
@@ -103,7 +103,7 @@ module.exports = function ({ env }) {
 }
 ```
 
-_위 swcPlugin.js 코드는 craco-swc 의 소스코드를 일부 수정한 것이다. 사실 craco-swc 는 위와 같은 설정들을 추상화시켜 놓은 것에 불과하다.
+_위 swcPlugin.js 코드는 [craco-swc 의 소스코드](https://github.com/pradel/create-react-app-swc/blob/main/packages/craco-swc/src/index.js)를 일부 수정한 것이다. 사실 craco-swc 는 위와 같은 설정들을 추상화시켜 놓은 것에 불과하다.
 
 
 위와 같이 설정하니 제대로 동작이 되었다.
