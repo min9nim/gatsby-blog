@@ -21,9 +21,7 @@ Nextjs 로 유명한 Vercel 에서도 swc 프로젝트에 크게 공감을 했�
 
 https://jwchang0206.medium.com/make-create-react-app-faster-with-rust-6c75ffa8fdfd
 
-위 글에서는 craco-swc 를 이용해서 손쉽게 CRA 프로젝트에 swc 를 사용하는 방법을 소개 하고 있다. 그래서 위 제시된 방법대로 craco 를 세팅하고.. (이걸 하느라 CRA 와 react 버젼까지 강제 업그레이드 되었다!) craco-swc 를 적용해 보았는데.. 빌드까지는 잘 되었지만(속도가 빨리졌다고 체감할 수는 없었다)
-
-런타임에 `React is not defined` 오류가 발생했다.
+위 글에서는 craco-swc 를 이용해서 손쉽게 CRA 프로젝트에 swc 를 사용하는 방법을 소개 하고 있다. 그래서 위 제시된 방법대로 craco 를 세팅하고.. (이걸 하느라 CRA 와 react 버젼까지 강제 업그레이드 되었다!) craco-swc 를 적용해 보았는데.. 빌드까지는 잘 되었지만 런타임에 `React is not defined` 오류가 발생했다.
 
 짜증이 확 나서 이쯤에서 포기할까 하다가, 조금 더 관련 자료를 찾아보고 craco-swc 코드도 뒤져 보다가 다음과 같이 세팅을 해서 swc 적용에 성공하였다.
 
