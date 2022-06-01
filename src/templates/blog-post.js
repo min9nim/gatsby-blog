@@ -44,6 +44,20 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 <TagList tags={post.frontmatter.tags} />
               </p>
             </header>
+            <div
+            className="title-bottom-ad"
+            style={{
+              height: 150,
+              padding: '20px 0',
+            }}
+            >
+              <script
+                async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3221090343920987"
+                crossOrigin="anonymous"
+              ></script>
+
+            </div>
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
             <hr
               style={{
@@ -60,9 +74,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             <Comment repo="min9nim/gatsby-blog" theme={"github-" + ctx.theme} />
           )}
           <div
-            className="left-ad"
+            className="left-margin-ad"
             style={{
-              border: "1px solid red",
               position: "fixed",
               left: 0,
               top: 0,

@@ -348,8 +348,11 @@ table {
 
 /* 최상위 코드 레벨 */
 @media screen and (max-width: 1110px) {
-  .left-ad {
+  .left-margin-ad {
     display: none;
   }
+}
+.left-margin-ad, .title-bottom-ad {
+  //border: 1px solid red;
 }
 
