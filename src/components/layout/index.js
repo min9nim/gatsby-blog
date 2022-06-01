@@ -47,24 +47,6 @@ const Layout = ({ location, title, children }) => {
           <License />
         </footer>
       </div>
-      <div
-        style={{
-          border: "1px solid red",
-          position: "fixed",
-          left: 0,
-          top: 0,
-          float: "left",
-          height: "100vh",
-          width: 200,
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3221090343920987"
-          crossOrigin="anonymous"
-        ></script>
-      </div>
     </div>
   )
 }

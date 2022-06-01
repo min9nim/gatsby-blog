@@ -344,3 +344,12 @@ table {
     stroke: var(--textLink);
   }
 }
+
+
+/* 최상위 코드 레벨 */
+@media screen and (max-width: 1110px) {
+  .left-ad {
+    display: none;
+  }
+}
+
