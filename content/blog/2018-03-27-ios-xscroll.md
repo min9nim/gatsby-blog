@@ -32,4 +32,4 @@ html {
 <br>
 
 #### Ref.
-<https://www.thewordcracker.com/miscellaneous/모바일-기기에서-수평-스크롤-없애기>{:target="_blank"}
+https://www.thewordcracker.com/miscellaneous/모바일-기기에서-수평-스크롤-없애기
