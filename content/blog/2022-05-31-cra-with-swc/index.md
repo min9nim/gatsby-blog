@@ -103,17 +103,18 @@ module.exports = function ({ env }) {
 }
 ```
 
+위와 같이 설정하니 제대로 동작이 되었다!
+그런데 뭔가 빌드속도가 기대했던 것 만큼(20배 이상!) 빨라지진 않았다. 그래도 기존대비 50% 정도는 줄어든 것 같다!
 
+<br/>
 
-위와 같이 설정하니 제대로 동작이 되었다.
-그런데 뭔가 빌드속도가 기대했던 것 만큼(20배 이상!) 빨라지진 않았다. 그래도 기존대비 30~50% 정도는 줄어든 것 같다!
+## SWC 적용 결과
 
-이유를 가만 생각해 보면, 기존 전체 빌드과정 중 babel-loader 가 차지하는 비중 자체가 그닥 크지 않았기 때문이지 않을까 싶다. 아마도 비즈니스로직의 양이 충분히? 커진다면 조금 더 성능상 재미를 볼 수 있지 않을까 싶다.
-
+AWS Amplify 환경에서 빌드 소요시간이 기존 114s 에서 59s 로 줄어듬.
 
 
 swc 적용 전)
-```
+```{71}
 2022-05-30T02:38:11.794Z [INFO]: $ CI=false craco build
 2022-05-30T02:38:13.180Z [INFO]: Creating an optimized production build...
 2022-05-30T02:40:05.568Z [INFO]: Compiled with warnings.
@@ -190,7 +191,7 @@ swc 적용 전)
 
 
 swc 적용 후)
-```{70}
+```{77}
 2022-06-02T09:26:55.423Z [INFO]: $ CI=false craco build
 2022-06-02T09:26:56.775Z [INFO]: Creating an optimized production build...
 2022-06-02T09:27:54.841Z [INFO]: Compiled with warnings.
