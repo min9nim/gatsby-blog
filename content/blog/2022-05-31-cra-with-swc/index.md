@@ -106,6 +106,166 @@ module.exports = function ({ env }) {
 
 
 위와 같이 설정하니 제대로 동작이 되었다.
-그런데 뭔가 빌드속도가 기대했던 것 만큼 빨라지진 않았다. 그래도 기존대비 30~50% 정도는 줄어든 것 같다! 기분 탓인가!?
+그런데 뭔가 빌드속도가 기대했던 것 만큼(20배 이상!) 빨라지진 않았다. 그래도 기존대비 30~50% 정도는 줄어든 것 같다!
+
+이유를 가만 생각해 보면, 기존 전체 빌드과정 중 babel-loader 가 차지하는 비중 자체가 그닥 크지 않았기 때문이지 않을까 싶다. 아마도 비즈니스로직의 양이 충분히? 커진다면 조금 더 성능상 재미를 볼 수 있지 않을까 싶다.
 
 
+
+swc 적용 전)
+```
+2022-05-30T02:38:11.794Z [INFO]: $ CI=false craco build
+2022-05-30T02:38:13.180Z [INFO]: Creating an optimized production build...
+2022-05-30T02:40:05.568Z [INFO]: Compiled with warnings.
+2022-05-30T02:40:05.572Z [INFO]: Module not found: Error: Can't resolve './mock-data.local' in '/codebuild/output/src620371399/src/aurora-web/src/api'
+                                 src/views/basic/channels/MediaTitleSection.tsx
+                                 Line 16:21:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+                                 src/views/basic/extract/ExtractData/Methods.tsx
+                                 Line 6:13:  'methods' is assigned a value but never used  no-unused-vars
+                                 Line 6:13:  'methods' is assigned a value but never used  @typescript-eslint/no-unused-vars
+                                 Line 6:22:  'set' is assigned a value but never used      no-unused-vars
+                                 Line 6:22:  'set' is assigned a value but never used      @typescript-eslint/no-unused-vars
+                                 src/views/basic/extract/ExtractStatus.tsx
+                                 Line 18:9:  Expected { after 'if' condition  curly
+                                 src/views/basic/settings/manage-member/DialogAllowRequest.tsx
+                                 Line 7:8:  'NoticeIcon' is defined but never used  no-unused-vars
+                                 Line 7:8:  'NoticeIcon' is defined but never used  @typescript-eslint/no-unused-vars
+                                 Search for the keywords to learn more about each warning.
+                                 To ignore, add // eslint-disable-next-line to the line before.
+                                 File sizes after gzip:
+2022-05-30T02:40:05.686Z [INFO]: 366.93 kB  build/static/js/main.60541054.js
+                                 130.82 kB  build/static/js/735.db0611e8.chunk.js
+2022-05-30T02:40:05.686Z [INFO]: 33.62 kB   build/static/js/44.6c567a22.chunk.js
+                                 32.44 kB   build/static/js/17.ce93d508.chunk.js
+                                 9.9 kB     build/static/js/834.71a00f40.chunk.js
+                                 9.44 kB    build/static/js/343.269029be.chunk.js
+                                 9.34 kB    build/static/js/87.a03e4915.chunk.js
+                                 7.12 kB    build/static/js/249.f36068a1.chunk.js
+                                 5.9 kB     build/static/js/22.f4b30e83.chunk.js
+                                 5.41 kB    build/static/js/294.22630186.chunk.js
+                                 5.03 kB    build/static/js/234.a17188e9.chunk.js
+                                 4.74 kB    build/static/js/502.8c4c681f.chunk.js
+                                 4.36 kB    build/static/js/792.953245fb.chunk.js
+                                 4.34 kB    build/static/js/437.0423cb6e.chunk.js
+                                 4.24 kB    build/static/js/728.5cf0ee71.chunk.js
+                                 3.87 kB    build/static/js/244.be8b7ac9.chunk.js
+                                 3.75 kB    build/static/js/523.c74a6b17.chunk.js
+                                 3.74 kB    build/static/js/313.4fed6df2.chunk.js
+                                 3.58 kB    build/static/js/131.ca7cc402.chunk.js
+                                 3.55 kB    build/static/js/477.31912c72.chunk.js
+                                 3.45 kB    build/static/js/165.211fa9bb.chunk.js
+                                 3.2 kB     build/static/js/171.82b62e6c.chunk.js
+                                 2.98 kB    build/static/css/44.54bb5762.chunk.css
+2022-05-30T02:40:05.686Z [INFO]: 2.85 kB    build/static/js/170.8ee6c5a2.chunk.js
+                                 2.68 kB    build/static/js/469.2d7ebb8e.chunk.js
+                                 2.59 kB    build/static/js/667.7b45dc3f.chunk.js
+                                 2.43 kB    build/static/js/966.4e58be79.chunk.js
+                                 2.33 kB    build/static/js/867.54f256c2.chunk.js
+                                 2.06 kB    build/static/js/664.08ef7faf.chunk.js
+                                 2.01 kB    build/static/js/182.fa2cb8ed.chunk.js
+                                 2.01 kB    build/static/js/319.65ef87a6.chunk.js
+                                 1.91 kB    build/static/js/592.48207e9d.chunk.js
+                                 1.8 kB     build/static/js/720.3d2710b5.chunk.js
+                                 1.78 kB    build/static/js/787.88e3aee4.chunk.js
+                                 1.66 kB    build/static/js/517.7b84126e.chunk.js
+                                 1.41 kB    build/static/js/584.c1494bb2.chunk.js
+                                 1.33 kB    build/static/js/74.fae9951c.chunk.js
+                                 1.23 kB    build/static/css/main.8ae4e198.css
+                                 1.22 kB    build/static/js/80.d5082c1a.chunk.js
+                                 509 B      build/static/js/773.22552805.chunk.js
+                                 308 B      build/static/js/683.2c3de2c4.chunk.js
+2022-05-30T02:40:05.686Z [INFO]: 304 B      build/static/js/581.ff1bd043.chunk.js
+                                 303 B      build/static/js/809.7651cc27.chunk.js
+2022-05-30T02:40:05.687Z [INFO]: The project was built assuming it is hosted at /.
+                                 You can control this with the homepage field in your package.json.
+                                 The build folder is ready to be deployed.
+                                 You may serve it with a static server:
+                                 yarn global add serve
+                                 serve -s build
+                                 Find out more about deployment here:
+                                 https://cra.link/deployment
+2022-05-30T02:40:05.817Z [INFO]: Done in 114.06s.
+```
+
+
+
+swc 적용 후)
+```{70}
+2022-06-02T09:26:55.423Z [INFO]: $ CI=false craco build
+2022-06-02T09:26:56.775Z [INFO]: Creating an optimized production build...
+2022-06-02T09:27:54.841Z [INFO]: Compiled with warnings.
+2022-06-02T09:27:54.846Z [INFO]: src/routes/MainRoutes.tsx
+                                 Line 222:7:  'routesByPathList' is assigned a value but never used  no-unused-vars
+                                 Line 222:7:  'routesByPathList' is assigned a value but never used  @typescript-eslint/no-unused-vars
+                                 src/views/basic/channels/MediaTitleSection.tsx
+                                 Line 16:21:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+                                 src/views/basic/extract/ExtractData/Methods.tsx
+                                 Line 38:22:  'set' is assigned a value but never used  no-unused-vars
+                                 Line 38:22:  'set' is assigned a value but never used  @typescript-eslint/no-unused-vars
+                                 src/views/basic/extract/ExtractData/SelectMethod.tsx
+                                 Line 7:26:  'propEq' is defined but never used  no-unused-vars
+                                 Line 7:26:  'propEq' is defined but never used  @typescript-eslint/no-unused-vars
+                                 src/views/basic/extract/ExtractStatus.tsx
+                                 Line 18:9:  Expected { after 'if' condition  curly
+                                 src/views/basic/settings/manage-member/DialogAllowRequest.tsx
+                                 Line 7:8:  'NoticeIcon' is defined but never used  no-unused-vars
+                                 Line 7:8:  'NoticeIcon' is defined but never used  @typescript-eslint/no-unused-vars
+                                 Search for the keywords to learn more about each warning.
+                                 To ignore, add // eslint-disable-next-line to the line before.
+                                 File sizes after gzip:
+2022-06-02T09:27:54.968Z [INFO]: 360.41 kB  build/static/js/main.473cfe57.js
+                                 130.77 kB  build/static/js/725.b9efa704.chunk.js
+                                 33.63 kB   build/static/js/687.63a2d6a0.chunk.js
+2022-06-02T09:27:54.968Z [INFO]: 29.35 kB   build/static/js/91.85086a9b.chunk.js
+                                 11.02 kB   build/static/js/482.65711103.chunk.js
+                                 9.13 kB    build/static/js/293.981cb83c.chunk.js
+                                 8.54 kB    build/static/js/846.4bc26085.chunk.js
+                                 5.43 kB    build/static/js/641.ec7669e9.chunk.js
+                                 5.13 kB    build/static/js/145.255bb907.chunk.js
+                                 4.83 kB    build/static/js/664.a2075eb2.chunk.js
+                                 4.48 kB    build/static/js/307.637bd275.chunk.js
+                                 4.26 kB    build/static/js/10.dd7d2c34.chunk.js
+                                 4.14 kB    build/static/js/715.7f3c8bc5.chunk.js
+                                 4.1 kB     build/static/js/175.aa467066.chunk.js
+                                 3.77 kB    build/static/js/243.00df0cb1.chunk.js
+                                 3.48 kB    build/static/js/400.c0959118.chunk.js
+                                 3.48 kB    build/static/js/597.330a5a81.chunk.js
+                                 3.46 kB    build/static/js/552.0e839635.chunk.js
+                                 3.45 kB    build/static/js/861.15e8097b.chunk.js
+                                 3.23 kB    build/static/js/154.ffc2599f.chunk.js
+                                 3.1 kB     build/static/js/241.9ff8ae86.chunk.js
+                                 2.98 kB    build/static/css/687.5f1a8b0c.chunk.css
+                                 2.77 kB    build/static/js/941.5c8fd99a.chunk.js
+                                 2.6 kB     build/static/js/759.adf4f0b1.chunk.js
+                                 2.56 kB    build/static/js/389.1b7c997f.chunk.js
+                                 2.38 kB    build/static/js/944.1c1c4844.chunk.js
+                                 2.35 kB    build/static/js/339.aad914f3.chunk.js
+                                 2.33 kB    build/static/js/180.772f40ff.chunk.js
+                                 2.32 kB    build/static/js/345.0f05bfdb.chunk.js
+                                 2.22 kB    build/static/js/435.5b0f49f5.chunk.js
+                                 2.07 kB    build/static/js/694.aa920cb3.chunk.js
+                                 2.06 kB    build/static/js/182.15eed613.chunk.js
+                                 2.04 kB    build/static/js/891.659e25da.chunk.js
+2022-06-02T09:27:54.969Z [INFO]: 2.02 kB    build/static/js/313.68b0a254.chunk.js
+                                 1.87 kB    build/static/js/242.70fbec6a.chunk.js
+                                 1.78 kB    build/static/js/791.20392bd0.chunk.js
+                                 1.7 kB     build/static/js/945.73b44d1d.chunk.js
+                                 1.49 kB    build/static/js/700.e59b34b2.chunk.js
+                                 1.3 kB     build/static/js/379.7add2a32.chunk.js
+                                 1.29 kB    build/static/js/176.81af69fd.chunk.js
+                                 1.28 kB    build/static/js/790.5402e8fd.chunk.js
+                                 1.23 kB    build/static/css/main.8ae4e198.css
+                                 759 B      build/static/js/500.d141322f.chunk.js
+                                 309 B      build/static/js/754.01824e8a.chunk.js
+                                 304 B      build/static/js/483.1f79a3ae.chunk.js
+                                 303 B      build/static/js/288.55e0fd15.chunk.js
+2022-06-02T09:27:54.973Z [INFO]: The project was built assuming it is hosted at /.
+2022-06-02T09:27:54.973Z [INFO]: You can control this with the homepage field in your package.json.
+                                 The build folder is ready to be deployed.
+                                 You may serve it with a static server:
+                                 yarn global add serve
+                                 serve -s build
+                                 Find out more about deployment here:
+                                 https://cra.link/deployment
+2022-06-02T09:27:55.075Z [INFO]: Done in 59.69s.
+```
