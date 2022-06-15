@@ -15,12 +15,11 @@ draft: false
 
 <br/>
 
-## 1. 의존성 설치
-
-CRA 빌드타임에는 `.env` 에 정의된 환경변수들이 아직 활성화되기 전이므로 `dotenv` 의존성 설치가 필요하다.
+## 1. dotenv-validator 설치
+런타임에 필요한 모듈은 아니기 때문에 -D 옵션으로 설치한다.
 
 ```
-yarn add -D dotenv dotenv-validator
+yarn add -D dotenv-validator
 ```
 
 <br/>
@@ -30,7 +29,7 @@ yarn add -D dotenv dotenv-validator
 아래와 같이 환경변수 별 필수여부 및 유효성 체크 함수를 정의한다.
 
 ```js
-const dotenv = require('dotenv')
+const dotenv = require('dotenv')  // dotenv 는 CRA 에 기본으로 포함되어 있기 때문에 바로 사용 가능
 const validate = require('dotenv-validator').default
 
 module.exports = function validateEnv(env){
