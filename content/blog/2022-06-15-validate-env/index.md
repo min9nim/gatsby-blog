@@ -28,7 +28,7 @@ yarn add -D dotenv-validator
 
 아래와 같이 환경변수 별 필수여부 및 유효성 체크 함수를 정의한다.
 
-```js
+```js{11-19}
 const dotenv = require('dotenv')  // dotenv 는 CRA 에 기본으로 포함되어 있기 때문에 추가 설치없이 바로 사용 가능
 const validate = require('dotenv-validator').default
 
