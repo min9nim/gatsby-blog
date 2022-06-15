@@ -46,7 +46,7 @@ module.exports = function validateEnv(env){
         },
         REACT_APP_API_SERVER_URL: {
             required: true,
-            validator: value => /http(s?):\/\/.*\.[a-z]{2}/.test(value),
+            validator: value => /^http(s?):\/\/.*\.[a-z]{2}/.test(value),
         },
     }
 
