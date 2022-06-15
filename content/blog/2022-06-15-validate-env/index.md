@@ -65,7 +65,7 @@ module.exports = env => {
 ## 3. 위에서 정의된 함수를 빌드 전 수행한다.
 필자가 관리하는 프로젝트의 경우는 CRACO 를 사용하고 있어서, craco.config.js 내에서 환경변수 검증이 필수로 이루어지도록 세팅하였다.
 
-```js
+```js{4}
 const validateEnv = require('./validate-env')
 
 module.exports = function ({ env }) {
