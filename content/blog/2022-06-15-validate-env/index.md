@@ -11,7 +11,7 @@ draft: false
 
 관리하는 환경변수가 10개 이상 정도 되다 보면, 특별히 특정 환경변수의 누락이나 잘못된 값으로 애플리케이션이 오동작하는 경우가 있을 수 있다. 이러한 경우를 대비하여 빌드타임에 환경변수들을 사전 검증하여 설정된 환경변수가 유효하지 않을 경우 빌드타임 부터 오류를 뱉어버리면 불필요한 오류 대응으로 인한 시간을 아낄 수 있다.
 
-이번 글에서는 간단히 CRA 프로젝트에서 빌드타임에 환경변수의 유효여부를 검증하는 방법을 공유한다.
+이번 글에서는 간단히 CRA 프로젝트에서 빌드타임에 [dotenv-validator](https://www.npmjs.com/package/dotenv-validator) 를 이용해 환경변수의 유효여부를 검증하는 방법을 공유한다.
 
 <br/>
 
@@ -65,7 +65,7 @@ module.exports = function validateEnv(env){
 <br/>
 
 ## 3. Invoke `validateEnv` before build
-필자가 관리하는 프로젝트의 경우는 CRACO 를 사용하고 있어서, craco.config.js 내에서 환경변수 검증이 필수로 이루어지도록 세팅하였다.
+필자가 관리하는 프로젝트의 경우는 [CRACO](https://www.npmjs.com/package/@craco/craco) 를 사용하고 있어서, craco.config.js 내에서 환경변수 검증이 필수로 이루어지도록 세팅하였다.
 
 ```js{4}
 const validateEnv = require('./validate-env')
