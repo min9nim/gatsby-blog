@@ -17,6 +17,8 @@ draft: false
 
 ## 1. 의존성 설치
 
+CRA 빌드타임에는 `.env` 에 정의된 환경변수들이 아직 활성화되기 전이므로 `dotenv` 의존성 설치가 필요하다.
+
 ```
 yarn add -D dotenv dotenv-validator
 ```
@@ -29,9 +31,9 @@ yarn add -D dotenv dotenv-validator
 
 ```js
 const dotenv = require('dotenv')
-const validateEnv = require('dotenv-validator').default
+const validate = require('dotenv-validator').default
 
-module.exports = env => {
+module.exports = function validateEnv(env){
     const envDefault = dotenv.config({ path: '.env' }).parsed
     const envParsed = {
         ...dotenv.config({ path: `.env.${env}` }).parsed,
@@ -52,7 +54,7 @@ module.exports = env => {
     process.env = { ...envDefault, ...process.env }
 
     // validate process.env
-    validateEnv({
+    validate({
         envDefault,
         envParsed,
         envRules,
@@ -62,7 +64,7 @@ module.exports = env => {
 
 <br/>
 
-## 3. 위에서 정의된 함수를 빌드 전 수행한다.
+## 3. Invoke `validateEnv` before build
 필자가 관리하는 프로젝트의 경우는 CRACO 를 사용하고 있어서, craco.config.js 내에서 환경변수 검증이 필수로 이루어지도록 세팅하였다.
 
 ```js{4}
