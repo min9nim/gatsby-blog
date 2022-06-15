@@ -79,7 +79,7 @@ module.exports = function ({ env }) {
 
 여기까지 하면 설정 끝,
 
-만약 위 설정에서 환경변수가 REACT_APP_API_SERVER_URL 가 아래와 같이 유효하지 않다면, 
+만약 위 설정에서 환경변수 `REACT_APP_API_SERVER_URL` 가 아래와 같이 유효하지 않다면, 
 ```{1}
 REACT_APP_API_SERVER_URL = https://blabla
 REACT_APP_MOCK_DATA_PATH = api/mock-data
