@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '리액트 프로젝트에서 빌드타임에 환견변수 검증하기'
+title: '리액트 프로젝트에서 빌드타임에 환경변수 검증하기'
 date: 2022-06-15 00:01
 tags: [dotenv-validator, env, react, cra]
-description:
+description: CRA 프로젝트의 환경변수는 .env, .env.production, .env.development 등의 파일로 정의할 수 있다. 환경변수의 개수가 적지 않을 때는 문제가 없겠지만 보통 애플리케이션의 규모가 커짐에 따라 환경변수의 개수도 함께 증가하게 된다.
 draft: false
 ---
 
@@ -14,14 +14,15 @@ CRA 프로젝트의 환경변수는 .env, .env.production, .env.development 등�
 이번 글에서는 간단히 CRA 프로젝트에서 빌드타임에 환경변수의 유효여부를 검증하는 방법을 공유한다.
 
 
-1. 의존성 설치
+## 1. 의존성 설치
 
 ```
 yarn add -D dotenv dotenv-validator
 ```
 
+<br/>
 
-2. validate-env.js
+## 2. validate-env.js
 
 아래와 같이 환경변수 별 필수여부 및 유효성 체크 함수를 정의한다.
 
@@ -58,8 +59,9 @@ module.exports = env => {
 }
 ```
 
+<br/>
 
-3. 위에서 정의된 함수를 빌드 전 수행한다.
+## 3. 위에서 정의된 함수를 빌드 전 수행한다.
 필자가 관리하는 프로젝트의 경우는 CRACO 를 사용하고 있어서, craco.config.js 내에서 환경변수 검증이 필수로 이루어지도록 세팅하였다.
 
 ```js
@@ -70,6 +72,8 @@ module.exports = function ({ env }) {
     return {}
 }
 ```
+
+<br/>
 
 
 여기까지 하면 설정 끝,
