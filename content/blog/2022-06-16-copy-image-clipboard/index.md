@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '화면캡쳐해서 클립보드로 복사'
+title: '화면캡쳐 후 클립보드로 복사'
 date: 2022-06-16 00:01
 tags: [image, clipboard, dom-to-image]
 description: 전체 화면을 캡쳐해서 클립보드에 복사해 넣는 방법입니다.
