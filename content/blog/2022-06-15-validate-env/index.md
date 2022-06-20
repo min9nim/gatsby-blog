@@ -49,8 +49,8 @@ module.exports = function validateEnv(env){
         },
     }
 
-    // set default to process.env
-    process.env = { ...envDefault, ...process.env }
+    // set env variables
+    process.env = {...process.env, ...envDefault, ...envParsed }
 
     // validate process.env
     validate({
