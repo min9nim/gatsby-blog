@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'yarn berry 사용 설정'
+title: 'yarn berry 사용 설정 롤백 방법'
 date: 2022-12-07 00:01
 tags: [yarn, berry]
 description: yarn berry 전역 설정을 변경하려면 ~/.yarnrc.yml 파일에서 yarnPath 설정 부분의 라인을 제거한다
